@@ -1,0 +1,12 @@
+Collecting django-environ
+  Using cached django-environ-0.4.0.tar.gz
+Requirement already satisfied (use --upgrade to upgrade): django in /home/vit1/kumar/myvenv/lib/python3.4/site-packages (from django-environ)
+Collecting six (from django-environ)
+  Downloading six-1.10.0-py2.py3-none-any.whl
+Building wheels for collected packages: django-environ
+  Running setup.py bdist_wheel for django-environ: started
+[?25l  Running setup.py bdist_wheel for django-environ: finished with status 'done'
+[?25h  Stored in directory: /home/vit1/.cache/pip/wheels/76/2f/0d/c2f6e9da636cd5670c4e3f93da22d912a4956bda191ab5a2b5
+Successfully built django-environ
+Installing collected packages: six, django-environ
+Successfully installed django-environ-0.4.0 six-1.10.0

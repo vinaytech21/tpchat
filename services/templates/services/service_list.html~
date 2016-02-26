@@ -1,0 +1,109 @@
+{% extends "dashboard.html" %}
+
+{% block container %}
+{% load staticfiles %}
+<head>
+<script src="{% static 'js/jquery.elevatezoom.js' %}"></script>
+	  <style>
+		#hover:hover
+		{
+    background-color: white;
+    
+} 
+
+.text
+{
+	border: 1px solid #eeeeee;
+	background-color: #eeeed1;
+}
+
+</style>
+	
+    <script src="{% static 'js/jquery.elevatezoom.js' %}"></script>
+</head>
+   <div class="container-fluid" class="responsive" style="height: auto; width: auto; background-color: white">
+<h3 style="color:#797980"><center><b>SERVICE HISTORY<b></center></h3>
+<div class="container-fluid" style="height:auto; width: auto; color:#797980;  background-color: white">
+{% if posts %}
+    <div class="row">
+        <div class="col-md-3">
+		<h4><label> ServiceImage</label></h4>	
+		</div>
+		<div class="col-md-3">
+			<h4><label> Title </label></h4>
+		</div>
+		
+		<div class="col-md-4">
+			<h4><label> CreatedOn </label></h4>
+		</div>
+		
+		<div class="col-md-2">
+			<h4><label> Edit </label></h4>
+		</div>
+		
+		</div>	
+    
+    {% for Service in posts %}
+     <div id="hover" class="text">
+       <br> 
+	    <div class="row">
+        <div class="post">
+		{% if posts %}
+           <div class="col-md-3" >
+                        <ul>                               
+                          <a href="/services/offer/{{ posts.pk }}/">  <img id="img88" src="{{ Service.docfile.url }}" width="60px" height=60px" alt="{{ posts.docfile.name }}"></a>
+                               </li>
+                        
+                        </ul>
+               
+                
+			</div>
+            
+			<div class="col-md-3">
+	
+			
+			
+                              <br><br><br><br>
+			
+			<h5 style="margin-top:-70px"><a href="/services/offer/{{ Service.pk }}/" style="text-decoration:none;color:#428BCA">{{ Service.title }}</a></h5>
+			
+                              
+			</div>
+			<div class="col-md-4">
+		
+			
+                              <br><br><br><br>
+            <h5 style="margin-top:-70px"><a href="/services/offer/{{ Service.pk }}/" style="text-decoration:none;color:#428BCA"> {{ Service.date_created }}</a> </h5>
+			
+
+                              </div>
+ <div class="col-md-2">
+
+			
+                              <br><br><br><br>
+           
+			
+                 
+  <h5 style="color:black; margin-top:-70px"><a class="btn btn-default" href="/services/{{ Service.pk }}/edit/" style="color:#428BCA"> <i class="fa fa-pencil-square-o"></i>
+</a>  </h5>   </div>
+ {% endif %}
+          </div>  
+			</div>
+			
+		            </div>
+{% endfor %} <br><br><br><br>
+			
+			{% else %}
+                        
+<h3  style="color:#170f3d;">There is no any past Service history ..................</h3><br><br><br><br><br><br><br><br><br><br>
+			{% endif %}
+			
+		
+			</div></div>
+	<script>	
+     $("#img88").elevateZoom({scrollZoom : true});
+    </script>
+{% endblock %}
+
+ 
+    

@@ -1,0 +1,103 @@
+<!---------------------------------home----------------------------------->
+@font-face {
+  font-family: 'Myriad Apple';
+  src: url('../fotter/fonts/MYRIAAMI.TTF');
+  src: local('../fotter/fonts/MYRIAAMI.TTF')
+} 
+body {
+font-family: "Myriad Apple", "Liberation Sans", "Nimbus Sans L", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  src: url('../fotter/fonts/MYRIAAMI.TTF');
+  src: local('../fotter/fonts/MYRIAAMI.TTF')
+
+}
+
+
+.home
+{
+padding-left:15px;
+padding-top:0.5px;
+background-color:#F7F7F7;
+}
+.homet
+{
+width:auto;
+height:auto;
+background-color:white;
+}
+.homeld
+{
+padding-top:0.5px;
+background-color:#F7F7F7;
+}
+.homed
+{
+padding-left:6px;
+width:auto;
+height:auto;
+padding-top:3px;
+padding-bottom:3px;
+background-color:white;
+}
+.homep
+{
+padding-left:6px;
+width:auto;
+height:auto;
+padding-top:3px;
+padding-bottom:3px;
+background-color:#F7F7F7;
+}
+.homepd
+{
+padding-bottom:10px;
+padding-top:0.5px;
+background-color:white;
+}
+
+
+ ul li a {
+      text-decoration:none;
+      color: white;
+      font-family: "Myriad Apple";
+      src: url('../fotter/fonts/MYRIAAMI.TTF');
+
+   }
+
+    .mtb
+    {
+        padding-left:22%;}
+
+ 
+#div1{
+padding-top:10px;
+
+}
+
+.img-circle1{
+ height:100px;
+width:100px;
+}
+#p1{
+float: right; 
+padding-bottom:100px; 
+
+}
+#text1{
+color:#F99330;
+
+
+}
+
+#text2{
+color:Black;
+}
+#logo{
+width:260px;
+height:250px;
+}
+
+.h2{
+color:#D57617;
+}
+
+

@@ -1,0 +1,10 @@
+Collecting django-authtools
+  Using cached django-authtools-1.4.0.tar.gz
+Requirement already satisfied (use --upgrade to upgrade): Django>=1.5 in /home/vit1/kumar/myvenv/lib/python3.4/site-packages (from django-authtools)
+Building wheels for collected packages: django-authtools
+  Running setup.py bdist_wheel for django-authtools: started
+[?25l  Running setup.py bdist_wheel for django-authtools: finished with status 'done'
+[?25h  Stored in directory: /home/vit1/.cache/pip/wheels/cf/bb/72/4aa99b4fa296481a5cf241904c54228762a493fa602b6607ab
+Successfully built django-authtools
+Installing collected packages: django-authtools
+Successfully installed django-authtools-1.4.0

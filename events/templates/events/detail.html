@@ -1,0 +1,109 @@
+
+
+{% extends "dashboard.html" %}
+
+{% block container %}
+{% load staticfiles %}
+<head>
+	
+	  <style>
+		#hover:hover
+		{
+    background-color: white;
+    
+} 
+
+.text
+{
+	border: 1px solid #eeeeee;
+	background-color: #eeeed1;
+}
+
+</style>
+	
+    <script src="{% static 'js/jquery.elevatezoom.js' %}"></script>
+</head>
+   <div class="container-fluid" class="responsive" style="height: auto; width: auto; background-color: white">
+<h3 style="color:#797980"><center><b> EVENTS <b></center></h3>
+<div class="container-fluid" style="height:auto; width: auto; color:#797980;  background-color: white">
+{% if event %}
+    <div class="row">
+        <div class="col-md-3">
+		<h4><label> EventImage</label></h4>	
+		</div>
+		<div class="col-md-4">
+			<h4><label> Title </label></h4>
+		</div>
+		
+		<div class="col-md-3">
+			<h4><label> OfferOn </label></h4>
+		</div>
+		
+		<div class="col-md-2">
+			<h4><label> Edit </label></h4>
+		</div>
+		
+		</div>	
+    
+{% for event in event %}
+     <div id="hover" class="text">
+       <br> 
+	    <div class="row">
+        <div class="post">
+		{% if event %}
+           <div class="col-md-3" >
+                        <ul>                               
+                         <a href="/events/detail/{{ event.pk }}"> <img src="{{ event.snap.url }}" class="img-responsive"  width="60px" height=60px" alt="image "></a>
+                               </li>
+                        
+                        </ul>
+               
+                
+			</div>
+            
+			<div class="col-md-4">
+	
+			
+			
+                              <br><br><br><br>
+			
+			<h5 style="margin-top:-70px"><a href="/events/detail/{{ event.pk }}" style="text-decoration:none;color:#428BCA">{{  event.eventtype|upper|truncatewords:10 }}</a></h5>
+			
+                              
+			</div>
+			<div class="col-md-3">
+		
+			
+                              <br><br><br><br>
+            <h5 style="margin-top:-70px"><a href="/events/detail/{{ event.pk }}/" style="text-decoration:none;color:#428BCA"> {{  event.date_event|date:"d M Y" }}</a> </h5>
+			
+
+                              </div>
+ <div class="col-md-2">
+
+			
+                              <br><br><br><br>
+           
+			
+                 
+  <h5 style="color:black; margin-top:-70px"><a class="btn btn-default" href="/events/edit/{{ event.pk }}/" style="color:#428BCA"> <i class="fa fa-pencil-square-o"></i>
+</a>  </h5></div>
+ {% endif %}
+            </div>
+			</div>
+			
+		            </div>
+{% endfor %} <br><br><br>
+			<br>
+			
+			{% else %}
+                        
+<h4  style="color:#170f3d;">STILL YOU HAVE NOT BEGIN CHARITY.</h4>
+<p>*There is no any past history of your Donation.</p><br><br><br><br><br><br>
+{% endif %}
+</div></div>
+	<script>	
+     $("#vin").elevateZoom({scrollZoom : true});
+    </script>
+{% endblock %}
+

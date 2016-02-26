@@ -1,0 +1,81 @@
+{% extends "dashboard.html"%}
+
+{% block container%}
+<div class="container-fluid" class="responsive" style="height: auto; width: 100%; background-color: white">
+<h3 style="color:#797980"><center><b>ITEM DETAILS<b></center></h3>
+<div class="container-fluid" style="height:auto; width: 100%; background-color:  white">
+    
+
+    <h3 style="color:#3b5998;  margin-left:50px">{{post.title}}</h3>
+        
+
+    <div class='col-sm-6'>
+         
+        <div>
+			{% if post %}
+                        <ul>
+                                <img src="{{ post.docfile.url }}" style="height:40%; width:500%;"  class="img-responsive" alt="{{ post.docfile.name }}">
+                                </a></li>
+                        
+                        </ul>
+                {% else %}
+                        
+                {% endif %}
+			
+             
+        </div> 
+        
+    </div>
+    <div class='col-sm-1'>
+	</div>
+    <!-- Product Sidebar --> 
+    <div class='col-sm-4'>
+        
+        {% if object.variation_set.count > 1 %}
+            <select class="form-control">
+                {% for vari_obj in object.variation_set.all %}
+                <option value="{{ vari_obj.id }}"> {{ vari_obj }}</option>  
+                {% endfor %}
+            </select>
+        {% endif %}
+ <br> 
+       
+  
+     <h4 style="color:#434343;"><lable><i class="fa fa-calendar"></i> AddOn:<lable style="color:#3b5998"> {{ post.date_created|date:"d M Y" }}</lable></lable></h4>
+      
+      
+         <h4 style="color:#434343;"><lable><i class="fa fa-calendar"></i> Expire On:<lable style="color:#3b5998"> {{post.expire_date|date:"d M Y"}}</lable></lable></h4>
+      
+      	
+        <h4 style="color:#434343;"><lable><i class="fa fa-home"></i>Address:<lable style="color:#3b5998;">  {{post.address}}</lable></lable></h4>
+ 
+     <h4 style="color:#434343;">  Product Edit:<a class="btn btn-default" href="/products/{{ post.pk }}/edit/" style="color:#428BCA"> <i class="fa fa-pencil-square-o"></i>
+</a>  </h4>  
+    </div>
+	<div class="row">
+	<div class="col-sm-10">
+	  
+          <h4 style="color:#3b5998;  margin-left:50px">{{ post.description }}</h4> <br>  <br> 
+		</div>
+      </div>  
+    </div>
+</div>
+{% endblock %}
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+

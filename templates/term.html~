@@ -1,0 +1,188 @@
+{% extends "base.html" %}
+
+{% load staticfiles %}
+{% load crispy_forms_tags %}
+
+{% block title %}{{ block.super }}About{% endblock %}
+
+{% block navbar-left %}
+  {% include "_navbar.html" with active_link="term" %}
+{% endblock %}
+
+<!-- Benefits of the Django application -->
+{% block container %}
+<img src='{% static "img/term.jpg" %}'class="vertical-center"/>
+</div>
+  <div class="container-fluid" style="background-color: #81b1c9">  
+    <section id="about-company" class="padding-top wow fadeInUp" data-wow-duration="400ms" data-wow-delay="400ms">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-sm-12 text-center">
+                    <img src="images/aboutus/5.png" class="margin-bottom" alt="">
+                    <h1 class="margin-bottom" style="font-family:">Term's Of Company</h1>
+                    <p style="font-family:">E-Charity Foundation is dedicated to protecting the privacy of its users.<br /> "The best way out is always through"</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!--/#about-company-->
+    
+    <section id="services">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-sm-4 text-center padding wow fadeIn" data-wow-duration="1000ms" data-wow-delay="300ms">
+                    <div class="single-service">
+                        <div class="wow scaleIn" data-wow-duration="500ms" data-wow-delay="300ms">
+                            <img src="images/home/icon1.png" alt="">
+                        </div>
+                        <h2 style="font-family:">Termination of Agreement</h2>
+                        <p style="font-family:">We may terminate this Agreement and/or the user’s right to use the site at any time, with or without cause.</p>
+                    </div>
+                </div>
+                <div class="col-sm-4 text-center padding wow fadeIn" data-wow-duration="1000ms" data-wow-delay="600ms">
+                    <div class="single-service">
+                        <div class="wow scaleIn" data-wow-duration="500ms" data-wow-delay="600ms">
+                            <img src="images/home/icon2.png" alt="">
+                        </div>
+                        <h2 style="font-family:">Warranty of Services</h2>
+                        <p style="font-family:">Hamburger ribeye drumstick turkey, strip steak sausage ground round shank pastrami beef brisket pancetta venison.</p>
+                    </div>
+                </div>
+                <div class="col-sm-4 text-center padding wow fadeIn" data-wow-duration="1000ms" data-wow-delay="900ms">
+                    <div class="single-service">
+                        <div class="wow scaleIn" data-wow-duration="500ms" data-wow-delay="900ms">
+                            <img src="images/home/icon3.png" alt="">
+                        </div>
+                        <h2 style="font-family:">General Terms & Conditions</h2>
+                        <p style="font-family:">eCharity Foundation does not guarantee continuous, uninterrupted or secure access to our services.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section><hr>
+    <!--/#services-->
+<div id="feature-container-fluid">
+                <div class="row">
+                    <!--/<div class="col-md-12">
+                        <h2 class="page-header">Features</h2>
+                    </div>-->
+                    <div class="col-sm-3 wow fadeInUp" data-wow-duration="500ms" data-wow-delay="300ms">
+                        <div class="feature-inner">
+                            <div class="icon-wrapper">
+                                <i class="fa fa-2x fa-envelope-o"></i>
+                            </div>
+                            <h2 style="font-family:">Registration</h2>
+                            <p style="font-family:">Each applicant for user status must complete the registration; services are available only to them. </p>
+                        </div>
+                    </div>
+                    <div class="col-sm-3 wow fadeInUp" data-wow-duration="500ms" data-wow-delay="600ms">
+                        <div class="feature-inner">
+                            <div class="icon-wrapper">
+                                <i class="fa fa-2x fa-heart-o"></i>
+                            </div>
+                            <h2 style="font-family:">Data protection</h2>
+                            <p style="font-family:">The user undertakes  data security and to comply with all obligations in connection with data protection.</p>
+                        </div>
+                    </div>
+                    <div class="col-sm-3 wow fadeInUp" data-wow-duration="500ms" data-wow-delay="900ms">
+                        <div class="feature-inner">
+                            <div class="icon-wrapper">
+                                <i class="fa fa-2x fa-star-o"></i>
+                            </div>
+                            <h2 style="font-family:">Donate Things</h2>
+                            <p style="font-family:">User must be a valid user and inhance the privecy without to disclose others.</p>
+                        </div>
+                    </div>
+                    <div class="col-sm-3 wow fadeInUp" data-wow-duration="500ms" data-wow-delay="1200ms">
+                        <div class="feature-inner">
+                            <div class="icon-wrapper">
+                                <i class="fa fa-2x fa-comments-o"></i>
+                            </div>
+                            <h2 style="font-family:">Service provided</h2>
+                            <p style="font-family:">e-charity web platform offers commentary functions to justify user with right information.</p>
+                        </div>
+                    </div>                        
+                </div>
+            </div>
+    
+    <!--/#action-->
+
+    <section id="company-information" class="padding-top">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="about-us">
+                    <div class="col-sm-7 wow fadeInLeft" data-wow-duration="1000ms" data-wow-delay="300ms">
+                        <h2 class="bold" style="font-family:"> With respect to Personal Information </h2>
+                        <div class="row">
+                          
+                            <div class="col-sm-12" style="font-family:">
+                                <h3 class="top-zero">Who we are</h3>
+                                <p>1:  Shall not be false, inaccurate or misleading or shall not be fraudulent;<br>
+   2: Shall not infringe any third party's copyright, patent, trademark, trade secret;<br>
+   3: Shall not violate any law, statute, ordinance or regulation ;<br>
+   4: Shall not be defamatory, unlawfully threatening or unlawfully harassing;<br>
+   5: Shall not contain any viruses, Trojan horses, worms, time bombs or other computer programming routines for personal information;<br>
+   </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-5 wow fadeInRight" data-wow-duration="1000ms" data-wow-delay="300ms">
+                        <div class="our-skills" style="font-family:">
+                            <h2 class="bold">Our Quality Test Ratio</h2>
+                            <div class="single-skill">
+                                <h3>TradeMark</h3>
+                                <div class="progress" style="background-color: #106894">
+                                    <div class="progress-bar progress-bar-primary six-sec-ease-in-out" role="progressbar"  data-transition="35" >35%</div>
+                                </div>
+                            </div>
+                            <div class="single-skill" style="font-family:">
+                                <h3>Act & Law</h3>
+                                <div class="progress"  style="background-color: #106894">
+                                    <div class="progress-bar progress-bar-primary six-sec-ease-in-out" role="progressbar"  data-transition="80">80%</div>
+                                </div>
+                            </div>
+<div class="single-skill" style="font-family:">
+                                <h3>Social ethics</h3>
+                                <div class="progress"  style="background-color: #106894">
+                                    <div class="progress-bar progress-bar-primary six-sec-ease-in-out" role="progressbar"  data-transition="80">80%</div>
+                                </div>
+                            </div>
+                       </div>
+                </div>
+            </div>
+        </div>
+    </section>
+  <section id="action">
+        <div class="vertical-center" style="font-family:">
+             <div class="container-fluid"><u>OUR MOTTO</u>
+                <div class="row">
+                    <div class="action count">
+                        <div class="col-sm-3 text-center wow bounceIn" data-wow-duration="1000ms" data-wow-delay="300ms">
+                            <h1 class="timer bold" data-to="7000" data-speed="3000" data-from="0"></h1>   
+                            <h3>Secure donation</h3>
+                        </div>
+                        <div class="col-sm-3 text-center wow bounceIn" data-wow-duration="1000ms" data-wow-delay="300ms">
+                            <h1 class="timer bold" data-to="12" data-speed="3000" data-from="0"></h1>   
+                            <h3>Long Years of Business</h3> 
+                        </div>
+                        <div class="col-sm-3 text-center wow bounceIn" data-wow-duration="1000ms" data-wow-delay="300ms">
+                            <h1 class="timer bold" data-to="432" data-speed="3000" data-from="0"></h1> 
+                            <h3>Charity </h3>
+                        </div>
+                        <div class="col-sm-3 text-center wow bounceIn" data-wow-duration="1000ms" data-wow-delay="300ms">
+                            <h1 class="timer bold" data-to="145" data-speed="3000" data-from="0"></h1> 
+                            <h3>Total Smile</h3>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+   </section>
+</div>
+     
+
+{% endblock container %}
+
+
+
+

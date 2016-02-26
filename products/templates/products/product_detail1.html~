@@ -1,0 +1,67 @@
+{% extends "dashboard.html"%}
+
+{% block container %}
+<link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Oswald"/>
+<div class="container-fluid" class="responsive" style="height: auto; width: auto; background-color: white">
+<h3 style="color:#797980"><center><b>DETAILS OF PRODUCT<b></center></h3>
+<div class="container-fluid" style="height:auto; width: auto; color:DarkCyan; background-color:  white">
+    <h3 style="color:#3b5998; margin-left:50px">{{post.title}}</h3>
+        
+
+    <div class='col-sm-6'>
+         
+        <div>
+			{% if post %}
+                        <ul>
+                                <img src="{{ post.docfile.url }}" style="height:50%; width:530%;" class="img-responsive" alt="{{ post.docfile.name }}">
+                                </a></li>
+                        
+                        </ul>
+                {% else %}
+                        
+                {% endif %}
+			
+             
+        </div> 
+        
+    </div>
+    <div class='col-sm-1'>
+	</div>
+    <!-- Product Sidebar --> 
+    <div class='col-sm-5'>
+        
+        {% if object.variation_set.count > 1 %}
+            <select class="form-control">
+                {% for vari_obj in object.variation_set.all %}
+                <option value="{{ vari_obj.id }}"> {{ vari_obj }}</option>  
+                {% endfor %}
+            </select>
+        {% endif %}
+ 
+        <h4 style="color:#434343;"><lable><i class="fa fa-Book">Remains:</lable></h4></i>
+     <h4 style="color:#3b5998;">  {{post.quantity}}</h4>
+  
+        <h4 style="color:#434343;"><lable><i class="fa fa-calendar"> AddOn:</lable></h4></i>
+      <h4 style="color:#3b5998"> {{ post.date_created }}</h4>
+      
+      
+         <h4 style="color:#434343;"><lable><i class="fa fa-calendar"> Expire On:</lable></h4></i>
+      <h4 style="color:#3b5998"> {{post.expire_date}}</h4>
+      
+      	
+        <h4 style="color:#434343;"><lable><i class="fa fa-home">Address:</lable></h4></i>
+       
+   <h4 style="color:#3b5998;">    {{post.address}}</h4>
+ 
+     <h4 style="color:#434343;">  Edit Items<a class="btn btn-default"href="/products/{{Product.pk }}/edit/"> <i class="fa fa-pencil-square-o"></i>
+</a>  </h4>  
+    </div>
+	<div class="row">
+	<div class="col-sm-12">
+	  
+          <p><h4 style="color:#3b5998; margin-left:50px">{{ post.description }}</h4></p>
+		</div>
+      </div>  
+    </div>
+</div>
+{% endblock %}

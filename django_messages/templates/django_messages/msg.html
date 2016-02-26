@@ -1,0 +1,11 @@
+{% extends "dashboard.html" %}        
+
+{% block content %}
+<div class="container-fluid" style="height:900px; width: auto; background-color: #00CC99">
+<a href="{% url '#' %}" type="button" class="btn btn-info btn-lg">INBOX</a></button>
+<a href="{% url 'auth_logout' %}" type="button" class="btn btn-info btn-lg">OUTBOX</a></button>
+<a href="{% url 'auth_logout' %}" type="button" class="btn btn-info btn-lg">TRASH</a></button>
+<a href="{% url 'auth_logout' %}" type="button" class="btn btn-info btn-lg">COMPOSE</a></button>
+</div>
+
+{% endblock %}

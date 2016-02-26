@@ -1,0 +1,248 @@
+{% extends "base.html" %}
+
+{% load crispy_forms_tags %}
+
+{% block title %}{{ block.super }}Terms{% endblock %}
+
+{% block navbar-left %}
+  {% include "_navbar.html" with active_link="faq" %}
+{% endblock %}
+{% block container %}
+{% load staticfiles %}
+<!-- Benefits of the Django application -->
+
+	<link rel="stylesheet" href="{% static 'site/css/faq.css' %}">
+
+ <!-- Resource style -->
+
+<section class="cd-faq1">
+<img src='{% static "site/img/faq.jpg" %}' class="img-responsive"/>
+</section>
+		
+<section class="cd-faq">
+	<ul class="cd-faq-categories">
+		<li><a class="selected" href="#basics" style="color:#428BCA">Basics</a></li>
+		<li><a href="#mobile" >Mobile</a></li>
+		<li><a href="#account">Account</a></li>
+		<li><a href="#payments">Payments</a></li>
+		<li><a href="#privacy">Privacy</a></li>
+		<li><a href="#delivery">Delivery</a></li>
+	</ul> <!-- cd-faq-categories -->
+
+	<div class="cd-faq-items">
+		<ul id="basics" class="cd-faq-group">
+			<li class="cd-faq-title"><h2>Basics</h2></li>
+			<li>
+				<a class="cd-faq-trigger" href="#0" style="color:#428BCA">How do I change my password?</a>
+				<div class="cd-faq-content">
+					<p>It's time to re-think charity.It's time to give charity the big-league freedoms we really give to business...The fight for these freedoms must be our new cause, because without them, all of our causes are ultimately lost.".</p>
+				</div> <!-- cd-faq-content -->
+			</li>
+
+			<li>
+				<a class="cd-faq-trigger" href="#0" style="color:#428BCA">How do I sign up?</a>
+				<div class="cd-faq-content">
+<p>It's time to re-think charity.It's time to give charity the big-league freedoms we really give to business...The fight for these freedoms must be our new cause, because without them, all of our causes are ultimately lost.".</p>
+				</div> <!-- cd-faq-content -->
+			</li>
+
+			<li>
+				<a class="cd-faq-trigger" href="#0" style="color:#428BCA">Can I remove a post?</a>
+				<div class="cd-faq-content">
+					<p>It's time to re-think charity.It's time to give charity the big-league freedoms we really give to business...The fight for these freedoms must be our new cause, because without them, all of our causes are ultimately lost.".</p>
+				</div> <!-- cd-faq-content -->
+			</li>
+
+			<li>
+				<a class="cd-faq-trigger" href="#0" style="color:#428BCA">How do reviews work?</a>
+				<div class="cd-faq-content">
+					<p>It's time to re-think charity.It's time to give charity the big-league freedoms we really give to business...The fight for these freedoms must be our new cause, because without them, all of our causes are ultimately lost.".</p>
+				</div> <!-- cd-faq-content -->
+			</li>
+		</ul> <!-- cd-faq-group -->
+
+		<ul id="mobile" class="cd-faq-group">
+			<li class="cd-faq-title"><h2>Mobile</h2></li>
+			<li>
+				<a class="cd-faq-trigger" href="#0" style="color:#428BCA">How does syncing work?</a>
+				<div class="cd-faq-content">
+					<p>It's time to re-think charity.It's time to give charity the big-league freedoms we really give to business...The fight for these freedoms must be our new cause, because without them, all of our causes are ultimately lost.".</p>
+				</div> <!-- cd-faq-content -->
+			</li>
+
+			<li>
+				<a class="cd-faq-trigger" href="#0" style="color:#428BCA">How do I upload files from my phone or tablet?</a>
+				<div class="cd-faq-content">
+					<p>It's time to re-think charity.It's time to give charity the big-league freedoms we really give to business...The fight for these freedoms must be our new cause, because without them, all of our causes are ultimately lost.".</p>
+				</div> <!-- cd-faq-content -->
+			</li>
+
+			<li>
+				<a class="cd-faq-trigger" href="#0" style="color:#428BCA">How do I link to a file or folder?</a>
+				<div class="cd-faq-content">
+					<p>It's time to re-think charity.It's time to give charity the big-league freedoms we really give to business...The fight for these freedoms must be our new cause, because without them, all of our causes are ultimately lost.".</p>
+				</div> <!-- cd-faq-content -->
+			</li>
+		</ul> <!-- cd-faq-group -->
+
+		<ul id="account" class="cd-faq-group">
+			<li class="cd-faq-title"><h2>Account</h2></li>
+			<li>
+				<a class="cd-faq-trigger" href="#0" style="color:#428BCA">How do I change my password?</a>
+				<div class="cd-faq-content">
+					<p>It's time to re-think charity.It's time to give charity the big-league freedoms we really give to business...The fight for these freedoms must be our new cause, because without them, all of our causes are ultimately lost.".</p>
+				</div> <!-- cd-faq-content -->
+			</li>
+
+			<li>
+				<a class="cd-faq-trigger" href="#0" style="color:#428BCA">How do I delete my account?</a>
+				<div class="cd-faq-content">
+					<p>It's time to re-think charity.It's time to give charity the big-league freedoms we really give to business...The fight for these freedoms must be our new cause, because without them, all of our causes are ultimately lost.".</p>
+				</div> <!-- cd-faq-content -->
+			</li>
+
+			<li>
+				<a class="cd-faq-trigger" href="#0" style="color:#428BCA">How do I change my account settings?</a>
+				<div class="cd-faq-content">
+					<p>It's time to re-think charity.It's time to give charity the big-league freedoms we really give to business...The fight for these freedoms must be our new cause, because without them, all of our causes are ultimately lost.".</p>
+				</div> <!-- cd-faq-content -->
+			</li>
+
+			<li>
+				<a class="cd-faq-trigger" href="#0" style="color:#428BCA">I forgot my password. How do I reset it?</a>
+				<div class="cd-faq-content">
+					<p>It's time to re-think charity.It's time to give charity the big-league freedoms we really give to business...The fight for these freedoms must be our new cause, because without them, all of our causes are ultimately lost.".</p>
+				</div> <!-- cd-faq-content -->
+			</li>
+		</ul> <!-- cd-faq-group -->
+
+		<ul id="payments" class="cd-faq-group">
+			<li class="cd-faq-title"><h2>Payments</h2></li>
+			<li>
+				<a class="cd-faq-trigger" href="#0" style="color:#428BCA">Can I have an invoice for my subscription?</a>
+				<div class="cd-faq-content">
+					<p>It's time to re-think charity.It's time to give charity the big-league freedoms we really give to business...The fight for these freedoms must be our new cause, because without them, all of our causes are ultimately lost.".</p>
+				</div> <!-- cd-faq-content -->
+			</li>
+
+			<li>
+				<a class="cd-faq-trigger" href="#0" style="color:#428BCA">Why did my credit card or PayPal payment fail?</a>
+				<div class="cd-faq-content">
+					<p>It's time to re-think charity.It's time to give charity the big-league freedoms we really give to business...The fight for these freedoms must be our new cause, because without them, all of our causes are ultimately lost.".</p>
+				</div> <!-- cd-faq-content -->
+			</li>
+
+			<li>
+				<a class="cd-faq-trigger" href="#0" style="color:#428BCA">Why does my bank statement show multiple charges for one upgrade?</a>
+				<div class="cd-faq-content">
+					<p>It's time to re-think charity.It's time to give charity the big-league freedoms we really give to business...The fight for these freedoms must be our new cause, because without them, all of our causes are ultimately lost.".</p>
+				</div> <!-- cd-faq-content -->
+			</li>
+		</ul> <!-- cd-faq-group -->
+
+		<ul id="privacy" class="cd-faq-group">
+			<li class="cd-faq-title"><h2>Privacy</h2></li>
+			<li>
+				<a class="cd-faq-trigger" href="#0" style="color:#428BCA">Can I specify my own private key?</a>
+				<div class="cd-faq-content">
+					<p>It's time to re-think charity.It's time to give charity the big-league freedoms we really give to business...The fight for these freedoms must be our new cause, because without them, all of our causes are ultimately lost.".</p>
+				</div> <!-- cd-faq-content -->
+			</li>
+
+			<li>
+				<a class="cd-faq-trigger" href="#0" style="color:#428BCA">My files are missing! How do I get them back?</a>
+				<div class="cd-faq-content">
+					<p>It's time to re-think charity.It's time to give charity the big-league freedoms we really give to business...The fight for these freedoms must be our new cause, because without them, all of our causes are ultimately lost.".</p>
+				</div> <!-- cd-faq-content -->
+			</li>
+
+			<li>
+				<a class="cd-faq-trigger" href="#0" style="color:#428BCA">How can I access my account data?</a>
+				<div class="cd-faq-content">
+					<p>It's time to re-think charity.It's time to give charity the big-league freedoms we really give to business...The fight for these freedoms must be our new cause, because without them, all of our causes are ultimately lost.".</p>
+				</div> <!-- cd-faq-content -->
+			</li>
+
+			<li>
+				<a class="cd-faq-trigger" href="#0" style="color:#428BCA">How can I control if other search engines can link to my profile?</a>
+				<div class="cd-faq-content">
+					<p>It's time to re-think charity.It's time to give charity the big-league freedoms we really give to business...The fight for these freedoms must be our new cause, because without them, all of our causes are ultimately lost.".</p>
+				</div> <!-- cd-faq-content -->
+			</li>
+		</ul> <!-- cd-faq-group -->
+
+		<ul id="delivery" class="cd-faq-group">
+			<li class="cd-faq-title"><h2>Delivery</h2></li>
+			<li>
+				<a class="cd-faq-trigger" href="#0" style="color:#428BCA">What should I do if my order hasn't been delivered yet?</a>
+				<div class="cd-faq-content">
+					<p>It's time to re-think charity.It's time to give charity the big-league freedoms we really give to business...The fight for these freedoms must be our new cause, because without them, all of our causes are ultimately lost.".</p>
+				</div> <!-- cd-faq-content -->
+			</li>
+
+			<li>
+				<a class="cd-faq-trigger" href="#0" style="color:#428BCA">How can I find your international delivery information?</a>
+				<div class="cd-faq-content">
+					<p>It's time to re-think charity.It's time to give charity the big-league freedoms we really give to business...The fight for these freedoms must be our new cause, because without them, all of our causes are ultimately lost.".</p>
+				</div> <!-- cd-faq-content -->
+			</li>
+
+			<li>
+				<a class="cd-faq-trigger" href="#0" style="color:#428BCA">Who takes care of shipping?</a>
+				<div class="cd-faq-content">
+					<p>It's time to re-think charity.It's time to give charity the big-league freedoms we really give to business...The fight for these freedoms must be our new cause, because without them, all of our causes are ultimately lost.".</p>
+				</div> <!-- cd-faq-content -->
+			</li>
+
+			<li>
+				<a class="cd-faq-trigger" href="#0" style="color:#428BCA">How do returns or refunds work?</a>
+				<div class="cd-faq-content">
+<p>It's time to re-think charity.It's time to give charity the big-league freedoms we really give to business...The fight for these freedoms must be our new cause, because without them, all of our causes are ultimately lost.".</p>
+				</div> <!-- cd-faq-content -->
+			</li>
+
+			<li>
+				<a class="cd-faq-trigger" href="#0" style="color:#428BCA">How do I use shipping profiles?</a>
+				<div class="cd-faq-content">
+					<p>It's time to re-think charity.It's time to give charity the big-league freedoms we really give to business...The fight for these freedoms must be our new cause, because without them, all of our causes are ultimately lost.".</p>
+				</div> <!-- cd-faq-content -->
+			</li>
+
+			<li>
+				<a class="cd-faq-trigger" href="#0" style="color:#428BCA">How does your UK Next Day Delivery service work?</a>
+				<div class="cd-faq-content">
+					<p>It's time to re-think charity.It's time to give charity the big-league freedoms we really give to business...The fight for these freedoms must be our new cause, because without them, all of our causes are ultimately lost.".</p>
+				</div> <!-- cd-faq-content -->
+			</li>
+
+			<li>
+				<a class="cd-faq-trigger" href="#0" style="color:#428BCA">How does your Next Day Delivery service work?</a>
+				<div class="cd-faq-content">
+					<p>It's time to re-think charity.It's time to give charity the big-league freedoms we really give to business...The fight for these freedoms must be our new cause, because without them, all of our causes are ultimately lost.".</p>
+				</div> <!-- cd-faq-content -->
+			</li>
+
+			<li>
+				<a class="cd-faq-trigger" href="#0" style="color:#428BCA">When will my order arrive?</a>
+				<div class="cd-faq-content">
+					<p>It's time to re-think charity.It's time to give charity the big-league freedoms we really give to business...The fight for these freedoms must be our new cause, because without them, all of our causes are ultimately lost.".</p>
+				</div> <!-- cd-faq-content -->
+			</li>
+
+			<li>
+				<a class="cd-faq-trigger" href="#0" style="color:#428BCA">When will my order ship?</a>
+				<div class="cd-faq-content">
+					<p>It's time to re-think charity.It's time to give charity the big-league freedoms we really give to business...The fight for these freedoms must be our new cause, because without them, all of our causes are ultimately lost.".</p>
+				</div> <!-- cd-faq-content -->
+			</li>
+		</ul> <!-- cd-faq-group -->
+	</div> <!-- cd-faq-items -->
+	<a href="#0" style="color:#428BCA" class="cd-close-panel">Close</a>
+</section> <!-- cd-faq -->
+</div>
+
+<script type="text/javascript" src="{% static 'site/js/jquery.mobile.custom.min.js' %}"></script>
+<script type="text/javascript" src="{% static 'site/js/main.js' %}"></script> <!-- Resource jQuery -->
+
+{% endblock %}
+

@@ -1,0 +1,29 @@
+from __future__ import unicode_literals
+import uuid
+from django.db import models
+from authtools.models import User
+from django.utils import timezone
+from django.utils.encoding import python_2_unicode_compatible
+from django.db import models
+from django.conf import settings
+# Create your models here.
+
+class Service(models.Model):
+    user = models.ForeignKey(User)
+    title  = models.CharField(max_length=120)
+    docfile = models.FileField(upload_to='Service/%Y/%m/%d',blank=True, null=True)
+    description = models.CharField(default=False, max_length=160)
+    active = models.BooleanField(default=True)
+    duraction  = models.CharField(max_length=120)
+    zip_Code = models.CharField(max_length=6)
+    address = models.CharField(default=False, max_length=60)
+    date_created = models.DateTimeField(default=timezone.now)
+    date_Update = models.DateTimeField(default=timezone.now)
+    expire_date = models.DateTimeField()
+    
+    class Meta:
+        verbose_name = ("Service")
+        verbose_name_plural = ("services")
+    def __unicode__(self):
+        return (self.title)
+

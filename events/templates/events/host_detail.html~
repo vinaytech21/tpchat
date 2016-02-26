@@ -1,0 +1,67 @@
+{% extends "dashboard.html"%}
+
+{% block container %}
+{% load staticfiles %}
+<link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Oswald"/>
+<div class="container-fluid" class="responsive" style="height: auto; width: auto; background-color: white">
+<h3 style="color:#797980"><center><b> EVENT DETAILS <b></center></h3>
+<div class="container-fluid" style="height:auto; width: auto; color:DarkCyan; background-color:  white">
+    <h3 style="color:#3b5998; margin-left:50px">{{event.eventtype}}</h3>
+        
+
+    <div class='col-sm-6'>
+         
+        <div>
+			
+           {% if event.snap %}                                                  
+                          <img src="{{ event.snap.url }}" style="height:50%; width:530%;" class="img-responsive"   alt="image not found" ></img>                                                                         		   	 
+           {% else %}
+                       <img id="blah" style="height:50%; width:530%;" src="{% static 'assets/img/find_user.png' %}"  alt="your selected item" ></img> 
+								
+                {% endif %}	 
+              
+                        
+  
+			
+             
+        </div> 
+        
+    </div>
+    <div class='col-sm-1'>
+	</div>
+    <!-- Product Sidebar --> 
+    <div class='col-sm-5'>
+        
+        {% if object.variation_set.count > 1 %}
+            <select class="form-control">
+                {% for vari_obj in object.variation_set.all %}
+                <option value="{{ vari_obj.id }}"> {{ vari_obj }}</option>  
+                {% endfor %}
+            </select>
+        {% endif %}
+ 
+         <br>  <br>
+  
+        <h4 style="color:#434343;"><lable><i class="fa fa-calendar"></i> AddOn:<lable style="color:#3b5998"> {{ event.date_created|date:"d M Y" }}</lable></lable></h4>
+
+      
+      
+         <h4 style="color:#434343;"><lable><i class="fa fa-calendar"></i> Event On: <lable style="color:#3b5998"> {{event.date_event}}</lable></lable></h4>
+   
+      
+      	
+        <h4 style="color:#434343;"><lable><i class="fa fa-home"></i>Location:<lable style="color:#3b5998;"> {{event.place}}</lable></lable></h4>
+ 
+     <h4 style="color:#434343;">  Edit Event<a class="btn btn-default" href="#"> <i class="fa fa-pencil-square-o"></i>
+</a>  </h4>  
+    </div>
+	<div class="row">
+	<div class="col-sm-12">
+	  
+          <p><h4 style="color:#3b5998; margin-left:50px">{{ event.description }}</h4></p>
+		</div>
+      </div>  
+    </div>
+</div>
+{% endblock %}
+

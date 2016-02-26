@@ -1,0 +1,41 @@
+{% extends "dash.html" %}        
+{% load i18n %} 
+{% block container %}
+<body>
+<div class="container-fluid" class="responsive" style="height: auto; width: auto; background-color: grey">
+<h2 style="color:white"><center><b>{% trans "Delete Messages" %}<b><center></h2><br>
+<div class="container-fluid" style="height:auto; width: auto; color:grey; background-color: white">
+{% if message_list %} 
+
+<div class="row">
+<div class="col-md-2">
+<h2>From</h2></div>
+<div class="col-md-6">
+<h2>{% trans "Subject" %}</h2></div>
+<div class="col-md-2">
+<h2>{% trans "Sent" %}</h2></div>
+<div class="col-md-2">
+<h2>{% trans "Action" %}</h2></div>
+</div>
+<hr/>
+{% for message in message_list %} 
+    <div class="row">
+<a href="{{message.get_absolute_url }}">
+<div class="col-md-2"><span class="glyphicon glyphicon-user">{{ message.sender|truncatechars:8 }}</span> </div>  
+            {% if message.new %}{% endif %}
+            {% if message.replied %}{% endif %}
+<div class="col-md-6">{{ message.subject }}</div>
+            {% if message.replied %}{% endif %}
+            {% if message.new %}{% endif %}
+<div class="col-md-2">{{ message.sent_at|date:"d M Y" }}</div></a>
+        <div class="col-md-2"><a href="{% url 'messages_undelete' message.id %}"  >{% trans "undelete" %}</a></div>
+    </div>
+{% endfor %}
+   
+{% else %}
+<h3>{% trans "There is no messages in your box.."  %}</h3>
+{% endif %}   
+<br />
+<p>{% trans "Deleted Messages are removed from the trash at unregular intervals, don't rely on this feature for long-time storage." %}</p><br><br><br> <br><br><br> <br><br><br> <br><br><br> <br><br><br> <br><br><br> <br><br><br> <br><br><br> </div><br><br> </div>
+</body>
+{% endblock %}

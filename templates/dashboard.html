@@ -1,0 +1,131 @@
+<br><br><br>
+ {% include "basedash.html" %}
+{% load thumbnail %}
+{% load staticfiles %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+<title>{% block head_title %}Echarity{% endblock %}</title>
+<head>
+      <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+ 
+	<!-- BOOTSTRAP STYLES-->
+<link href="{% static 'site/css/bootstrap.css' %}" rel="stylesheet" type="text/css" />
+<link href="{% static 'site/css/bootstrap.min.css'  %}" type="text/css" />
+<link href="{% static 'site/css/bootstrap-theme.css' %}" type="text/css" />
+<link href="{% static 'site/css/bootstrap-theme.min.css' %}" type="text/css" />
+<link href="{% static 'site/css/bootstrap.css' %}" rel="stylesheet" type="text/css" />
+     <!-- CUSTOM STYLES-->
+
+<link href="{% static 'site/css/style1.css' %}" rel="stylesheet" type="text/css" />
+<link href="{% static 'site/css/main.css' %}" rel="stylesheet" type="text/css"/>
+<link href="{% static 'site/css/custom.css' %}" rel="stylesheet" type="text/css" />  
+  <!-- FONTAWESOME STYLES-->
+<link href="{% static 'site/css/font-awesome.css' %}" rel="stylesheet" type="text/css" />
+
+
+
+
+
+</head>
+
+
+<div id="wrapper" class="responsive">
+   <nav class="navbar-default navbar-side" role="navigation">
+            <div class="sidebar-collaps">
+                <ul class="nav" id="main-menu">
+  {% load staticfiles %}
+				<li  style="padding-top:10px"> <center>            
+  <img title="profile picture" class="img-circle img-responsive" src="{% thumbnail user.profile.picture|default:'default_profile.png' 140x140 crop %}"> 
+</center></li><li style="color:white"><center>{{ user.get_full_name|truncatechars:20 }}</center></li>
+						 <li >
+                     <a href="/messages/inbox/"><i class="fa fa-comments fa-2x"></i> MESSAGE</a>
+                    </li>		
+                    <li>
+                        <a href="/products/post/"><i class="fa fa-shopping-cart fa-2x"></i> DONATE ITEM</a>
+                    </li>
+		<li>
+                        <a href="/services/offer/"><i class="fa fa-bullhorn fa-2x"></i> OFFER SERVICE</a>
+                    </li>
+
+ 			<li>
+                        <a href="/events/host/"><i class="fa fa-tasks fa-2x"></i>HOST EVENTS</a>
+                    </li>
+			<li>
+                        <a href="#"><i class="fa fa-sitemap fa-2x"></i> HISTORY<span class="fa arrow"></span></a>
+                        <ul class="nav nav-default">
+                            <li>
+                                <a href="/products/history/ "><i class="fa fa-laptop fa-2x"></i>Product History</a>
+                            </li>
+                            <li>
+                                <a href="/services/history/"><i class="fa fa-archive fa-2x "></i>Service History</a>
+                            </li>
+                              <li>
+                                 <a href="/events/history/"><i class="fa fa-bar-chart-o fa-2x"></i>Event History</a>
+                             </li>
+                        </ul>
+                      </li> 
+			<li>
+                        <a href="{% url 'profiles:show_self' %}"><i class="fa fa-user fa-2x "></i> PROFILE</a>
+                    </li>	
+                      <li>
+			<a href="{% url 'profiles:edit_self' %}"><i class="fa fa-renren fa-2x"></i>UPDATE PROFILE</a>
+                    </li>
+                  
+                      	
+                </ul>
+               
+            </div> 
+            
+        </nav>  
+
+        <!-- /. NAV SIDE  -->
+        <div id="page-wrapper" >
+            <div id="page-inner" >
+                
+
+
+      {% block messages %}
+      {% if messages %}
+        {% for message in messages %}
+          <div class="alert alert-{{ message.tags }}">  <!-- singular -->
+            <a class="close" data-dismiss="alert">×</a>
+            {{ message|safe }}
+          </div>
+        {% endfor %}
+      {% endif %}
+    {% endblock %}            
+               
+                 <!-- /. ROW  -->
+{% block container %}
+
+{% endblock %}
+       </div>   </div>    </div>   
+
+ {% include "fotter.html" %}
+
+        
+	   <!-- SCRIPT-->
+<script src="https://code.jquery.com/jquery-1.10.2.min.js"></script>
+<script src="{% static 'bootstrap/js/bootstrap.min.js' %}"></script>
+<script src="{% static 'site/js/jquery-1.8.3.min.js' %}"></script>
+<script src="{% static 'site/js/bootstrap-datetimepicker.js' %}"></script>
+<script src="{% static 'site/js/jquery-1.10.2.js' %}"></script>
+<script src="{% static 'site/js/bootstrap.min.js' %}"></script>
+<script src="{% static 'site/js/jquery.metisMenu.js' %}"></script>
+<script src="{% static 'site/js/custom.js' %}"></script>
+
+
+
+
+
+</html>
+

@@ -1,0 +1,41 @@
+{% extends "dashboard.html" %}
+
+{% load staticfiles %}
+{% load crispy_forms_tags %}
+{% load thumbnail %}
+
+{% block title %}{{ block.super }}Profile{% endblock %}
+
+<!-- Benefits of the Django application -->
+{% block container %}
+
+<div class="container-fluid">
+  <h1 class="text-primary">Edit Profile</h1>
+  <hr>
+  <div class="row">
+    <!-- left column -->
+    
+      
+    <!-- edit form column -->
+    <div class="col-md-9">
+<div class="text-center">
+        <img title="profile picture" class="img-circle img-responsive" src="{% thumbnail user.profile.picture|default:'default_profile.png' 140x140 crop %}">
+      </div>
+      <h3>Personal info</h3>
+      <form enctype="multipart/form-data" method="post">
+	{% crispy user_form %}
+	{% crispy profile_form %}
+      </form>
+    </div>
+  </div>
+</div>
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-md-4">
+      <a class="btn btn-default pull-right" href="{% url 'accounts:password-change' %}">Change Password</a>
+    </div>
+  </div>
+</div>
+{% endblock %}
+
+

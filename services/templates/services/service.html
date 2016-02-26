@@ -1,0 +1,36 @@
+{% extends "dashboard.html"%}
+{% block container %}
+{% load crispy_forms_tags %}
+{% load staticfiles %}
+<link href="{% static 'css/datetimepicker.css' %}" rel="stylesheet" />
+   <body>
+<div class="container-fluid" class="responsive" style="height: auto; width: auto; background-color: grey">
+<h2 style="color:white"><center><b>Publish Services<b></h2></center>
+<div class="container-fluid" style="height:auto; width: auto; color:grey; background-color: ghostwhite"><br><br>
+
+<div class="row">
+<div class="col-md-2">
+  </div>
+<div class="col-md-8" style="padding:1px;border:1px groove SteelBlue; background-color:white">
+<center><b><h2>Submit Details</h2><b></center><hr>
+<div class="row">
+      <div class="col-sm-2"></div>
+      <div class="col-sm-9">
+
+                <form action="." method="post" enctype="multipart/form-data">
+                        {% csrf_token %}
+                        
+{{ form|crispy }}   
+                       </div>
+</div>
+         <center> <input type="image" src='{% static "img/submit.png" %}' /></center><br><br>
+                        </div>
+                </form>
+                </div> <br><br> </div><br>
+
+</div>
+
+<script src="{% static 'js/bootstrap-datetimepicker.js' %}"></script>
+<script src="{% static 'js/jquery-1.8.3.min.js' %}"></script>
+</body>
+  {% endblock %}

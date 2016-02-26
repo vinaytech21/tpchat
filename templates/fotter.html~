@@ -1,0 +1,22 @@
+{% block content %}
+{% load staticfiles %}
+{% block footer %}
+      <!-- Some social button for contact will do -->
+      <a name="contact"></a>
+      <div class="container">
+            <div class="footer">
+        <div class="row">
+          <div class="col-lg-6">
+              <p>&copy; Company {% now 'Y' %}</p>
+          </div>
+          <div class="col-lg-6 text-right">
+            Connect with us on
+            <a href="#"><i class="fa fa-facebook"></i> Facebook</a> or
+            <a href="#"><i class="fa fa-twitter"></i> Twitter</a>
+          </div>
+        </div>
+            </div>
+      </div>
+    {% endblock %}
+{% endblock %}
+ 
