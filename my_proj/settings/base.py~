@@ -107,7 +107,7 @@ INSTALLED_APPS = (
     'allauth.socialaccount.providers.facebook',
 )
 
-SITE_ID = 1
+
 
 MIDDLEWARE_CLASSES = (
     'django.contrib.sessions.middleware.SessionMiddleware',
@@ -163,7 +163,10 @@ MESSAGE_TAGS = {
 }
 
 # Authentication Settings
-AUTH_USER_MODEL = 'authtools.User'
+ACCOUNT_USER_MODEL_USERNAME_FIELD = None
+ACCOUNT_EMAIL_REQUIRED = True
+ACCOUNT_USERNAME_REQUIRED = False
+ACCOUNT_AUTHENTICATION_METHOD = 'email'
 LOGIN_REDIRECT_URL = reverse_lazy("profiles:show_self")
 LOGIN_URL = reverse_lazy("accounts:login")
 

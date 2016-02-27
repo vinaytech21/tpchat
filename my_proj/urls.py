@@ -16,6 +16,7 @@ urlpatterns = [
     url(r'^users/', include(profiles.urls, namespace='profiles')),
     url(r'^admin/', include(admin.site.urls)),
     url(r'^', include(accounts.urls, namespace='accounts')),
+    url(r'^accounts/', include('allauth.urls')),
     url(r'^products/', include(products.urls, namespace='products')),
     url(r'^services/', include(services.urls, namespace='services')),
     url(r'^events/', include(events.urls, namespace='events')),
