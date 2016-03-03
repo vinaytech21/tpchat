@@ -2,6 +2,7 @@ from django.conf.urls import patterns, include, url
 
 urlpatterns = patterns('services.views',    
     url(r'^$', 'servicelist', name='servicelist'),
+    url(r'^active/$', 'active', name='active'),
     url(r'^service/(?P<pk>[0-9]+)/$', 'service_detail_home', name='service_detail_home'),
     url(r'^offer/$', 'offer', name='offer'),
     url(r'^(?P<pk>[0-9]+)/edit/$', 'edit_service', name='edit_service'),

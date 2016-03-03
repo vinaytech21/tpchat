@@ -33,6 +33,7 @@ class ProfileForm(forms.ModelForm):
         self.helper.layout = Layout(
             Field('picture'),
             Field('bio'),
+            Field('zipcode'),
             Submit('update', 'Update', css_class="btn-success"),
             )
 

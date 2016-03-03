@@ -17,6 +17,7 @@ class Event(models.Model):
     duration = models.TimeField(blank=True, null=True)
     description= models.CharField(max_length=400)
     place = models.CharField(max_length=50)
+    zip_Code = models.CharField(max_length=6)
 
     class Meta:
         verbose_name = ("Event")

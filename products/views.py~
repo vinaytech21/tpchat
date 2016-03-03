@@ -14,6 +14,8 @@ from .forms import ProductForm, PostForm
 from django.core.urlresolvers import reverse
 from django.http import HttpResponseRedirect
 from django.http import *
+from profiles.models import BaseProfile
+from profiles.views import *
 
 # Create your views here.
 class ProductListView(ListView):
@@ -110,7 +112,9 @@ def list(request):
         if form.is_valid():
             newdoc = Product(user = request.user, title = request.POST['title'], docfile = request.FILES['docfile'], active = request.POST['active'], description = request.POST['description'], quantity = request.POST['quantity'], zip_Code = request.POST['zip_Code'], address = request.POST['address'], expire_date = request.POST['expire_date'])
             newdoc.save()
-            return HttpResponseRedirect(reverse('products:post_detail_list',args=(post.pk,)))
+            return HttpResponseRedirect(reverse('products:post_detail_list', args=(newdoc.pk,)))
+
+
     else:
         form = ProductForm() # A empty, unbound form
 
@@ -122,16 +126,6 @@ def list(request):
         context_instance=RequestContext(request)
     )
 
-##################################################################################
-@login_required
-def post_detail_list(request, pk):
-    model = Product
-    user_id=request.user.id
-    #post = Product.objects.filter(user_id = request.user.id, pk=pk)
-    post = get_object_or_404(Product, user_id=request.user.id, pk=pk)
-    return render(request, 'products/product_detail1.html', {'post': post })
-
-
 ################################################################################## edit form for history item
 @login_required
 def post_edit_list(request, pk):
@@ -141,9 +135,28 @@ def post_edit_list(request, pk):
         if form.is_valid():
             post.user = request.user
             post.save()
-            return HttpResponseRedirect(reverse('products:post_detail_list',args=(post.pk,)))
+            return HttpResponseRedirect(reverse('products:post_detail_list', args=(post.pk,)))
 
     else:
         form = PostForm(instance=post)
     return render(request, 'products/post_edit.html', {'form': form })
+
+################################################################################## Active city item
+def active(request):
+    model = Product
+    profile = get_object_or_404(models.Profile,user_id=request.user.id)
+    user = profile.user
+    post = Product.objects.filter(zip_Code = profile.zipcode)
+    return render(request, 'products/active_item.html', {'post': post})
+
+
+##################################################################################
+@login_required
+def post_detail_list(request, pk):
+    model = Product
+    user_id=request.user.id
+    #post = Product.objects.filter(user_id = request.user.id, pk=pk)
+    post = get_object_or_404(Product, user_id=request.user.id, pk=pk)
+    return render(request, 'products/product_detail1.html', {'post': post })
+
 

@@ -20,10 +20,12 @@ EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_USE_TLS = True
 EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_HOST_USER = 'vinaykumar.vk2007@gmail.com'
-EMAIL_HOST_PASSWORD = '8090289260'
+EMAIL_HOST_PASSWORD = 'jaddu@55555'
 EMAIL_PORT = 587
 
-SITE_ID = 1
+
+
+
 
 # Use Django templates using the new Django 1.8 TEMPLATES settings
 
@@ -60,7 +62,7 @@ AUTHENTICATION_BACKENDS = (
     'allauth.account.auth_backends.AuthenticationBackend',
 )
 
-
+SITE_ID = 1
 
 # Use 12factor inspired environment variables or from a file
 import environ
@@ -101,10 +103,16 @@ INSTALLED_APPS = (
     'products',
     'services',
     'events',
+    'follow',
     'allauth',
     'allauth.account',
     'allauth.socialaccount',
     'allauth.socialaccount.providers.facebook',
+    'allauth.socialaccount.providers.twitter',
+    'allauth.socialaccount.providers.google',
+    'allauth.socialaccount.providers.linkedin',
+    'allauth.socialaccount.providers.linkedin_oauth2',
+
 )
 
 

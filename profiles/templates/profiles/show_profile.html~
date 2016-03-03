@@ -7,7 +7,7 @@
 
 {% block container %}
 
-<div class="container">
+<div class="container-fluid">
  
     <div class="col-sm-5">
       <h1>{{ show_user.get_full_name }}</h1>
@@ -20,7 +20,7 @@
   
 </div>
 
-<div class="container profile-body">
+<div class="container-fluid profile-body">
  
     <div class="col-sm-4">
       <ul class="list-group">
@@ -36,6 +36,7 @@
 	</li>
         <li class="list-group-item text-right"><span class="pull-left"><strong>Joined</strong></span> {{ show_user.date_joined }}</li>
         <li class="list-group-item text-right"><span class="pull-left"><strong>Last seen</strong></span> {{ show_user.last_login }}</li>
+        <li class="list-group-item text-right"><span class="pull-left"><strong>Joined</strong></span> {{ show_user.profile.zipcode }}</li>
       </ul>
     </div>
     <div class="col-sm-4">

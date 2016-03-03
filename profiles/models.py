@@ -16,6 +16,7 @@ class BaseProfile(models.Model):
                                 null=True,
                                 blank=True)
     bio = models.CharField("Short Bio", max_length=200, blank=True, null=True)
+    zipcode = models.CharField("Zip Code", max_length=200, blank=True, null=True)
     email_verified = models.BooleanField("Email verified", default=False)
 
     class Meta:

@@ -18,12 +18,6 @@
 <link href="{% static 'site/css/style1.css' %}" rel="stylesheet" type="text/css" />
 <link href="{% static 'site/css/search.css' %}" rel="stylesheet" type="text/css" />
 <link href="{% static 'site/css/datetimepicker.css' %}" rel="stylesheet" />
-
-
-    <!-- Custom styles for this site -->
-   
-
-    <!-- Custom tags for the head tag -->
     {% block extrahead %}{% endblock extrahead %}
 
     <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
@@ -109,7 +103,6 @@
     <script src="https://code.jquery.com/jquery-1.10.2.min.js"></script>
     <script src="{% static 'bootstrap/js/bootstrap.min.js' %}"></script>
     <script src="{% static 'site/js/bootstrap-datetimepicker.js' %}"></script>
-    <script src="{% static 'site/js/jquery-1.8.3.min.js' %}"></script>
     {% block scripts %}
     {% endblock scripts %}
   </body>

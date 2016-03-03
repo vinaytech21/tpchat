@@ -7,6 +7,7 @@ import events.urls
 import services.urls
 import products.urls
 import accounts.urls
+import follow.urls
 from . import views
 
 
@@ -24,6 +25,7 @@ urlpatterns = [
     url(r'^term/$', 'my_proj.views.term', name='term'),
     url(r'^contact/$','my_proj.views.contact', name='contact'),
     url(r'^messages/', include('django_messages.urls')),
+    url(r'^follow/', include(follow.urls, namespace='follow')),
     url(r'^event/enquiry/(?P<recipient>[\w.@+-]+)/$', 'django_messages.views.enquiry', name='messages_compose_to'),
     url(r'^service/enquiry/(?P<recipient>[\w.@+-]+)/$', 'django_messages.views.enquiry', name='messages_compose_to'),
     url(r'product/enquiry/(?P<recipient>[\w.@+-]+)/$', 'django_messages.views.enquiry', name='messages_compose_to'),

@@ -12,6 +12,8 @@ from django.shortcuts import render, get_object_or_404
 from django.shortcuts import redirect
 from django.http import HttpResponseRedirect
 from django.http import *
+from profiles.models import BaseProfile
+from profiles.views import *
 # Create your views here.
 
 
@@ -101,4 +103,14 @@ def devent_detail(request):
     model = Event
     event = Event.objects.filter(user_id = request.user.id)
     return render(request,  'events/detail.html', {'event': event })
+
+
+def active(request):
+    model = Event
+    profile = get_object_or_404(models.Profile,user_id=request.user.id)
+    user = profile.user
+    event = Event.objects.filter(zip_Code = profile.zipcode)
+    return render(request, 'events/events_active.html', {'event': event })
+
+    
 

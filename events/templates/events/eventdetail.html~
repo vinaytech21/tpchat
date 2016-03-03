@@ -48,10 +48,10 @@
 <div class="homed">
 <div class='row'>
 <div class="col-md-11">
-   <div class="col-md-5"><h4><b>Dresscode </b></h4></div>
-    <div class="col-md-5"><h4 style="font-size:20px" >{{  event.dresscode }} </h4></div><div class ="col-md-1"><h4>:</h4></div> 
-   <div class="col-md-5"><h4> <b>Place </b></h4></div>
-    <div class="col-md-5"><h4 style="font-size:20px" >{{  event.place|title }}</h4></div> <div class ="col-md-1"><h4>:</h4></div>
+   <div class="col-md-5"><h4><b>Dresscode </b></h4></div><div class ="col-md-1"><h4>:</h4></div>
+    <div class="col-md-5"><h4 style="font-size:20px" >{{  event.dresscode }} </h4></div> 
+   <div class="col-md-5"><h4> <b>Place </b></h4></div><div class ="col-md-1"><h4>:</h4></div>
+    <div class="col-md-5"><h4 style="font-size:20px" >{{  event.place|title }}</h4></div> 
 </div>
 </div>
 </div>
@@ -76,7 +76,15 @@
 </div></div> <br><br><br><br>
 
               </body>
-
+{% load follow_tags %}
+<form action="{% follow_url object %}" method="post">
+	{% csrf_token %}
+	{% if request.user|is_following:object %}
+		<input type="submit" value="Unfollow" />
+	{% else %}
+		<input type="submit" value="Follow" />
+	{% endif %}
+</form>
 </html>
 {% endblock %}
 
