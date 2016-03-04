@@ -11,7 +11,7 @@
 
 <!-- Benefits of the Django application -->
 {% block container %}
-<img src='{% static "img/term.jpg" %}'class="vertical-center"/>
+<img src='{% static "site/img/term.jpg" %}'class="vertical-center"/>
 </div>
   <div class="container-fluid" style="background-color: #81b1c9">  
     <section id="about-company" class="padding-top wow fadeInUp" data-wow-duration="400ms" data-wow-delay="400ms">

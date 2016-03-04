@@ -1,5 +1,18 @@
-<li {% if active_link == "home" %}class="active"{% endif %}><a href="{% url 'home' %}">Home</a></li>
-<li {% if active_link == "about" %}class="active"{% endif %}><a href="{% url 'about' %}">About</a></li>
+
+
+<div class="navbar-footer" >
+
+<div class="tabbable" > <!-- Only required for left/right tabs -->
+<ul class="nav nav-tabs" >
+
+<li {% if active_link == "about" %}class="active"{% endif %}><a href="{% url 'about' %}"><b>About</b></a></li>
 <li {% if active_link == "faq" %}class="active"{% endif %}><a href="{% url 'faq' %}"><b>Faq</b></a></li>
-<li{% if active_link == "term" %}class="active"{% endif %}><a href="{% url 'term' %}"><b>Terms</b></a></li>
+<li {% if active_link == "term" %}class="active"{% endif %}><a href="{% url 'term' %}"><b>Terms</b></a></li>
+<li {% if active_link == "contact" %}class="active"{% endif %}><a href="{% url 'term' %}"><b>ContactUs</b></a></li>
+</ul>
+</div>
+
+
+
+</div>
 

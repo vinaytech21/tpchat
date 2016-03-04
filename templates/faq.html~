@@ -240,7 +240,7 @@
 	<a href="#0" style="color:#428BCA" class="cd-close-panel">Close</a>
 </section> <!-- cd-faq -->
 </div>
-<script type="text/javascript" src="{% static 'site/js/jquery-2.1.1.js' %}"></script>
+
 <script type="text/javascript" src="{% static 'site/js/jquery.mobile.custom.min.js' %}"></script>
 <script type="text/javascript" src="{% static 'site/js/main.js' %}"></script> <!-- Resource jQuery -->
 

@@ -4,19 +4,23 @@
       <!-- Some social button for contact will do -->
       <a name="contact"></a>
       <div class="container">
-            <div class="footer">
+
         <div class="row">
-          <div class="col-lg-6">
-              <p>&copy; Company {% now 'Y' %}</p>
+          <div class="col-lg-4">
+{% block navbar-left %}
+  {% include "_navbar.html" with active_link="home" %}
+{% endblock %}          </div>
+          <div class="col-lg-4">
+             <center> <p>&copy; Company {% now 'Y' %}</p> </center>
           </div>
-          <div class="col-lg-6 text-right">
+          <div class="col-lg-4 text-right">
             Connect with us on
             <a href="#"><i class="fa fa-facebook"></i> Facebook</a> or
             <a href="#"><i class="fa fa-twitter"></i> Twitter</a>
           </div>
         </div>
             </div>
-      </div>
+
     {% endblock %}
 {% endblock %}
  

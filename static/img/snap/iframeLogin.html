@@ -1,0 +1,610 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!--[if !IE]><html xmlns="http://www.w3.org/1999/xhtml"><![endif]-->
+<!--[if IE 8]>         <html lang="" class="ie ie8 lt-ie9 lt-ie10"> <![endif]-->
+<!--[if IE 9]>         <html lang="" class="ie ie9 lt-ie10"> <![endif]-->
+<html><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <link href="iframeLogin_data/loginIframe.css" rel="stylesheet" type="text/css">
+    <script>
+	
+	var dotBrandingFlag = 'true';
+	var dotGlobalFlag = 'true';
+	var signupWithMobile = 'true';
+	var dotWebCheckoutDiffer = 'true';
+    var matrixUser = 'false';
+    var startTime = new Date().getTime(); 
+    var loadingTime = 0; var env = 'prod';
+    var staticRes = '';
+    var ajaxRes = '';
+    var httpPath = 'https://www.snapdeal.com';
+    var absoluteHttpPath = 'http://www.snapdeal.com';
+    var absoluteHttpsPath = 'https://www.snapdeal.com:443';
+    var pureHttpPath = 'http://www.snapdeal.com:80';
+    if (typeof Snapdeal == 'undefined') {Snapdeal = {};}; 
+    var https='443';
+    window.sdHttpPath = 'https://www.snapdeal.com';
+    var abVersion=3;
+    var abEnabled=false;
+    var abExpireDay=1;
+    var serverName='avatar-i-6169b7ae.snapdeal.com';
+    var fbPermissions='email,user_birthday,user_likes,user_hometown,user_location';
+    var fbFields='email,birthday,likes,hometown,location';
+    var fbAuthRequest='&auth_type=rerequest';
+    var fbAppId="689277371113314";
+    var googleAppId="36115742491-h38grsuuq7jilk484i69j84bmul8nst5.apps.googleusercontent.com";
+</script>
+
+<script type="text/javascript">
+  	var langSpecificLabels = new Array();
+  	langSpecificLabels['label.searchBar.defaultString'] 					= "Search for a brand, product or specific item";
+  	langSpecificLabels['label.searchBar.allCategories'] 					= "All Categories";
+	langSpecificLabels['label.categoryPage.codAvailable'] 					= "Cash on Delivery Available";
+	langSpecificLabels['label.categoryPage.dispatchedInOneBusinessDay'] 	= "Dispatched in 1 business day";
+	langSpecificLabels['label.categoryPage.quickView'] 						= "Quick View";
+	langSpecificLabels['label.categoryPage.freebie'] 						= "Freebie";
+	langSpecificLabels['label.categoryPage.highlights'] 					= "Highlights";
+	langSpecificLabels['label.categoryPage.listViewDetails']				= "View Detail";
+	langSpecificLabels['label.categoryPage.addToCompare']					= "Add to Compare";
+	langSpecificLabels['label.categoryPage.dispatchedInMoreBusinessDays1'] 	= "Dispatched in";
+	langSpecificLabels['label.categoryPage.dispatchedInMoreBusinessDays2'] 	= "business ";
+	langSpecificLabels['label.categoryPage.dispatchedInMoreBusinessDays3'] 	= "days";
+	langSpecificLabels['label.categoryPage.listBuyBtn'] 					= "Buy";
+	langSpecificLabels["label.categoryPage.emiAvailable"] 					= "EMI Available";
+	langSpecificLabels["label.categoryPage.addToWishlist"] 					= "Shortlist";
+	langSpecificLabels["label.categoryPage.addedToWishlist"] 				= "Added";
+	langSpecificLabels["label.categoryPage.listSoldOut"] 					= "SOLD OUT";
+	langSpecificLabels["label.categoryPage.removeFromWishlist"] 			= "Remove from Shortlist";
+	langSpecificLabels["label.categoryPage.soldOut"] 						= "SOLD OUT";
+	langSpecificLabels["label.listPage.addToWishlist"]                      = "Shortlist";
+	langSpecificLabels["label.productStatus.comingSoon"]                    = "COMING SOON";
+	langSpecificLabels["label.productStatus.discontinued"]                  = "DISCONTINUED";
+	langSpecificLabels["label.productStatus.notAvailableAtTheMoment"]       = "NOT AVAILABLE AT THE MOMENT";
+	langSpecificLabels["label.categoryPageFilter.clearAll"]       = "Clear All Filters";
+	var showOnloadFlag = parseInt("0");
+	/**	0 : Don't Show ,1 : Show only to new users ,2 : Show to all not logged */
+	if(typeof Snapdeal == "undefined")
+		Snapdeal = {};
+	// Set the configuration here for signupwidget
+	Snapdeal.signupWidConfig = {
+		onloadShowOnlyIfNewUser : showOnloadFlag == 1 ,
+		onloadShow : showOnloadFlag != 0  ,
+		cookieName : "snapdeal" ,
+		cookieNameFirstTime : "firstTimeVisit" ,
+		
+			loggedIn : false , 
+		
+		forceManual : false ,
+		targetUrl : "/iframeLogin" ,
+		// Currently the code used in prod -- now used when no promo is sent
+		regMsgCode : 103 ,  
+		// Code when promo is sent on social signup
+		socialMsgCode : 1110 ,
+		// Code when promo is sent on normal signup
+		hasCouponMsgCode : 1112
+	};
+	// Google Ads related code -- required so that gpt.js can be lazy loaded
+	var googletag = googletag || {};
+	googletag.cmd = googletag.cmd || [];
+
+	// switches for various external components
+	Snapdeal = window.Snapdeal || {};
+	Snapdeal.componentSwitches = {};
+	Snapdeal.componentSwitches.searchClosed			= "false";
+	Snapdeal.componentSwitches.recSysClosed			= "false";
+	Snapdeal.componentSwitches.scoreClosed			= "false";
+	Snapdeal.componentSwitches.promoClosed			= "false";
+	Snapdeal.componentSwitches.cocofsClosed			= "false";
+	Snapdeal.componentSwitches.facebookClosed		= "false";
+	Snapdeal.componentSwitches.zendeskClosed 		= "false";
+	Snapdeal.componentSwitches.autoSuggestClosed 	= "false";
+	Snapdeal.componentSwitches.ebayClosed 			= "false";
+	
+	// switch for quick buy button
+	var disableQuickBuy = "false";
+	var isLocalizationEnabled = "";
+	var localizationHeaderState = "";
+	var selectedTab = ""
+	var activeProductTab = 	"";
+	var gpsf = false;
+	var partialSearch = '';
+	var openFlowFlag = 'true';
+	window.suggestmeyes_loaded = true;
+</script><script>
+        var sdata = 'EEB3877C5CD990F42A1D4E59D9A6496A';
+        var isIframe = true ;
+  		var matrixUser = 'false';
+    	var dotGlobalFlag  = 'true';
+    	var dotBrandingFlag = 'true';
+    	var signupWithMobile = 'true';
+    </script>
+    
+    <script type="text/javascript" src="iframeLogin_data/loginIframe.js"></script>
+
+    <script type="text/html" id="signupWidgetTmpl">
+        <div id="login-register-modal">
+	<div class="closepopup" id="close-pop">
+		<i class="sd-icon sd-icon-delete-sign"></i>
+	</div>
+	
+	<!-- Login Register Container Begins-->
+	<div class="login-register-container clearfix">
+		<div class="lfloat left-container">
+			<div class="branding-switch hide">
+				<div class="register-ui hide">
+					<p class="fnt-24">Create a <i class="login-background freecharge-icon"></i> account</p>
+					<p class="fnt-18">to register on Snapdeal</p>
+				</div>
+				
+				<div class="login-ui">
+					<p class="fnt-18">Snapdeal account now upgraded to</p>
+					<p class="fnt-24"><i class="login-background freecharge-icon"></i> account</p>
+				</div>
+			</div>
+			
+			<div class="loginBanner hide">
+				<p class="fnt-24">Benefits of Login/Register</p>
+			</div>
+			
+			<div class="icon-box">
+				<i class="login-background common-accounts-icon"></i>
+				<p class="branding-switch hide">Common accounts across Freecharge & Snapdeal</p>
+				<p class="loginBanner hide">Personalized browsing with features like wishlist</p>
+			</div>
+			
+			<div class="icon-box">
+				<i class="login-background save-time-icon"></i>
+				<p class="branding-switch hide">Checkout in under 10 seconds</p>
+				<p class="loginBanner hide">Faster checkout with saved cards and addresses</p>
+			</div>
+			
+			<div class="icon-box">
+				<i class="login-background rewards-icon"></i>
+				<p class="branding-switch hide">Earn rewards on shopping</p>
+				<p class="loginBanner hide">Easy order tracking</p>
+			</div>
+			
+		</div>
+		
+		<div class="rfloat right-container">
+			<p class="register-ui hide heading">Register</p>
+			<p class="login-ui heading">Login</p>
+			
+			<div class="register-ui hide register-login-container">
+				<p class="marB20">Create a <i class="branding-switch hide">Freecharge</i> account</p>
+				<div class="register-login-button marB10" onclick="getSignUpForm()"><span class="branding-switch-register hide">Mobile number or </span> email</div>
+				<p class="terms">By continuing with registration I agree to <a href="javascript:void(0);" onclick="termsLink();">Terms & Conditions</a></p>
+			</div>
+			
+			<div class="login-ui register-login-container">
+				<p class="marB20">Login using Snapdeal <i class="branding-switch hide">or Freecharge</i> account</p>
+				<div class="register-login-button" onclick="getLoginForm()"><span class="branding-switch hide">Mobile number or</span> email</div>
+				<p class="terms" style="visibility:hidden;">I agree to<a href="http://www.snapdeal.com/page/termsOfUse">Terms & Conditions</a></p>
+			</div>
+			
+			<div class="horizonatal-line"><span>OR</span></div>
+			
+			<div class="social-conainer">
+				<button class="fbIcon" onclick="return window.widget.fbLogin('https://www.facebook.com/v2.0/dialog/oauth?client_id=${fbAppId}&redirect_uri=${fbPath}/j_spring_facebook_security_check?source=facebook&scope=${fbPermissions}');">
+					<i class="sd-icon-facebook24 sd-icon"></i><span>Facebook</span>
+				</button>
+				<button class="gIcon" onclick="return window.widget.rpxLogin('https://accounts.google.com/o/oauth2/auth?client_id=${googleAppId}&response_type=code&scope=email%20profile&redirect_uri=${fbPath}/j_spring_google_security_check%3Fsource%3Dgoogle&');">
+					<i class="sd-icon-google24 sd-icon"></i><span>Google +</span>
+				</button>
+			</div>
+			
+			<div class="register-ui hide bottom-message">
+				<span>Already a member with us?</span>
+                <a href="javascript:void(0);" onclick="toggleLoginRegisterView('login')">Login</a>
+            </div>
+            
+            <div class="login-ui bottom-message">Do not have an account?
+                <a href="javascript: void(0);" onclick="toggleLoginRegisterView('register')">Register</a>
+            </div>
+		</div>
+	</div>
+	<!-- Login Register Container Begins-->
+	
+	<div class="register-container hide">
+		<div id="enter-newuser-detail" class="hide">
+			<h3 class="container-heading">Register</h3>
+			<div id="backToRegister" class="backIconContainer" onclick="backtoMainSignUP()">
+            	<div class="back-icon login-background"></div>
+             	<div class="backText">Want to go back</div>
+            </div>
+            <div class="clearfix">
+            	
+            	<div class="emailBtnIcon lfloat">
+                    <i class="emailIcon login-background"></i>
+                    <div class="emailHoverText">
+                        <span class="emailTextOne">Register using</span><br>
+                        <span class="hoverTextTwo">Email<i class="branding-switch-register hide">/Mobile</i></span>
+                    </div>
+                </div>
+                
+                <div class="lfloat">
+	                <div class="clearfix reset-message-block" style="display:none;">
+						<div class="icon-container lfloat">
+							<i class="sd-icon sd-icon-checkmark"></i>
+		                </div>
+					    <p class="lfloat alert-text"></p>	
+		            </div>
+                 	<form class="clearfix" id="ajaxSignup">
+	                    <div class="popup-form-row form-group hide" id="resisterMobile">
+	                    	<span for="j_number" class="form-label">Mobile Number</span>
+	                        <input type="text" id="j_number" maxlength="10" name="j_number" tabindex="1" class="login-text  white-text signup-email-input inputfield input-orange inputanimate">
+	                    </div>
+                                        
+                        <div class="popup-form-row form-group">
+                        	<span for="j_username_new" class="form-label">Email Address</span>
+                            <input type="email" id="j_username_new" name="j_username" tabindex="2" class="login-text  white-text signup-email-input inputfield input-orange inputanimate">
+                        </div>
+
+                        <div class="popup-form-row form-group">
+                        	<span for="j_password" class="form-label">Password</span>
+                            <input type="password" id="j_password" name="j_password" tabindex="3" class="login-text inputfield input-orange inputanimate sign-input-pass">
+                        </div>
+                                                
+                        <div class="popup-form-row form-group">
+                        	<span for="j_confpassword" class="form-label">Confirm Password</span>
+                            <input type="password" id="j_confpassword" name="j_confpassword" tabindex="4" class="login-text inputfield input-orange inputanimate sign-input-pass">
+                        </div>
+
+                        <div class="popup-form-row">
+                        	<input type="hidden" id="CSRFToken" name="CSRFToken" value="">
+                            <input type="hidden" id="targetUrl" name="targetUrl" value="">
+                        </div>
+                                                
+                        <button class="loginBtn registerBtn rippleWhite" id="signup_submit" tabindex="5" onclick="return window.widget.signupFormValidate(true);">
+                            Register
+                        </button>
+               		</form>
+          		</div>
+            
+            </div>
+            
+		</div>
+		<!-- Register OTP Screen Begins -->
+    	<div id="verify-registerOtp" class="signup-upgrade-container hide">
+    		
+    		<div id="backToSignUp" class="backIconContainer" onclick="backToSignUpView()">
+                <div class="back-icon login-background"></div>
+                <div class="backText">Want to go back</div>
+            </div>
+    		
+    		<h3>Verify</h3>
+    		
+			<div class="clearfix reset-message-block" style="display:none;">
+				<div class="icon-container lfloat">
+					<i class="sd-icon sd-icon-checkmark"></i>
+                </div>
+			    <p class="lfloat alert-text"></p>	
+            </div>
+			
+			<div id="verifyRegisterOTP">
+		        <p class="verify-mobile-heading">Please enter verification code sent to +91 <span id="forgot-mobile"></span></p>                    
+                
+	            <input type="hidden" name="otpId" id="signup-otp-otpId"/>                    
+				
+				<div class="clearfix otp-container" id="register-otp">
+					<input type="text" name="otp_one" data-otpPos="1" id="otp-1" class="otp-box" autocomplete="off" maxlength="1" autofocus/>
+					<input type="text" name="otp_two" data-otpPos="2" id="otp-2" class="otp-box" autocomplete="off" maxlength="1"/>
+					<input type="text" name="otp_three" data-otpPos="3" id="otp-3" class="otp-box" autocomplete="off" maxlength="1"/>
+					<input type="text" name="otp_four" data-otpPos="4" id="otp-4" class="otp-box" autocomplete="off" maxlength="1"/>
+					<div class="lfloat">
+						<div class="disc-loader-svg hidden-element loader-otp"></div>
+						<a href="javascript:void(0);" class="resend-otp-link" id="resend-register-OTP">Resend Code?</a>
+					</div>
+					<div style="clear:both;"></div>
+					<label class="clearfix">Please enter valid verification code</label>
+				</div>				                
+               	
+               	<button class="loginBtn rippleWhite" id="register-submit-button" onclick="return window.widget.verifyRegisterOTP(true);">
+                   	SUBMIT
+                </button>
+	            
+	        </div>	
+    	</div>
+    	<!-- Register OTP Screen Ends -->
+    	
+	</div>
+	
+	<div class="login-container hide">
+		
+		<div id="enter-user-detail" class="hide">
+			
+			<h3 class="container-heading">Login</h3>
+			<div class="backIconContainer" onclick="backToMainLogin()">
+            	<div class="back-icon login-background"></div>
+             	<div class="backText">Want to go back</div>
+            </div>
+            
+            <div class="clearfix">
+            	<div class="emailBtnIcon lfloat">
+                    <i class="emailIcon login-background"></i>
+                    <div class="emailHoverText">
+                        <span class="emailTextOne">Login using</span><br>
+                        <span class="hoverTextTwo">Email<i class="branding-switch hide">/Mobile</i></span>
+                    </div>
+                </div>
+                
+                <div class="lfloat">
+	                <div class="clearfix reset-message-block" style="display:none;">
+						<div class="icon-container lfloat">
+							<i class="sd-icon sd-icon-checkmark"></i>
+		                </div>
+					    <p class="lfloat alert-text"></p>	
+		            </div>
+                 	<form class="loginParts clearfix" id="ajaxSignin">
+		               	<div class="form-group">
+		                   	<span class="form-label">Enter <i class="branding-switch hide">mobile number or </i> email </span>
+		                    <input type="text" class="login-text inputfield input-orange inputanimate" size="20" name="j_username" id="j_username">
+		                </div>
+		                <div class="form-group">
+		                	<span class="form-label">Enter password</span>
+		                    <input type="password" class="login-text inputfield input-orange inputanimate" name="j_password" id="j_password_login">
+		                </div>
+		                <input type="hidden" value="on" name="_spring_security_remember_me" />
+		                <input type="hidden" value="true" name="ajax" />
+		                <div class="inputDiv loginBtnDiv">
+                        	<button class="loginBtn rippleWhite" id="signin_submit" type="submit" onclick="return window.widget.loginFormValidate(true);" tabindex="5" >
+                            	LOGIN
+                        	</button>
+							<a onclick="forgotPassword()" class="forgotLink fnt14" href="javascript: void(0)" tabindex="3">Forgot password?</a>
+		                </div>
+		        	</form>
+          		</div>
+          		
+            </div>
+            
+		</div>
+		
+		<div id="forgot-password" class="hide">
+			
+			<h3 class="container-heading">Forgot Password</h3>
+			<p class="marB20 forgot-heading">If you have forgotten your password, we can send an email with instructions to reset it.</p>
+			
+			<div class="backIconContainer" onclick="backToLogin()">
+            	<div class="back-icon login-background"></div>
+             	<div class="backText">Want to go back</div>
+            </div>
+            
+            <div class="clearfix">
+            	<div class="emailBtnIcon lfloat">
+                    <i class="emailIcon login-background"></i>
+                    <div class="emailHoverText">
+                        <span class="emailTextOne">Login using</span><br>
+                        <span class="hoverTextTwo">Email<i class="branding-switch hide">/Mobile</i></span>
+                    </div>
+                </div>
+                
+                <div class="lfloat">
+	                <div class="clearfix reset-message-block" style="display:none;">
+						<div class="icon-container lfloat">
+							<i class="sd-icon sd-icon-checkmark"></i>
+		                </div>
+					    <p class="lfloat alert-text"></p>	
+		            </div>
+                 	<form id="forgotPasswordNavigation" class="clearfix" name="forgotPasswordNavigation">
+	                     <div class="form-group">
+	                         <span class="form-label">Email Address</span>
+	                         <input tabindex="1" type="email" class="login-text inputfield input-orange inputanimate" name="fp_email" id="fp_email" autocomplete="off"/>
+	                     </div>
+	                     <div class="signinbottom">
+	                         <button tabindex="2" class="signinContinue loginBtn rippleWhite" onclick="return window.widget.phoneNumberFormValidate(true);">
+	                             SEND EMAIL
+	                         </button>
+	                     </div>
+	                 </form>
+          		</div>
+          		
+            </div>
+            
+		</div>
+		
+		<!-- Reset Password Block Begins -->
+        <div id="reset-password-otp" class="hide">
+        
+			<h3 class="container-heading">Reset Password</h3>
+            
+            <div class="backIconContainer" onclick="backToForgotPassword()">
+            	<div class="back-icon login-background"></div>
+             	<div class="backText">Want to go back</div>
+            </div>
+            
+            <div class="clearfix">
+                <div class="clearfix reset-message-block">
+                    <div class="icon-container lfloat">
+                        <i class="sd-icon sd-icon-checkmark"></i>
+                    </div>
+                    <p class="lfloat alert-text"></p>
+                </div>
+
+                <form id="resetPasswordOTP" class="clearfix">
+                    <input type="hidden" name="email" id="reset-otp-emailid"/>
+
+                    <div class="form-group">
+                        <span for="reset-otp" class="form-label">Enter Code</span>
+                        <input type="text" id="reset-otp" name="otp" class="login-text inputfield input-orange inputanimate" autocomplete="off"/>
+                        <a href="javascript:void(0);" id="resend-OTP">Resend code</a>
+                    </div>
+
+                    <div class="popup-form-row form-group">
+                        <span for="reset-passowrd-otp" class="form-label">Password</span>
+                        <input type="password" id="reset-passowrd-otp" name="newPassword" class="login-text inputfield input-orange inputanimate sign-input-pass"/>
+                    </div>
+
+                    <div class="popup-form-row form-group">
+                        <span for="confirm-reset-passowrd-otp" class="form-label">Confirm Password</span>
+                        <input type="password" id="confirm-reset-passowrd-otp" name="confirmPassword" class="login-text inputfield input-orange inputanimate sign-input-pass"/>
+                    </div>
+
+                    <div class="signinbottom">
+                        <button class="loginBtn registerBtn rippleWhite resetBtn" onclick="return window.widget.resetFormValidate(true);">
+                            Reset & Login
+                        </button>
+                    </div>
+
+                    <input type="text" class="hide" name="otpId" id="reset-otp-otpId"/>
+                </form>
+            </div>
+
+        </div>
+        <!-- Reset Password Block Ends -->
+		
+	</div>
+	<div class="branding-switch hide">
+		<div class="wallet-footer" style="display:none;">
+	  		<p class="head"><span class="icon-black-freecharge login-background"></span> account</p>
+	  		<p class="message">Common account across Freecharge & Snapdeal</p>
+	  		<p class="message" id="bank-message" style="display:none;">Freecharge balance is issued by<span class="icon-bank login-background"></span></p>
+	  	</div>
+	</div>
+</div>
+</script>
+    <script>
+        var parentLoc = window.location.hash.split("#").join("");
+    </script>
+    <script type="text/ssJson" id="loginParams">
+{"showLoginWidget":true,"fbAppId":"689277371113314","googleAppId":"36115742491-h38grsuuq7jilk484i69j84bmul8nst5.apps.googleusercontent.com","registerLoginDTOs":[{"titleText":"\u003cdiv style\u003d\"color: rgb(3, 72, 130); font: 23px Calibri; padding: 15px \n\n0px 0px;\"\u003e\n\nDownload and Shop on the App\n\u003c/div\u003e\n\n\u003cdiv style\u003d\"color: rgb(117, 24, 6); padding: 4px 0px 12px; font: bold \n\n15px Calibri;\"\u003e\u003c/div\u003e","imageSource":"https://i3.sdlcdn.com/img/registerLoginAdmin/05/login-screen.png","bottomText":"\u003cdiv style\u003d\"margin: 0px; padding: 12px 0px; font: 12px/23px Calibri; \n\ncolor: rgb(51, 51, 51);\"\u003e   \n \n        \n        \u003c/div\u003e","isPromoPresent":false},{"titleText":"\u003cdiv style\u003d\"color: rgb(3, 72, 130); font: 23px Calibri; padding: 15px \n\n0px 0px;\"\u003e\n\nDownload and Shop on the App\n\u003c/div\u003e\n\n\u003cdiv style\u003d\"color: rgb(117, 24, 6); padding: 4px 0px 12px; font: bold \n\n15px Calibri;\"\u003e\u003c/div\u003e","imageSource":"https://i3.sdlcdn.com/img/registerLoginAdmin/05/login-screen.png","bottomText":"\u003cdiv style\u003d\"margin: 0px; padding: 12px 0px; font: 12px/23px Calibri; \n\ncolor: rgb(51, 51, 51);\"\u003e   \n        \u003c/div\u003e","isPromoPresent":false}]}</script>
+    <script type="text/javascript">
+    var canFocus = false ;
+    function showWidget(data, msg){
+        var msg = msg || "dflt";
+        window.widget = new Snapdeal.signupWidget();
+        window.widget.init(data);
+        signinBox=$("#signin_box");
+        signinBox.show();
+        signinBox.html(window.widget.getHtml(msg));
+        window.widget.postAppend();
+        XD.postMessage("iframeLoaded",parentLoc);
+        setTimeout(function(){
+            canFocus = true ;
+        },10);
+    }
+    var data ;
+    $(document).ready(function(){
+
+        try {
+            data = $.parseJSON($("#loginParams").html());
+        } catch (e) {
+            data = null ;
+        }
+        // Populate enough data to survive jqtmpl
+        if(!data)
+            data =  { };
+        data['promo'] = data['promo'] || {};
+        data['login'] = data['login'] || {};
+
+        showWidget(data);
+        var clsBtn=$("#signin_box .closepopup");
+        clsBtn.removeAttr("onclick");
+        clsBtn.live("click",function(){
+            closepopupInitiate();
+        });
+        // Set Event Handlers
+        $(document).delegate(".headtabs > li" ,"click" , function(){
+            setActiveTab($(this).index())
+        });
+        $("#ajaxSignin").submit(function(e){
+            e.preventDefault();
+        });
+
+        $('#signin_box').on('click','.fbIcon', function(){
+            Snapdeal.Cookie.set('sdfblogin', 'yes', 365);
+        });
+        if(matrixUser != "false"){
+            $('.social-conainer,.horizonatal-line').addClass('hide');
+        }
+        if(dotBrandingFlag != 'false'){
+    		$('.loginBanner').addClass('hide');
+    		$('.branding-switch').removeClass('hide');
+    	}else{
+    		$('.loginBanner').removeClass('hide');
+    		$('.branding-switch').addClass('hide');
+    	}
+        if(signupWithMobile != 'false'){
+    		$('.branding-switch-register').removeClass('hide')
+    	}
+    });
+
+    // Override the method in snapdealHOme
+    function closepopupInitiate() {
+        $(".logInByEmailDiv").show();
+        $(".logInFormWrapper").hide();
+        XD.postMessage("close",parentLoc);
+        /*
+         document.body.style.overflow = "auto";
+         $("#ajaxSignup").clearForm();
+         $("#ajaxSignin").clearForm();
+         $("#forgotPasswordNavigation").clearForm();
+         resetLogin();
+         resetRegister();
+         XD.postMessage("close",parentLoc);
+         */
+    }
+
+    $(document).on('keyup.imagePopup', function(e) {
+        if (e.keyCode == 27){
+            closepopupInitiate();
+            //closepopup();
+            //$(document).off('keyup.imagePopup');
+        }
+    });
+
+    /*
+     $(document).bind("keyup.escapeListener",function(e){
+     if(e.keyCode == 27) {
+     closepopup();
+     }
+     });
+     */
+
+    function clearForm(form)
+    {
+        $(":input", form).each(function()
+        {
+            var type = this.type;
+            var tag = this.tagName.toLowerCase();
+            if (type == 'text')
+            {
+                this.value = "";
+            }
+        });
+    };
+    XD.receiveMessage(function(msg){
+        if(msg.data == "quickBuy" ) {
+            showWidget(data, msg.data);
+            setActiveTab(0);
+        }else if(msg.data == "dflt" ){
+            showWidget(data, msg.data);
+        };
+    });
+
+
+    XD.receiveMessage(function(msg){
+        if(msg.data == 'loginClicked'){
+        	$('.register-ui').addClass('hide');
+            $('.login-ui').removeClass('hide');
+            $('.wallet-footer,#bank-message').hide();
+        }
+        else if(msg.data == 'registerClicked'){
+        	$('.register-ui').removeClass('hide');
+            $('.login-ui').addClass('hide');
+            $('.wallet-footer,#bank-message').hide();
+        }
+        else if(msg.data == 'closePopup'){
+            $('.register-container,.login-container').addClass('hide');
+            $('.login-register-container').removeClass('hide');
+            $('.wallet-footer,#bank-message').hide();
+        }
+        else if(msg.data == 'closePopupByEsc'){
+            closepopupInitiate();
+        }
+    });
+
+    </script>
+</head>
+<body class="signinBody">
+<div id="signin_box" class="iframeSignin" style="background: none repeat scroll 0% 0% transparent ! important; display: block;"><div id="login-register-modal">  <div class="closepopup" id="close-pop">   <i class="sd-icon sd-icon-delete-sign"></i>  </div>    <!-- Login Register Container Begins-->  <div class="login-register-container clearfix">   <div class="lfloat left-container">    <div class="branding-switch">     <div class="register-ui hide">      <p class="fnt-24">Create a <i class="login-background freecharge-icon"></i> account</p>      <p class="fnt-18">to register on Snapdeal</p>     </div>          <div class="login-ui">      <p class="fnt-18">Snapdeal account now upgraded to</p>      <p class="fnt-24"><i class="login-background freecharge-icon"></i> account</p>     </div>    </div>        <div class="loginBanner hide">     <p class="fnt-24">Benefits of Login/Register</p>    </div>        <div class="icon-box">     <i class="login-background common-accounts-icon"></i>     <p class="branding-switch">Common accounts across Freecharge &amp; Snapdeal</p>     <p class="loginBanner hide">Personalized browsing with features like wishlist</p>    </div>        <div class="icon-box">     <i class="login-background save-time-icon"></i>     <p class="branding-switch">Checkout in under 10 seconds</p>     <p class="loginBanner hide">Faster checkout with saved cards and addresses</p>    </div>        <div class="icon-box">     <i class="login-background rewards-icon"></i>     <p class="branding-switch">Earn rewards on shopping</p>     <p class="loginBanner hide">Easy order tracking</p>    </div>       </div>      <div class="rfloat right-container">    <p class="register-ui hide heading">Register</p>    <p class="login-ui heading">Login</p>        <div class="register-ui hide register-login-container">     <p class="marB20">Create a <i class="branding-switch">Freecharge</i> account</p>     <div class="register-login-button marB10" onclick="getSignUpForm()"><span class="branding-switch-register">Mobile number or </span> email</div>     <p class="terms">By continuing with registration I agree to <a href="javascript:void(0);" onclick="termsLink();">Terms &amp; Conditions</a></p>    </div>        <div class="login-ui register-login-container">     <p class="marB20">Login using Snapdeal <i class="branding-switch">or Freecharge</i> account</p>     <div class="register-login-button" onclick="getLoginForm()"><span class="branding-switch">Mobile number or</span> email</div>     <p class="terms" style="visibility:hidden;">I agree to<a href="http://www.snapdeal.com/page/termsOfUse">Terms &amp; Conditions</a></p>    </div>        <div class="horizonatal-line"><span>OR</span></div>        <div class="social-conainer">     <button class="fbIcon" onclick="return window.widget.fbLogin('https://www.facebook.com/v2.0/dialog/oauth?client_id=689277371113314&amp;redirect_uri=https://www.snapdeal.com:443/j_spring_facebook_security_check?source=facebook&amp;scope=email,user_birthday,user_likes,user_hometown,user_location');">      <i class="sd-icon-facebook24 sd-icon"></i><span>Facebook</span>     </button>     <button class="gIcon" onclick="return window.widget.rpxLogin('https://accounts.google.com/o/oauth2/auth?client_id=36115742491-h38grsuuq7jilk484i69j84bmul8nst5.apps.googleusercontent.com&amp;response_type=code&amp;scope=email%20profile&amp;redirect_uri=https://www.snapdeal.com:443/j_spring_google_security_check%3Fsource%3Dgoogle&amp;');">      <i class="sd-icon-google24 sd-icon"></i><span>Google +</span>     </button>    </div>        <div class="register-ui hide bottom-message">     <span>Already a member with us?</span>                 <a href="javascript:void(0);" onclick="toggleLoginRegisterView('login')">Login</a>             </div>                          <div class="login-ui bottom-message">Do not have an account?                 <a href="javascript:%20void(0);" onclick="toggleLoginRegisterView('register')">Register</a>             </div>   </div>  </div>  <!-- Login Register Container Begins-->    <div class="register-container hide">   <div id="enter-newuser-detail" class="hide">    <h3 class="container-heading">Register</h3>    <div id="backToRegister" class="backIconContainer" onclick="backtoMainSignUP()">              <div class="back-icon login-background"></div>               <div class="backText">Want to go back</div>             </div>             <div class="clearfix">                            <div class="emailBtnIcon lfloat">                     <i class="emailIcon login-background"></i>                     <div class="emailHoverText">                         <span class="emailTextOne">Register using</span><br>                         <span class="hoverTextTwo">Email<i class="branding-switch-register">/Mobile</i></span>                     </div>                 </div>                                  <div class="lfloat">                  <div class="clearfix reset-message-block" style="display:none;">       <div class="icon-container lfloat">        <i class="sd-icon sd-icon-checkmark"></i>                   </div>          <p class="lfloat alert-text"></p>                </div>                   <form novalidate="novalidate" class="clearfix" id="ajaxSignup">                      <div class="popup-form-row form-group hide" id="resisterMobile">                       <span for="j_number" class="form-label">Mobile Number</span>                          <input id="j_number" maxlength="10" name="j_number" tabindex="1" class="login-text  white-text signup-email-input inputfield input-orange inputanimate" type="text">                      </div>                                                                  <div class="popup-form-row form-group">                          <span for="j_username_new" class="form-label">Email Address</span>                             <input id="j_username_new" name="j_username" tabindex="2" class="login-text  white-text signup-email-input inputfield input-orange inputanimate" type="email">                         </div>                          <div class="popup-form-row form-group">                          <span for="j_password" class="form-label">Password</span>                             <input id="j_password" name="j_password" tabindex="3" class="login-text inputfield input-orange inputanimate sign-input-pass" type="password">                         </div>                                                                          <div class="popup-form-row form-group">                          <span for="j_confpassword" class="form-label">Confirm Password</span>                             <input id="j_confpassword" name="j_confpassword" tabindex="4" class="login-text inputfield input-orange inputanimate sign-input-pass" type="password">                         </div>                          <div class="popup-form-row">                          <input id="CSRFToken" name="CSRFToken" value="" type="hidden">                             <input id="targetUrl" name="targetUrl" value="" type="hidden">                         </div>                                                                          <button class="loginBtn registerBtn rippleWhite" id="signup_submit" tabindex="5" onclick="return window.widget.signupFormValidate(true);">                             Register                         </button>                  </form>             </div>                          </div>                </div>   <!-- Register OTP Screen Begins -->      <div id="verify-registerOtp" class="signup-upgrade-container hide">              <div id="backToSignUp" class="backIconContainer" onclick="backToSignUpView()">                 <div class="back-icon login-background"></div>                 <div class="backText">Want to go back</div>             </div>              <h3>Verify</h3>           <div class="clearfix reset-message-block" style="display:none;">     <div class="icon-container lfloat">      <i class="sd-icon sd-icon-checkmark"></i>                 </div>        <p class="lfloat alert-text"></p>              </div>        <div id="verifyRegisterOTP">           <p class="verify-mobile-heading">Please enter verification code sent to +91 <span id="forgot-mobile"></span></p>                                                   <input name="otpId" id="signup-otp-otpId" type="hidden">                              <div class="clearfix otp-container" id="register-otp">      <input name="otp_one" data-otppos="1" id="otp-1" class="otp-box" autocomplete="off" maxlength="1" autofocus="" type="text">      <input name="otp_two" data-otppos="2" id="otp-2" class="otp-box" autocomplete="off" maxlength="1" type="text">      <input name="otp_three" data-otppos="3" id="otp-3" class="otp-box" autocomplete="off" maxlength="1" type="text">      <input name="otp_four" data-otppos="4" id="otp-4" class="otp-box" autocomplete="off" maxlength="1" type="text">      <div class="lfloat">       <div class="disc-loader-svg hidden-element loader-otp"></div>       <a href="javascript:void(0);" class="resend-otp-link" id="resend-register-OTP">Resend Code?</a>      </div>      <div style="clear:both;"></div>      <label class="clearfix">Please enter valid verification code</label>     </div>                                                      <button class="loginBtn rippleWhite" id="register-submit-button" onclick="return window.widget.verifyRegisterOTP(true);">                     SUBMIT                 </button>                        </div>       </div>      <!-- Register OTP Screen Ends -->        </div>    <div class="login-container hide">      <div id="enter-user-detail" class="hide">        <h3 class="container-heading">Login</h3>    <div class="backIconContainer" onclick="backToMainLogin()">              <div class="back-icon login-background"></div>               <div class="backText">Want to go back</div>             </div>                          <div class="clearfix">              <div class="emailBtnIcon lfloat">                     <i class="emailIcon login-background"></i>                     <div class="emailHoverText">                         <span class="emailTextOne">Login using</span><br>                         <span class="hoverTextTwo">Email<i class="branding-switch">/Mobile</i></span>                     </div>                 </div>                                  <div class="lfloat">                  <div class="clearfix reset-message-block" style="display:none;">       <div class="icon-container lfloat">        <i class="sd-icon sd-icon-checkmark"></i>                   </div>          <p class="lfloat alert-text"></p>                </div>                   <form novalidate="novalidate" class="loginParts clearfix" id="ajaxSignin">                   <div class="form-group">                       <span class="form-label">Enter <i class="branding-switch">mobile number or </i> email </span>                       <input class="login-text inputfield input-orange inputanimate" size="20" name="j_username" id="j_username" type="text">                   </div>                   <div class="form-group">                    <span class="form-label">Enter password</span>                       <input class="login-text inputfield input-orange inputanimate" name="j_password" id="j_password_login" type="password">                   </div>                   <input value="on" name="_spring_security_remember_me" type="hidden">                   <input value="true" name="ajax" type="hidden">                   <div class="inputDiv loginBtnDiv">                          <button class="loginBtn rippleWhite" id="signin_submit" type="submit" onclick="return window.widget.loginFormValidate(true);" tabindex="5">                              LOGIN                          </button>        <a onclick="forgotPassword()" class="forgotLink fnt14" href="javascript:%20void(0)" tabindex="3">Forgot password?</a>                   </div>            </form>             </div>                          </div>                </div>      <div id="forgot-password" class="hide">        <h3 class="container-heading">Forgot Password</h3>    <p class="marB20 forgot-heading">If you have forgotten your password, we can send an email with instructions to reset it.</p>        <div class="backIconContainer" onclick="backToLogin()">              <div class="back-icon login-background"></div>               <div class="backText">Want to go back</div>             </div>                          <div class="clearfix">              <div class="emailBtnIcon lfloat">                     <i class="emailIcon login-background"></i>                     <div class="emailHoverText">                         <span class="emailTextOne">Login using</span><br>                         <span class="hoverTextTwo">Email<i class="branding-switch">/Mobile</i></span>                     </div>                 </div>                                  <div class="lfloat">                  <div class="clearfix reset-message-block" style="display:none;">       <div class="icon-container lfloat">        <i class="sd-icon sd-icon-checkmark"></i>                   </div>          <p class="lfloat alert-text"></p>                </div>                   <form novalidate="novalidate" id="forgotPasswordNavigation" class="clearfix" name="forgotPasswordNavigation">                       <div class="form-group">                           <span class="form-label">Email Address</span>                           <input tabindex="1" class="login-text inputfield input-orange inputanimate" name="fp_email" id="fp_email" autocomplete="off" type="email">                       </div>                       <div class="signinbottom">                           <button tabindex="2" class="signinContinue loginBtn rippleWhite" onclick="return window.widget.phoneNumberFormValidate(true);">                               SEND EMAIL                           </button>                       </div>                   </form>             </div>                          </div>                </div>      <!-- Reset Password Block Begins -->         <div id="reset-password-otp" class="hide">             <h3 class="container-heading">Reset Password</h3>                          <div class="backIconContainer" onclick="backToForgotPassword()">              <div class="back-icon login-background"></div>               <div class="backText">Want to go back</div>             </div>                          <div class="clearfix">                 <div class="clearfix reset-message-block">                     <div class="icon-container lfloat">                         <i class="sd-icon sd-icon-checkmark"></i>                     </div>                     <p class="lfloat alert-text"></p>                 </div>                  <form novalidate="novalidate" id="resetPasswordOTP" class="clearfix">                     <input name="email" id="reset-otp-emailid" type="hidden">                      <div class="form-group">                         <span for="reset-otp" class="form-label">Enter Code</span>                         <input id="reset-otp" name="otp" class="login-text inputfield input-orange inputanimate" autocomplete="off" type="text">                         <a href="javascript:void(0);" id="resend-OTP">Resend code</a>                     </div>                      <div class="popup-form-row form-group">                         <span for="reset-passowrd-otp" class="form-label">Password</span>                         <input id="reset-passowrd-otp" name="newPassword" class="login-text inputfield input-orange inputanimate sign-input-pass" type="password">                     </div>                      <div class="popup-form-row form-group">                         <span for="confirm-reset-passowrd-otp" class="form-label">Confirm Password</span>                         <input id="confirm-reset-passowrd-otp" name="confirmPassword" class="login-text inputfield input-orange inputanimate sign-input-pass" type="password">                     </div>                      <div class="signinbottom">                         <button class="loginBtn registerBtn rippleWhite resetBtn" onclick="return window.widget.resetFormValidate(true);">                             Reset &amp; Login                         </button>                     </div>                      <input class="hide" name="otpId" id="reset-otp-otpId" type="text">                 </form>             </div>          </div>         <!-- Reset Password Block Ends -->     </div>  <div class="branding-switch">   <div class="wallet-footer" style="display:none;">      <p class="head"><span class="icon-black-freecharge login-background"></span> account</p>      <p class="message">Common account across Freecharge &amp; Snapdeal</p>      <p class="message" id="bank-message" style="display:none;">Freecharge balance is issued by<span class="icon-bank login-background"></span></p>     </div>  </div> </div></div>
+
+</body></html>
