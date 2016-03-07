@@ -1,14 +1,14 @@
-{% block content %}
+
 {% load staticfiles %}
-{% block footer %}
+
       <!-- Some social button for contact will do -->
-      <a name="contact"></a>
+                 <div class="footer" style="background: #E7E7E7">
       <div class="container">
-            <div class="footer">
+
         <div class="row">
           <div class="col-lg-4">
 {% block navbar-left %}
-  {% include "_navbar.html" with active_link="home" %}
+  {% include "_navbar.html"  %}
 {% endblock %}          </div>
           <div class="col-lg-4">
              <center> <p>&copy; Company {% now 'Y' %}</p> </center>
@@ -21,6 +21,6 @@
         </div>
             </div>
       </div>
-    {% endblock %}
-{% endblock %}
+
+
  

@@ -12,7 +12,6 @@ html, body{
 .footer {
   padding-top: 40px;
   padding-bottom: 40px;
-  margin-top: 40px;
   border-top: 1px solid #eee;
 }
 
@@ -36,7 +35,8 @@ body>.navbar-transparent {
 }
 
 .navbar-nav>li>a.profile-menu {
-    
+    padding-top: 15px;
+    padding-bottom: 15px;
 }
 
 .navbar-nav>.btn{

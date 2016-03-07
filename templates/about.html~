@@ -5,9 +5,6 @@
 
 {% block title %}{{ block.super }}About{% endblock %}
 
-{% block navbar-left %}
-  {% include "_navbar.html" with active_link="about" %}
-{% endblock %}
 
 <!-- Benefits of the Django application -->
 {% block container %}
@@ -32,12 +29,13 @@
         <div class="container-fluid">
 
                 <div class="col-sm-5">
-                    <img src= "{% static 'site/img/abt.png' %}"  style="height:290px;width:450px"  class="img-responsive" alt=""/>
+                    <img src= "{% static 'site/img/abt.png' %}"  style="height:270px;width:450px"  class="img-responsive" alt=""/>
                 </div>
                 <div class="col-sm-7">
                     <p > Community Panda aims to create a social community platform dedicated to combining the idea of local exchanges and services with grander scale charities.  The goal of this website is to enable people to connect with their communities and allow them to exchange goods for free or with a price—hopefully a price that will be donated straight to charity. 
 </p>
  <p > We also hope for neighborhoods to connect with events, schools, and available services.  Community Panda is a space for helping on a small scale and a large scale. </p>
+<p> The first and foremost goal is to restore their health and well-being, as much as possible, by providing them with cutting-edge medical treatments. Raising awareness is yet another goal of eCharity. We believe, by educating, not punishing, we can reduce and eventually eliminate the occurrence of this crime and crimes like this. Our ultimate mission is to support the victims to get back on their feet, once again, gain their self-confidence and to live a full life!.</p>
  </div>
 
         </div>

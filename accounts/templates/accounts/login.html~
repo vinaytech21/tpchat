@@ -1,18 +1,59 @@
-{% extends "accounts/auth_base.html" %}
-
+{% extends "base.html" %}
+{% load i18n %}
 {% load crispy_forms_tags %}
 
-{% block title %}{{ block.super }}Log In{% endblock %}
 
-{% block form_heading %}Please Log In{% endblock %}
-
-{% block form %}
-  {% crispy form %}
-
-  <div class="form-message">
-    <p>
-      Don't have an account? <a href="{% url 'accounts:signup' %}">Sign up</a>.
-    </p>    {% include "/socialaccount/snippets/provider_list.html" with process="login" %}
+{% block container %}
+{% load static %}
+<div class="container-fluid" style="width: auto;  color:GhostWhite; background :url({% static "img/intro-bg.jpg" %}) no-repeat center top"> 
+<br><br><br><br><br><br>
+	<div class="row">
+<div class="col-md-4">
   </div>
-{% endblock form %}
+<div class="col-md-4" style="padding:1px;border:1px groove LightSteelBlue; background-color:#A4A4A4">
+{% if request.user.is_authenticated %}
+<p>YOUR ARE ALREADY LOGIN<P>
+<p> FOR LOGIN TO OTHER ACCOUNT; LOGOUT FIRST<p><a href="." type="button" class="btn btn-info btn-lg">Logout</a></button>
+{% else %}
+<center><b><h1>Sign-In</h1><b></center>
+<div class="row">
+      <div class="col-sm-2"></div>
+      <div class="col-sm-8">
 
+<form method="post" action=".">
+
+  {% csrf_token %}
+  {{ form|crispy }}
+ <center>
+
+ <center> <input type="image" src='{% static "img/reg.png" %}' href="." value="{% trans 'Submit' %}" /></center>
+  <input type="hidden" name="next" value="{{ next }}" />
+
+</form></div></div>
+
+<center><h4><b>Not a member yet ?<a href="{% url 'accounts:signup' %}" style="color:#428BCA"> Sign up here</a></b></h4></center>
+<hr/>
+ <form>
+<div>
+<center>Or Social Log-In with</center>
+<div class="col-sm-2"></div>
+<div class="col-sm-3">
+ <a href="http://www.twitter.com"><img src='{% static "img/t.png" %}'/></a></div>
+<div class="col-sm-3">
+ <a href="#"><img src='{% static "img/f.png" %}' id="loginBtn" onclick="logIn();" value="Login" /></a></div>
+<div class="col-sm-3">
+ <a href="http://www.gmail.com"><img src='{% static "img/g.png" %}' /></a></div>
+  </form></div> <br><br><br> <br> 
+</div>
+</div>
+{% endif %}
+
+
+</div>
+
+ 
+
+
+
+
+{% endblock %}
