@@ -1,0 +1,194 @@
+{% extends "dashboard.html" %}
+{% block container %}
+{% load staticfiles %}
+<head>
+
+	  <style>
+		#hover:hover
+		{
+    background-color: white;
+
+}
+
+.text
+{
+	border: 1px solid #eeeeee;
+	background-color: #F3F3F3;
+}
+   .pager {
+      padding-top: 20px;
+      padding-left: 40px;
+      }
+   .pager .page a {
+      border: 3px solid #bbbbbb;
+      margin-left: 1px;
+      margin-right: 1px;
+      padding-left: 4px;
+      padding-right: 4px;
+      text-decoration: none;
+      color: #000000;
+      }
+   .pager .current {
+      border: 3px solid #444444;
+      margin-left: 2px;
+      margin-right: 2px;
+      padding-left: 2px;
+      }
+</style>
+
+    <script src="{% static 'js/jquery.elevatezoom.js' %}"></script>
+</head>
+   <div class="container-fluid" class="responsive" style="height: auto; width: auto; background-color: white">
+<h3 style="color:#797980"><center><b>Recent Activity in (Zipcode) <b></center></h3>
+<div class="container-fluid" style="height:auto; width: auto; color:#797980;  background-color: white">
+
+    <div class="row">
+        <div class="col-md-3">
+		<h4><label> </label></h4>
+		</div>
+		<div class="col-md-4">
+			<h4><label>  </label></h4>
+		</div>
+
+		<div class="col-md-3">
+			<h4><label>  </label></h4>
+		</div>
+
+		<div class="col-md-2">
+			<h4><label>  </label></h4>
+		</div>
+
+		</div>
+{% if event or products or services %}
+{% if is_paginated %}{% load paginator %}{% paginator 3 %}{% endif %}
+
+
+
+{% for event in events %}
+     <div id="hover" class="text">
+       <br>
+	    <div class="row">
+        <div class="post">
+		{% if event %}
+           <div class="col-md-3" >
+                        <ul>
+                         <a href="/events/event/{{ event.pk }}"> <img src="{{ event.snap.url }}" class="img-responsive"  width="60px" height=60px" alt="image "></a>
+                               </li>
+
+                        </ul>
+
+			</div>
+
+			<div class="col-md-4">
+
+
+
+                              <br><br><br><br>
+
+			<h5 style="margin-top:-70px"><a href="/events/event/{{ event.pk }}" style="text-decoration:none;color:#428BCA">{{  event.eventtype|upper|truncatewords:10 }}</a></h5>
+
+
+			</div>
+			<div class="col-md-3">
+
+
+                              <br><br><br><br>
+            <h5 style="margin-top:-70px"><a href="/events/event/{{ event.pk }}/" style="text-decoration:none;color:#428BCA"> {{  event.date_event|date:"d M Y" }}</a> </h5>
+
+
+                              </div>
+ <div class="col-md-2">
+  <h5 style="color:black"><a class="btn btn-default" href="/event/enquiry/{{ event.user.email}}/" style="color:#428BCA">{{  event.user.name }}</a></h5>
+ </div></div>{% endif %}
+            </div>
+
+
+		            </div>
+{% endfor %}
+
+
+{% for object in products %}
+     <div id="hover" class="text">
+       <br>
+	    <div class="row">
+        <div class="post">
+		{% if products %}
+           <div class="col-md-3" >
+                        <ul>
+                         <a href="/products/{{ object.pk }}/"> <img src="{{ object.docfile.url }}" class="img-responsive"  width="60px" height=60px" alt="image "></a>
+                               </li>
+
+                        </ul>
+
+
+			</div>
+
+			<div class="col-md-4">
+
+
+
+                              <br><br><br><br>
+
+			<h5 style="margin-top:-70px"><a href="/products/{{ object.pk }}/" style="text-decoration:none;color:#428BCA">{{ object.title|truncatechars:10 }}</a></h5>
+
+
+			</div>
+			<div class="col-md-3">
+
+
+                              <br><br><br><br>
+            <h5 style="margin-top:-70px"><a href="/products/{{ object.pk }}/" style="text-decoration:none;color:#428BCA"> {{  object.date_created|date:"d M Y" }}</a> </h5>
+
+
+                              </div>
+ <div class="col-md-2">
+<h5 style="color:black"><a class="btn btn-default" href="/product/enquiry/{{ object.user.email}}/" style="color:#428BCA">{{  object.user.name }}</a></h5>
+ </div> {% endif %}
+            </div>
+			</div>
+
+		            </div>
+{% endfor %}
+{% for object in services %}
+     <div id="hover" class="text">
+       <br>
+	    <div class="row">
+        <div class="post">
+		{% if services %}
+           <div class="col-md-3" >
+                        <ul>
+                         <a href="/services/service/{{ object.pk }}/"> <img src="{{ object.docfile.url }}" class="img-responsive"  width="60px" height=60px" alt="image "></a>
+                               </li>
+                        </ul>
+			</div>
+			<div class="col-md-4">
+                              <br><br><br><br>
+			<h5 style="margin-top:-70px"><a href="/services/service/{{ object.pk }}/" style="text-decoration:none;color:#428BCA">{{ object.title|truncatechars:10 }}</a></h5>
+	</div>
+			<div class="col-md-3">
+                              <br><br><br><br>
+            <h5 style="margin-top:-70px"><a href="/services/service/{{ object.pk }}/" style="text-decoration:none;color:#428BCA"> {{ object.date_created|date:"d M Y" }}</a> </h5>
+
+
+                              </div>
+ <div class="col-md-2">
+<h5 style="color:black"><a class="btn btn-default" href="/service/enquiry/{{ object.user.email}}/" style="color:#428BCA">{{  object.user.name }}</a></h5></div>
+ {% endif %}
+            </div>
+			</div>
+
+		            </div>
+{% endfor %} <br><br>
+			</div></div>
+{% endif %}
+
+{% if is_paginated %}{% load paginator %}{% paginator 3 %}{% endif %}
+
+{% else %}<center><h4  style="color:#170f3d;">Still no one post is listed on this zipcode.</h4></center><br><br>
+<p>*We are watting to update post on your zipcode...</p><br><br><br><br>
+ {% endif %}  </div>
+	<script>
+     $("#vin").elevateZoom({scrollZoom : true});
+    </script>
+{% endblock %}
+

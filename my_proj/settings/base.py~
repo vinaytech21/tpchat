@@ -112,6 +112,7 @@ INSTALLED_APPS = (
     'allauth.socialaccount.providers.google',
     'allauth.socialaccount.providers.linkedin',
     'allauth.socialaccount.providers.linkedin_oauth2',
+    'avatar',
 
 )
 
@@ -171,12 +172,13 @@ MESSAGE_TAGS = {
 }
 
 # Authentication Settings
+ACCOUNT_EMAIL_VERIFICATION = True
 ACCOUNT_USER_MODEL_USERNAME_FIELD = None
 ACCOUNT_EMAIL_REQUIRED = True
 ACCOUNT_USERNAME_REQUIRED = False
 ACCOUNT_AUTHENTICATION_METHOD = 'email'
 AUTH_USER_MODEL = 'authtools.User'
 LOGIN_REDIRECT_URL = reverse_lazy("profiles:show_self")
-LOGIN_URL = reverse_lazy("accounts:login")
+LOGIN_URL = reverse_lazy("allauth:login")
 
 THUMBNAIL_EXTENSION = 'png'     # Or any extn for your thumbnails

@@ -31,29 +31,46 @@
 
 </form></div></div>
 
-<center><h4><b>Not a member yet ?<a href="{% url 'accounts:signup' %}" style="color:#428BCA"> Sign up here</a></b></h4></center>
+<center><h4><b>Not a member yet ?<a href="/accounts/signup" style="color:#428BCA"> Sign up here</a></b></h4></center>
+
 <hr/>
  <form>
 <div>
+
+
 <center>Or Social Log-In with</center>
-<div class="col-sm-2"></div>
+<div class="col-sm-1"></div>{% load socialaccount %}
+
+{% get_providers as socialaccount_providers %}
+
+{% for provider in socialaccount_providers %}
+{% if provider.id == "openid" %}
+{% for brand in provider.get_brands %}
+
+  <a title="{{brand.name}}" 
+     class="socialaccount_provider {{provider.id}} {{brand.id}}" 
+     href="{% provider_login_url provider.id openid=brand.openid_url process=process %}"
+     ><img src='{% static "img/g.png" %}' /></a>
+
+{% endfor %}
+{% endif %}
+
+  <a title="{{provider.name}}" class="socialaccount_provider {{provider.id}}" 
+     href="{% provider_login_url provider.id process=process scope=scope auth_params=auth_params %}">{{provider.name}}</a>
+
+{% endfor %}
 <div class="col-sm-3">
- <a href="http://www.twitter.com"><img src='{% static "img/t.png" %}'/></a></div>
+
+ <a href="http://www.twitter.com"><img1 src='{% static "img/t11.png" %}'/></a></div>
 <div class="col-sm-3">
- <a href="#"><img src='{% static "img/f.png" %}' id="loginBtn" onclick="logIn();" value="Login" /></a></div>
+ <a href="#"><img1 src='{% static "img/f11.png" %}' id="loginBtn" onclick="logIn();" value="Login" /></a></div>
 <div class="col-sm-3">
- <a href="http://www.gmail.com"><img src='{% static "img/g.png" %}' /></a></div>
+ <a href="http://www.gmail.com"><img1 src='{% static "img/g11.png" %}' /></a></div>
   </form></div> <br><br><br> <br> 
 </div>
 </div>
 {% endif %}
 
-
+<br><br><br><br>
 </div>
-
- 
-
-
-
-
 {% endblock %}

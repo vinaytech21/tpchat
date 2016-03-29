@@ -8,7 +8,7 @@ body {
 font-family: "Myriad Apple", "Liberation Sans", "Nimbus Sans L", "Helvetica Neue", Helvetica, Arial, sans-serif;
   src: url('../fotter/fonts/MYRIAAMI.TTF');
   src: local('../fotter/fonts/MYRIAAMI.TTF')
-background-color:#0087B2;
+
 }
 
 
@@ -57,7 +57,7 @@ background-color:white;
 
  ul li a {
       text-decoration:none;
-      color: white;
+      color: #60A2B8;
       font-family: "Myriad Apple";
       src: url('../fotter/fonts/MYRIAAMI.TTF');
 
@@ -83,17 +83,18 @@ padding-bottom:100px;
 
 }
 #text1{
-color:#F99330;
-
-
+color:white;
+}
+#text2{
+color:slategrey;
 }
 
 #text2{
 color:Black;
 }
 #logo{
-width:260px;
-height:250px;
+width:160px;
+height:150px;
 }
 
 .h2{

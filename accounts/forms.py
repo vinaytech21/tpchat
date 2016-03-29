@@ -55,7 +55,7 @@ class PasswordChangeForm(authforms.PasswordChangeForm):
                   autofocus=""),
             Field('new_password1', placeholder="Enter new password"),
             Field('new_password2', placeholder="Enter new password (again)"),
-            Submit('pass_change', 'Change Password', css_class="btn-warning"),
+
             )
 
 

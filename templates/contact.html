@@ -6,22 +6,117 @@
 
 {% load staticfiles %}
   
-  <body>
-<img src='{% static "site/img/00url.png" %}' class="vertical-center"/>
-<br>
- <div class="container-fluid">    
-<div class='col-sm-6 col-sm-offset-3'>
-{% if title %}
-<h1 class='{% if title_align_center %}text-align-center{% endif %}'>{{ title }}</h1>
-{% endif %}
+ <link href="bootstrap/css/bootstrap.css" rel="stylesheet">
+    <link href="//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.min.css" rel="stylesheet">
+	<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+		<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+	<style>
+	body{
+  padding:0;
+  margin:0;
+}
+.vid-container{
+  position:relative;
+  height:100vh;
+  overflow:hidden;
+}
+.bgvid.back {
+  position: fixed; right: 0; bottom: 0;
+  min-width: 100%; min-height: 100%;
+  width: auto; height: auto; z-index: -100;
+}
+.inner {
+  position: absolute;
+}
+.inner-container{
+  width:400px;
+  height:500px;
+  position:absolute;
+  top:calc(50vh - 200px);
+  left:calc(50vw - 200px);
+  overflow:hidden;
+}
+.bgvid.inner{
+  top:calc(-50vh + 200px);
+  left:calc(-50vw + 200px);
+  filter: url("data:image/svg+xml;utf9,<svg%20version='1.1'%20xmlns='http://www.w3.org/2000/svg'><filter%20id='blur'><feGaussianBlur%20stdDeviation='10'%20/></filter></svg>#blur");
+  -webkit-filter:blur(10px);
+  -ms-filter: blur(10px);
+  -o-filter: blur(10px);
+  filter:blur(10px);
+}
+.box{
+  position:absolute;
+  height:100%;
+  width:100%;
+  font-family:Helvetica;
+  color:#fff;
+  background:rgba(0,0,0,0.4);
+  padding:30px 0px;
+ 
+}
+.box h1{
+  text-align:center;
+  margin:30px 0;
+  font-size:30px;
+}
+.box input,textarea{
+  display:block;
+  font-size:17px;
+  width:300px;
+  margin:20px auto;
+  padding:15px;
+  background:rgba(0,0,0,0.6);
+  color:#fff;
+  border:0;
+}
+.box input:focus,.box input:active,.box button:focus,.box button:active{
+  outline:none;
+}
+.box button{
+  background:#127ba3;
+  border:0;
+  color:#fff;
+  padding:10px;
+  font-size:20px;
+  width:330px;
+  margin:20px auto;
+  display:block;
+  cursor:pointer;
+}
+.box button:active{
+  background:#27ae60;
+}
+.box p{
+  font-size:14px;
+  text-align:center;
+}
+.box p span{
+  cursor:pointer;
+  color:#666;
+}
+	</style>
 
-<form method='post' action='.'>{% csrf_token %}
-{{ form|crispy }}
-<br><br>
-<center><input type="image" src='{% static "img/reg.png" %}' type='submit' value='Submit' onclick="confirm('HAVE YOU ENTER CORRECT VALUES')" />
-</center>
-</form><br><br>
+</head>
 
-    </div><br><br></div>
+<body data-spy="scroll" data-target="#topnav">
+<div class="vid-container">
+<img src="{% static 'img/intro-bg.jpg' %}" class="img-responsive">
+ 
+  <div class="inner-container">
+    
+    <div class="box">
+      <h1 style="color:white">CONTACT US</h1>
+<form method="post" action=".">  {% csrf_token %}
+      <input id="id_name"  type="text" placeholder="Name" required="required" style="text-align:center;"/>
+<input id="id_email" type="email" name="email" required="required" placeholder="Email-id" style="text-align:center;"/>
+<textarea id="id_message"  rows="3" name="message" cols="25" placeholder="Message" required="required" style="text-align:center;"></textarea>
+
+      <button>Login</button>     </form>
+    </div>
+
+  </div>
+<br><br></div>
 </body>
 {% endblock %}

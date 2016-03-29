@@ -1,0 +1,234 @@
+{% extends "base.html" %}
+{% load staticfiles %}
+ {% block styles %}
+    {% endblock styles %}
+{% load crispy_forms_tags %}
+
+{% block title %}{{ block.super }}Home{% endblock %}
+{% block navbar-right %}
+  {% if not user.is_authenticated %}
+<a class="btn btn-default" href="{% url 'accounts:login' %}" role="button">Log in</a>
+<a class="btn btn-primary" href="{% url 'accounts:signup' %}" role="button">Sign up</a>
+  {% else %}
+    {{ block.super }}
+  {% endif %}
+{% endblock %}
+
+{% block splash %}
+
+  <div class="jumbotron jumbotron-carousel corporate-jumbo">
+<div class="column large-10 large-centered text-center">
+            <p style="padding-top:7px">
+                <h1 id="text1" class="show-for-medium-up">Community Panda Giving</h1><br> <h3 id="text2"<br>Connect within the community, exchange goods and services, and donate to charities. All at the same place.</h3></p><br>
+<br>
+
+
+  <div class="mtb">
+               <div class="flexsearch">
+		<div class="flexsearch--wrapper">
+		<form class="flexsearch--form"  method="GET" role="search" action='/s/'>
+		<div class="flexsearch--input-wrapper">
+			<input class="flexsearch--input" type="search" placeholder="Search your item here which you looking for to explore " name='q'>
+		</div>
+		<input class="flexsearch--submit" type="submit" value="&#10140;" onclick="myfunction()"/>
+		</form>
+		</div>
+</div>
+</div></div>
+</div>
+	</div>
+<br><br>
+
+    <div class="container">
+      <center>
+<!---------------------IMAGE ICON--------------------------------->
+<ul class="list-inline image">
+<li>
+<a href="/events/" ><img src='{% static "site/img/events.png" %}'class="img-responsive" id="logo" alt="Click for Event" /><b><h3 style= "color:#CDCEDA">CONNECT</h3></b></a> </li> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<li>
+<a href="/services/"><img src='{% static "site/img/donate item.png" %}'class="img-responsive" id="logo" alt="Click for Product" /><b><h3 style= "color:#CDCEDA">EXCHANGE</h3></a></b> </li>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<li>
+ <a href="/products/"><img src='{% static "site/img/services.png" %}' class="img-responsive" id="logo"  alt="Click for Service"><b><h3 style= "color:#CDCEDA">DONATE</h3></b></a> </li>
+ 
+</ul>
+</center>
+    </div>
+  </div>
+{% endblock splash %}
+
+{% block container %}
+<!-- Benefits of the Django application -->
+<a name="about"></a>
+
+
+<section id="team">
+        <div class="container">
+            <div class="row">
+     <h1 class="title text-center wow fadeInDown" data-wow-duration="500ms" style="font-famil: arctik">Quotes:</h1>
+                <div id="team-carousel" class="carousel slide wow fadeIn" data-ride="carousel" data-wow-duration="400ms" data-wow-delay="400ms">
+                    <!-- Indicators -->
+                    <ol class="carousel-indicators visible-xs">
+                        <li data-target="#team-carousel" data-slide-to="0" class="active"></li>
+                        <li data-target="#team-carousel" data-slide-to="1"></li>
+                    </ol>
+                    <!-- Wrapper for slides -->
+                    <div class="carousel-inner">
+                        <div class="item active">
+                            <div class="col-sm-3 col-xs-6">
+                                <div class="team-single-wrapper">
+                                    <div class="team-single">
+                                        <div class="person-thumb">
+                                            <img src="{% static 'img/blank.png' %}" class="img-responsive" alt="">
+                                        </div>
+                                         <div class="social-profile">
+                                        <center> <br> <img src="{% static 'img/index.jpeg' %}" class="img-responsive" alt="">
+                                           </center>  
+                                        </div>
+                                    
+                                    </div>
+                                    <div class="person-info">
+                                        <h2 style="text-align: right">- Mother Teresa</h2>
+                                      
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-sm-3 col-xs-6">
+                                <div class="team-single-wrapper">
+                                    <div class="team-single">
+                                        <div class="person-thumb">
+                                            <img src="{% static 'img/blank2.png' %}" class="img-responsive" alt="">
+                                        </div>
+                                         <div class="social-profile">
+                                        <center> <br> <img src="{% static 'img/gallion.jpeg' %}" class="img-responsive" alt="">
+                                           </center>  
+                                        </div>   
+                                    </div>
+                                    <div class="person-info">
+                                        <h2 style="text-align: right">- Galileo Galilei</h2>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-sm-3 col-xs-6">
+                                <div class="team-single-wrapper">
+                                    <div class="team-single">
+                                        <div class="person-thumb">
+                                            <img src="{% static 'img/blank3.png' %}" class="img-responsive" alt="">
+</div>
+                                         <div class="social-profile">
+                                        <center> <br> <img src="{% static 'img/index.jpeg' %}" class="img-responsive" alt="">
+                                           </center>  
+                                        </div>
+                                        
+                                    </div>
+                                    <div class="person-info">
+                                        <h2 style="text-align: right">- C. Morganstern</h2>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-sm-3 col-xs-6">
+                                <div class="team-single-wrapper">
+                                    <div class="team-single">
+                                        <div class="person-thumb">
+                                            <img src="{% static 'img/blank4.png' %}" class="img-responsive" alt="">
+</div>
+                                         <div class="social-profile">
+                                        <center> <br> <img src="{% static 'img/ass.jpg' %}" class="img-responsive" alt="">
+                                           </center>  
+
+
+                                        </div>
+                                        
+                                    </div>
+                                    <div class="person-info">
+                                        <h2 style="text-align: right">- Albert Schweitzer</h2>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="item">
+                            <div class="col-sm-3 col-xs-6">
+                                <div class="team-single-wrapper">
+                                    <div class="team-single">
+                                        <div class="person-thumb">
+                                           <img src="{% static 'img/blank5.png' %}" class="img-responsive" alt="">
+</div>
+                                         <div class="social-profile">
+                                        <center> <br> <img src="{% static 'img/images.jpeg' %}" class="img-responsive" alt="">
+                                           </center>  
+                                        </div>
+                                        
+                                    </div>
+                                    <div class="person-info">
+                                        <h2 style="text-align: right">- T. Roosevelt</h2>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-sm-3 col-xs-6">
+                                <div class="team-single-wrapper">
+                                    <div class="team-single">
+                                        <div class="person-thumb">
+                                           <img src="{% static 'img/blank6.png' %}" class="img-responsive" alt="">
+</div>
+                                         <div class="social-profile">
+                                        <center> <br> <img src="{% static 'img/Gandhi.jpeg' %}" class="img-responsive" alt="">
+                                           </center>  
+                                       </div>
+                                        
+                                    </div>
+                                    <div class="person-info">
+                                        <h2 style="text-align: right">- Mahatma Gandhi</h2>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-sm-3 col-xs-6">
+                                <div class="team-single-wrapper">
+                                    <div class="team-single">
+                                        <div class="person-thumb">
+                                           <img src="{% static 'img/blank1.png' %}" class="img-responsive" alt="">
+</div>
+                                         <div class="social-profile">
+                                        <center> <br> <img src="{% static 'img/index.jpeg' %}" class="img-responsive" alt="">
+                                           </center>  
+                                       </div>
+                                        
+                                    </div>
+                                    <div class="person-info">
+                                        <h2 style="text-align: right">- C. Morganstern</h2>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-sm-3 col-xs-6">
+                                <div class="team-single-wrapper">
+                                    <div class="team-single">
+                                        <div class="person-thumb">
+                                           <img src="{% static 'img/blank1.png' %}" class="img-responsive" alt="">
+</div>
+                                         <div class="social-profile">
+                                        <center> <br> <img src="{% static 'img/index.jpeg' %}" class="img-responsive" alt="">
+                                           </center>  
+                                       </div>
+                                        
+                                    </div>
+                                    <div class="person-info">
+                                        <h2 style="text-align: right">- C. Morganstern</h2>
+                                    </div>
+                                </div>
+                            </div>
+                    </div>
+
+                    <!-- Controls -->
+                   <a class="left team-carousel-control hidden-xs" href="#team-carousel" data-slide="prev">left</a>
+                    <a class="right team-carousel-control hidden-xs" href="#team-carousel" data-slide="next">right</a>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!--/#team-->
+{% endblock container %}
+
+
+{% block scripts %}
+<script src="{% static 'site/js/site.js' %}"></script>
+{% endblock scripts %}
+

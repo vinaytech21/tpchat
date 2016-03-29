@@ -4,6 +4,7 @@ from django import forms
 
  
 class ContactForm(forms.Form):
-	full_name = forms.CharField(required=False)
+	name = forms.CharField(required=False)
 	email = forms.EmailField()
-	message = forms.CharField()
+	message = forms.CharField(
+        widget=forms.Textarea(attrs={'rows': '5', 'cols':'25'}))

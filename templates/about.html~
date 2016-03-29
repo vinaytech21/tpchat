@@ -34,8 +34,8 @@
                 <div class="col-sm-7">
                     <p > Community Panda aims to create a social community platform dedicated to combining the idea of local exchanges and services with grander scale charities.  The goal of this website is to enable people to connect with their communities and allow them to exchange goods for free or with a price—hopefully a price that will be donated straight to charity. 
 </p>
- <p > We also hope for neighborhoods to connect with events, schools, and available services.  Community Panda is a space for helping on a small scale and a large scale. </p>
-<p> The first and foremost goal is to restore their health and well-being, as much as possible, by providing them with cutting-edge medical treatments. Raising awareness is yet another goal of eCharity. We believe, by educating, not punishing, we can reduce and eventually eliminate the occurrence of this crime and crimes like this. Our ultimate mission is to support the victims to get back on their feet, once again, gain their self-confidence and to live a full life!.</p>
+<p> The first and foremost goal is to restore their health and well-being, as much as possible, by providing them with cutting-edge medical treatments. Raising awareness is yet another goal of Community Panda. We believe, by educating, not punishing, we can reduce and eventually eliminate the occurrence of this crime and crimes like this. Our ultimate mission is to support the victims to get back on their feet, once again, gain their self-confidence and to live a full life!.</p>
+ <p > We also hope for your neighbourhood to connect with events, schools, and available services.  Community Panda is a space for helping on a small scale and a large scale. </p>
  </div>
 
         </div>
@@ -50,7 +50,7 @@
                             <img src="{% static 'site/img/logo3.png' %}" alt="">
                         </div>
                         <h2>Charity</h2>
-                        <p >It's time to re-think charity.It's time to give charity the big-league freedoms we really give to business.</p>
+                        <p >Venison tongue, salami corned beef ball tip meatloaf bacon. Fatback pork belly bresaola tenderloin bone pork kevin shankle.</p>
                     </div>
                 </div>
                 <div class="col-sm-4 text-center padding wow fadeIn" data-wow-duration="1000ms" data-wow-delay="600ms">
@@ -59,7 +59,7 @@
                             <img src="{% static 'site/img/h11.jpg' %}" alt="">
                         </div>
                         <h2>Funding</h2>
-                        <p >It's time to re-think charity.It's time to give charity the big-league freedoms we really give to business.</p>
+                        <p >Venison tongue, salami corned beef ball tip meatloaf bacon. Fatback pork belly bresaola tenderloin bone pork kevin shankle.</p>
                     </div>
                 </div>
                 <div class="col-sm-4 text-center padding wow fadeIn" data-wow-duration="1000ms" data-wow-delay="900ms">
@@ -77,22 +77,23 @@
     <!--/#services-->
 
     <section id="action" class="responsive">
-        <div class="vertical-center">
+        <div class="vertical-center" style="background-color:#E7E7E7">
              <div class="container-fluid">
                 <div class="row">
                     <div class="action take-tour">
-                        <div class="col-sm-7 wow fadeInLeft" data-wow-duration="500ms" data-wow-delay="300ms">
+                        <div class="col-sm-7 " data-wow-duration="500ms" data-wow-delay="300ms">
                             <h1 class="title">E-charity Corporate </h1>
                             <p id="text">A responsive and trustfull &amp; for multipurpose Social Events.</p>
                         </div>
-                        <div class="col-sm-5 text-center wow fadeInRight" data-wow-duration="500ms" data-wow-delay="300ms">
-                               <a href="/tour/" class="btn btn-common" style="font-famil: arctik 2 ">TAKE THE TOUR</a>
+                        <div class="col-sm-5 text-center wow " data-wow-duration="500ms" data-wow-delay="300ms"><br><br><br>
+                               <a href="/tour/" class="btn btn-info" >TAKE THE TOUR</a>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
     </section>
+
     <!--/#action-->
 
     <section id="team">
@@ -288,51 +289,7 @@
 
 
 
-  <div class="container-fluid">
-
- <div id="myCarousel" class="carousel slide" data-ride="carousel">
-   <!-- Wrapper for slides -->
-    <div class="carousel-inner" role="listbox" >
-      <div class="item active">
-
- <img src="{% static 'img/ii1.jpg' %}" />
-     
-
-   </div>
-
-      <div class="item">
-
- <img  src="{% static 'img/ii2.jpg' %}" />
-
-
-   </div>
-
-
-      <div class="item ">
-
- <img src="{% static 'img/i.jpg' %}" />
-
-
-   </div>
-
-      <div class="item ">
-
- <img  src="{% static 'img/nepal.jpg' %}" />
-      
-
-   </div>
-
-
-    <!-- Left and right controls -->
-    <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev" >
-      <span class="glyphicon glyphicon-chevron-left" aria-hidden="ture"></span>
-      <span class="sr-only">Previous</span>
-    </a>
-    <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next" >
-      <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
-      <span class="sr-only">Next</span>
-    </a>
-  </div>
+ 
 </div>
 </div></div>
     </div></div>

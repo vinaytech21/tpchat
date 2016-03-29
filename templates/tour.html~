@@ -1,0 +1,49 @@
+{% extends "base.html" %}
+{% block container %}
+{% load staticfiles %}  
+
+<section id="coming-soon">        
+         <div class="container-fluid">
+            <div class="row">
+                <div class="col-sm-8 col-sm-offset-2">                    
+                    <div class="text-center coming-content">
+                        <h1>UNDER CONSTRUCTION</h1>
+                        <p>We have been spending long hours in order to launch our new website. 
+                            We will offer freebies, a brand new blog and featured content of our latest work. Join our mailing list or follow us on<br /> Facebook or Twitter to stay up to date.</p>                           
+                        <div class="social-link">
+                            <span><a href="#"><i class="fa fa-facebook"></i></a></span>
+                            <span><a href="#"><i class="fa fa-twitter"></i></a></span>
+                            <span><a href="#"><i class="fa fa-google-plus"></i></a></span>
+                        </div>
+                    </div> WATCH FOR US:- <br>           
+                </div><br><br><br><center>
+                <div class="col-sm-12">
+                    <iframe width="620" height="345"
+src="https://www.youtube.com/embed/ApkoFwkvRZo">
+</iframe></center>
+            </div>
+        </div>       
+    </section>
+    <section id="subscribe">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-sm-10 col-sm-offset-1">
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <h2><i class="fa fa-envelope-o"></i> SUBSCRIBE TO OUR NEWSLETTER</h2>
+                            <p>We are working to solve the prblem and relunch of the page.<br /> We get back you soon.</p>
+                        </div>
+                        <div class="col-sm-6 newsletter">
+                            <form id="newsletter">
+                                <input class="form-control" type="email" name="email"  value="" placeholder="Enter Your email">
+                                <i class="fa fa-check"></i>
+                            </form>
+                            <p>Don't worry we will not use your email for spam</p>
+                        </div>    
+                    </div>
+                </div>     
+            </div>
+        </div> 
+    </section>
+
+{% endblock %}

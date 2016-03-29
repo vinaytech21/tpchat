@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+{% load crispy_forms_tags %}
+
+
+{% block container %}
+
+{% load staticfiles %}
+  
+  <div class="container-fluid" style="width: auto;  color:GhostWhite; background :url({% static "img/intro-bg.jpg" %}) no-repeat center top"> 
+<br><br><br><br><br><br>
+	<div class="row">
+<div class="col-md-4">
+  </div>
+<div class="col-md-4" style="padding:1px; LightSteelBlue; background-color:rgba(0,0,0,0.1)">
+
+<center><b><h1 style="color:white">CONTACT US</h1><b></center>
+<div class="row">
+      <div class="col-sm-2"></div>
+      <div class="col-sm-8">
+
+<form method="post" action=".">
+
+  {% csrf_token %}
+  {{ form|crispy }}
+ <center>
+<br><br>
+<center><input type="image" src='{% static "img/con.png" %}' type='submit' value='Submit' onclick="confirm('HAVE YOU ENTER CORRECT VALUES')" />
+</center>
+</form><br><br>
+</div></div>
+    </div><br><br></div><br><br></div>
+</body>
+{% endblock %}

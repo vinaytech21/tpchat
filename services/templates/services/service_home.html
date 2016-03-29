@@ -1,23 +1,14 @@
 {% extends 'base.html' %}
-
 {% load staticfiles %}
-
-
-
-
-
 {% block container %}
 
-
-
-
-{% block jumbotron2 %}
 <body><br>
 <div class="container-fluid" style="color:grey; background-color:#A22382; height:115px"><br>
- <p style="font-size:40px; padding-left:70px;padding-top:30px; color:white;"> EXCHANGE</p>
+ <p style="font-size:40px; padding-left:70px;padding-top:30px; color:white;"> EXCHANGE</p> {% if request.user.is_authenticated %}
+<a href='/services/active/'> <h2 style="color:#969696; text-align: right;">Services on Your City</h2></a>{% else %}<a href='/login/'> <h2 style="color:#969696; text-align: right;" onclick="alert('Login first and update your profile')">Services on Your City</h2></a>{% endif %}
    </div> 
  <div id="wrapper" class="responsive-inline" style="groove #A22382; background-color:white">
-{% endblock %}
+
 <br><br>
  <div class="container-fluid">
 <div class='row'>
@@ -44,8 +35,8 @@
 <a href="/services/service/{{ object.pk }}/"class='btn btn-default'style="height:35px; width:150px; background-color:#8FC73E; color:white"  role="button"><b>Detail</b></a>
 </div>
 <div class='col-md-6'>
-<a href="/service/enquiry/{{ object.user}}/" class='btn btn-default' style="height:35px; width:150px; background-color:#A22382; color:white" role="button">
-    <i class="fa fa-user" style="padding-top:4px">&nbsp;<b>{{ object.user }}</b></i></a>
+<a href="/service/enquiry/{{ object.user.email}}/" class='btn btn-default' style="height:35px; width:150px; background-color:#A22382; color:white" role="button">
+    <i class="fa fa-user" style="padding-top:4px">&nbsp;<b>{{ object.user.username }}</b></i></a>
     </div>
  </div>
  </div></div>

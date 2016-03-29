@@ -34,7 +34,7 @@ class ProfileForm(forms.ModelForm):
             Field('picture'),
             Field('bio'),
             Field('zipcode'),
-            Submit('update', 'Update', css_class="btn-success"),
+
             )
 
     class Meta:

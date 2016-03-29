@@ -20,15 +20,7 @@ html, body{
     margin-bottom: 0;
 }
 
-body>.navbar-transparent {
-    background-color: transparent;
-    border-color: transparent;
-    box-shadow: none;
-}
 
-.navbar-transparent .navbar-nav > .active > a {
-    background-color: transparent;
-}
 
 .navbar-form {
     margin-right: 0;
@@ -67,7 +59,9 @@ body>.navbar-transparent {
 /* Home page styling */
 .corporate-jumbo {
     background-image: linear-gradient(rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0)),
-      url("/static/site/img/banner.jpg");
+      url("/static/site/img/city1.jpg"); 
+   
+    background-size: cover;;
     background-repeat: no-repeat;
     background-position: 80% center;
     background-attachment: fixed;

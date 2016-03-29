@@ -15,14 +15,7 @@ if "celery" in sys.argv[0]:
 INSTALLED_APPS += (
     'debug_toolbar.apps.DebugToolbarConfig',)
 
-# Show emails to console in DEBUG mode
 
-EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
-EMAIL_USE_TLS = True
-EMAIL_HOST = 'smtp.gmail.com'
-EMAIL_HOST_USER = 'vinaykumar.vk2007@gmail.com'
-EMAIL_HOST_PASSWORD = '8090289260'
-EMAIL_PORT = 587
 
 
 # Show thumbnail generation errors

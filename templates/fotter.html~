@@ -2,8 +2,8 @@
 {% load staticfiles %}
 
       <!-- Some social button for contact will do -->
-                 <div class="container" style="background: #E7E7E7">
-
+                 <div class="footer" style="background: #E7E7E7">
+      <div class="container">
 
         <div class="row">
           <div class="col-lg-4">
@@ -11,16 +11,17 @@
   {% include "_navbar.html"  %}
 {% endblock %}          </div>
           <div class="col-lg-4">
-             <center> <p>&copy; Company {% now 'Y' %}</p> </center>
+             <center> <br><p>&copy; Company {% now 'Y' %}</p> </center>
           </div>
-          <div class="col-lg-4 text-right">
-            Connect with us on
-            <a href="#"><i class="fa fa-facebook"></i> Facebook</a> or
-            <a href="#"><i class="fa fa-twitter"></i> Twitter</a>
+          <div class="col-lg-4 text-right"><br>
+            Connect with us: &nbsp;&nbsp;
+            <a href="https://www.facebook.com/CommunityPanda-966919383390476/" target="_blank" ><i class="fa fa-facebook"></i> Facebook</a>&nbsp;
+            <a href="https://twitter.com/4communitypanda" target="_blank" ><i class="fa fa-twitter"></i> Twitter</a>
           </div>
         </div>
-            
+            </div>
       </div>
 
 
- 
+
+

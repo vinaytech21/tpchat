@@ -6,25 +6,48 @@
 {% block title %}{{ block.super }}Profile{% endblock %}
 
 {% block container %}
+{% load i18n avatar_tags %}
 
 <div class="container-fluid">
- 
-    <div class="col-sm-5">
+<div class="row">
+<div class="col-xs-3"></div>
+<div class="col-lg-6 col-md-12">
+                    <div class="panel panel-yellow">
+                        <div class="panel-heading">
+                            <div class="row"> 
+                                <div class="col-xs-9">
+<div class="panel panel-back noti-box">
+                <span class="icon-box bg-color-blue set-icon"  style="padding-top: 1px">
+<h1>{{ show_user.get_full_name|truncatechars:4 }}</h1></span>
+                               
+                               
       <h1>{{ show_user.get_full_name }}</h1>
-      {% if editable %}
-      <a href="{% url 'profiles:edit_self' %}" class="btn btn-info">Edit Profile</a>
-      {% endif %}
-    </div>
-    <div class="col-sm-2"><img title="profile picture" class="img-circle img-responsive" src="{% thumbnail show_user.profile.picture|default:'default_profile.png' 140x140 crop %}">
-    </div>
-  
-</div>
+                                   
+                            </div>
+                        </div>    <img title="profile picture" class="img-responsive" src="{% thumbnail user.profile.picture|default:'default_profile.png' 140x140 crop %}" style="width:20%; height:105px;">  Your Avatar      </div>   
+ <div class="container-fluid">
+ <div class="row">
 
-<div class="container-fluid profile-body">
- 
-    <div class="col-sm-4">
+      <div class="panel panel-default">
+        <div class="panel-heading">
+                            <div class="row">
+                                <div class="col-xs-11">{{ show_user.get_full_name }}'s Profile
+	  {% if show_user.profile.slug %}
+	    <a href="{% url 'profiles:show' show_user.profile.slug %}">
+	    	<span class="glyphicon glyphicon-link" aria-hidden="true" title="Profile permalink"></span>
+	    	<span class="sr-only">Permalink</span></a> {{ show_user.profile.get_absolute_url }}
+	  {% else %}
+		<a href="https://github.com/arocks/edge/issues/40" target="_blank"><span>No permalink. See this issue.</span></a>
+	  {% endif %} </div> 
+ <a href="{% url 'profiles:edit_self' %}" class="col-xs-1 right" >                       
+                    <i class="fa fa-pencil-square-o "></i></a>
+	</div></div>
+        <div class="panel-body">
+	  <strong>Bio</strong>: {{ show_user.profile.bio }}
+	
+      </div>
       <ul class="list-group">
-        <li class="list-group-item text-muted">Profile</li>
+
         <li class="list-group-item text-right"><span class="pull-left"><strong>Email:</strong></span> {{ show_user.email|default:"missing" }}
 	  {% if show_user.profile.email_verified %}
 	    <span class="glyphicon glyphicon-ok-circle" aria-hidden="true" title="This email address has been verified"></span>
@@ -36,25 +59,13 @@
 	</li>
         <li class="list-group-item text-right"><span class="pull-left"><strong>Joined</strong></span> {{ show_user.date_joined }}</li>
         <li class="list-group-item text-right"><span class="pull-left"><strong>Last seen</strong></span> {{ show_user.last_login }}</li>
-        <li class="list-group-item text-right"><span class="pull-left"><strong>Joined</strong></span> {{ show_user.profile.zipcode }}</li>
+        <li class="list-group-item text-right"><span class="pull-left"><strong>Zip Code</strong></span> {{ show_user.profile.zipcode }}</li>
+
       </ul>
     </div>
-    <div class="col-sm-4">
-      <div class="panel panel-default">
-        <div class="panel-heading">{{ show_user.get_full_name }}'s Profile
-	  {% if show_user.profile.slug %}
-	    <a href="{% url 'profiles:show' show_user.profile.slug %}">
-	    	<span class="glyphicon glyphicon-link" aria-hidden="true" title="Profile permalink"></span>
-	    	<span class="sr-only">Permalink</span></a> {{ show_user.profile.get_absolute_url }}
-	  {% else %}
-		<a href="https://github.com/arocks/edge/issues/40" target="_blank"><span>No permalink. See this issue.</span></a>
-	  {% endif %}
-	</div>
-        <div class="panel-body">
-	  <strong>Bio</strong>: {{ show_user.profile.bio }}
-	
-      </div>
-    </div>
+           </div> 
+</div>  
+</div></div>
   </div>
 </div>
 

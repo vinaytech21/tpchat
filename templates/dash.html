@@ -2,6 +2,7 @@
  {% include "basedash.html" %}
 {% load thumbnail %}
 {% load staticfiles %}
+{% load i18n avatar_tags %}
 <!DOCTYPE html>
 <html lang="en">
 
@@ -44,8 +45,14 @@
                 <ul class="nav" id="main-menu">
   {% load staticfiles %}
 				<li  style="padding-top:10px"> <center>            
-  <img title="profile picture" class="img-circle img-responsive" src="{% thumbnail user.profile.picture|default:'default_profile.png' 140x140 crop %}"> 
-</center></li><li style="color:white"><center>{{ user.get_full_name|truncatechars:20 }}</center></li>
+   {% avatar user %}
+</center></li>
+{% load staticfiles %}
+
+				<li  style="padding-top:10px">  <form enctype="multipart/form-data" method="POST" action="{% url 'avatar_add' %}">
+        {{ upload_avatar_form.as_p }}
+        <p>{% csrf_token %}<input type="submit" value="{% trans "Upload New Image" %}" /></p>
+    </form><li style="color:white"><center>{{ user.get_full_name|truncatechars:20 }}</center></li>
 						 <li >
                      <a href="/messages/inbox/"><i class="fa fa-comments fa-2x"></i> MESSAGE</a>
                     </li>		
@@ -77,7 +84,7 @@
                         <a href="{% url 'profiles:show_self' %}"><i class="fa fa-user fa-2x "></i> PROFILE</a>
                     </li>	
                       <li>
-			<a href="{% url 'profiles:edit_self' %}"><i class="fa fa-renren fa-2x"></i>UPDATE PROFILE</a>
+			<a href="{% url 'accounts:password-change' %}"><i class="fa fa-renren fa-2x"></i>CHANGE PASSWORD</a>
                     </li>
                   
                       	
@@ -97,6 +104,16 @@
                  <!-- /. ROW  -->
                   
                 <div class="row" >
+                 <a href="{% url 'messages_compose' %}"><div class="col-md-3 col-sm-6 col-xs-6">           
+			<div class="panel panel-back noti-box">
+                <span class="icon-box bg-color-blue set-icon"  style="padding-top: 15px">
+                    <i class="fa fa-pencil-square-o"></i>
+                </span>
+                <div class="text-box" > <p class="main-text"></p> <br>      
+                    <p class="text-muted">COMPOSE</p>
+                </div>
+             </div>
+		     </div></a> 
                 <a href="{% url 'messages_inbox' %}"><div class="col-md-3 col-sm-6 col-xs-6">           
 		<div class="panel panel-back noti-box">
                 <span class="icon-box bg-color-red set-icon" style="padding-top: 15px">
@@ -117,17 +134,7 @@
                 </div>
              </div>
 		     </div></a>
-                    <a href="{% url 'messages_compose' %}"><div class="col-md-3 col-sm-6 col-xs-6">           
-			<div class="panel panel-back noti-box">
-                <span class="icon-box bg-color-blue set-icon"  style="padding-top: 15px">
-                    <i class="fa fa-pencil-square-o"></i>
-                </span>
-                <div class="text-box" > <p class="main-text"></p> <br>      
-                    <p class="text-muted">TEXT</p>
-                </div>
-             </div>
-		     </div></a>
-                    <a href="{% url 'messages_trash' %}"><div class="col-md-3 col-sm-6 col-xs-6">           
+                 <a href="{% url 'messages_trash' %}"><div class="col-md-3 col-sm-6 col-xs-6">           
 			<div class="panel panel-back noti-box">
                 <span class="icon-box bg-color-brown set-icon"  style="padding-top: 15px">
                     <i class="fa fa-trash-o"></i>
