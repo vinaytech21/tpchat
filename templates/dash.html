@@ -1,8 +1,8 @@
-<br><br><br>
+<br><br>
  {% include "basedash.html" %}
 {% load thumbnail %}
 {% load staticfiles %}
-{% load i18n avatar_tags %}
+ {% load avatar_tags %}
 <!DOCTYPE html>
 <html lang="en">
 
@@ -13,7 +13,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="">
     <meta name="author" content="">
-<title>{% block head_title %}Echarity{% endblock %}</title>
+<title>{% block head_title %}Cpanda{% endblock %}</title>
 <head>
       <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -31,29 +31,19 @@
 <link href="{% static 'site/css/custom.css' %}" rel="stylesheet" type="text/css" />  
   <!-- FONTAWESOME STYLES-->
 <link href="{% static 'site/css/font-awesome.css' %}" rel="stylesheet" type="text/css" />
-
-
-
-
-
 </head>
-
-
 <div id="wrapper" class="responsive">
    <nav class="navbar-default navbar-side" role="navigation">
             <div class="sidebar-collaps">
                 <ul class="nav" id="main-menu">
-  {% load staticfiles %}
-				<li  style="padding-top:10px"> <center>            
-   {% avatar user %}
-</center></li>
-{% load staticfiles %}
-
-				<li  style="padding-top:10px">  <form enctype="multipart/form-data" method="POST" action="{% url 'avatar_add' %}">
-        {{ upload_avatar_form.as_p }}
-        <p>{% csrf_token %}<input type="submit" value="{% trans "Upload New Image" %}" /></p>
-    </form><li style="color:white"><center>{{ user.get_full_name|truncatechars:20 }}</center></li>
-						 <li >
+  <li  style="padding-top:30px"> <center>            
+   {% if request.user.is_authenticated  %} 
+{% upload_form %}
+ {% else %}
+ {{ avatar.image_url }}
+{% endif %}</li>
+				<li style="color:white"><center>{{ user.get_full_name|truncatechars:20 }}</center></li>			
+<li >
                      <a href="/messages/inbox/"><i class="fa fa-comments fa-2x"></i> MESSAGE</a>
                     </li>		
                     <li>
@@ -173,6 +163,26 @@
 
         
 	   <!-- SCRIPT-->
+<script>
+$('#add-picture-form').submit(function() { 
+    //var filename = $("#upload-photo").val();
+    var photo = document.getElementById("upload-photo"); 
+    var file  = photo.files[0];
+
+$.ajax({ 
+    type: "POST",
+    url: "/api/upload_image/",
+    enctype: 'multipart/form-data',
+    data: {'file': file.getAsBinary(), 'fname' : file.fileName },
+    success: function(){
+       alert( "Data Uploaded: ");
+    }
+});
+
+    return false;   
+}); 
+</script>
+
 <script src="https://code.jquery.com/jquery-1.10.2.min.js"></script>
 <script src="{% static 'bootstrap/js/bootstrap.min.js' %}"></script>
 <script src="{% static 'site/js/jquery-1.8.3.min.js' %}"></script>

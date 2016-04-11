@@ -1,0 +1,76 @@
+{% extends "base.html" %}
+{% load i18n %}
+{% load crispy_forms_tags %}
+
+
+{% block container %}
+{% load static %}
+<div class="container-fluid" style="width: auto;  color:GhostWhite; background :url({% static "img/intro-bg.jpg" %}) no-repeat center top"> 
+<br><br><br><br><br><br>
+	<div class="row">
+<div class="col-md-4">
+  </div>
+<div class="col-md-4" style="padding:1px;border:1px groove LightSteelBlue; background-color:#A4A4A4">
+{% if request.user.is_authenticated %}
+<p>YOUR ARE ALREADY LOGIN<P>
+<p> FOR LOGIN TO OTHER ACCOUNT; LOGOUT FIRST<p><a href="." type="button" class="btn btn-info btn-lg">Logout</a></button>
+{% else %}
+<center><b><h1>Sign-In</h1><b></center>
+<div class="row">
+      <div class="col-sm-2"></div>
+      <div class="col-sm-8">
+
+<form method="post" action=".">
+
+  {% csrf_token %}
+  {{ form|crispy }}
+ <center>
+
+ <center> <input type="image" src='{% static "img/reg.png" %}' href="." value="{% trans 'Submit' %}" /></center>
+  <input type="hidden" name="next" value="{{ next }}" />
+
+</form></div></div>
+
+<center><h4><b>Not a member yet ?<a href="/accounts/signup" style="color:#428BCA"> Sign up here</a></b></h4></center>
+
+<hr/>
+ <form>
+<div>
+
+
+<center>Or Social Log-In with</center>
+<div class="col-sm-1"></div>{% load socialaccount %}
+
+{% get_providers as socialaccount_providers %}
+
+{% for provider in socialaccount_providers %}
+{% if provider.id == "openid" %}
+{% for brand in provider.get_brands %}
+
+  <a title="{{brand.name}}" 
+     class="socialaccount_provider {{provider.id}} {{brand.id}}" 
+     href="{% provider_login_url provider.id openid=brand.openid_url process=process %}"
+     ><img src='{% static "img/g.png" %}' /></a>
+
+{% endfor %}
+{% endif %}
+
+  <a title="{{provider.name}}" class="socialaccount_provider {{provider.id}}" 
+     href="{% provider_login_url provider.id process=process scope=scope auth_params=auth_params %}">{{provider.name}}</a>
+
+{% endfor %}
+<div class="col-sm-3">
+
+ <a href="http://www.twitter.com"><img1 src='{% static "img/t11.png" %}'/></a></div>
+<div class="col-sm-3">
+ <a href="#"><img1 src='{% static "img/f11.png" %}' id="loginBtn" onclick="logIn();" value="Login" /></a></div>
+<div class="col-sm-3">
+ <a href="http://www.gmail.com"><img1 src='{% static "img/g11.png" %}' /></a></div>
+  </form></div> <br><br><br> <br> 
+</div>
+</div>
+{% endif %}
+
+<br><br><br><br>
+</div>
+{% endblock %}

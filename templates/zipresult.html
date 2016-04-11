@@ -60,7 +60,7 @@
 
 		</div>
 {% if event or products or services %}
-{% if is_paginated %}{% load paginator %}{% paginator 3 %}{% endif %}
+
 
 
 
@@ -180,9 +180,7 @@
 		            </div>
 {% endfor %} <br><br>
 			</div></div>
-{% endif %}
 
-{% if is_paginated %}{% load paginator %}{% paginator 3 %}{% endif %}
 
 {% else %}<center><h4  style="color:#170f3d;">Still no one post is listed on this zipcode.</h4></center><br><br>
 <p>*We are watting to update post on your zipcode...</p><br><br><br><br>

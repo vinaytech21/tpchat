@@ -1,47 +1,118 @@
 {% extends "base.html" %}
-
 {% load crispy_forms_tags %}
-{% block title %}{{ block.super }}Home{% endblock %}
-{% block container %}
-{% load staticfiles %}
-<script src="https://maps.googleapis.com/maps/api/js?v=3.exp"></script>      
-<style>
-.spa
-{
-margin-top:150px;
-}
-.red{
-    color:red;
-    }
-.form-area
-{
-    background-color: #FAFAFA;
-	padding: 10px 40px 60px;
-	margin: 10px 0px 60px;
-	border: 1px solid GREY;
-	}
-</style>
 
-  </head>
-  <body>
-<div class="container-fluid" style="color:GhostWhite; background :url({% static "img/conta.png" %}) "> 
-  <div class="container">
-<div class="spa">
-<div class="col-md-3"></div><div class="col-md-6">
-    <div class="form-area">  
-        <form role="form" method="GET" role="search" action='/z/'>
-        <br style="clear:both">
-                    <h3 style="margin-bottom: 25px; text-align: center;">PLEASE ENTER:</h3>
-    				<div class="form-group">
-<div id="panel">
-Zipcode : <input id="address" type="textbox" class="form-control" name='q' placeholder="Zipcode" required>
-					</div></div>
-					<div class="form-group">
-						City : <input type="text" class="form-control" id="email" name="email" placeholder="City" >
-					</div>
-					<div class="form-group">
-					Country : <select class="form-control" id="sel1">
-        <option>Select Country</option>
+
+{% block container %}
+
+{% load staticfiles %}
+
+ <link href="bootstrap/css/bootstrap.css" rel="stylesheet">
+    <link href="//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.min.css" rel="stylesheet">
+	<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+		<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+	<style>
+	body{
+  padding:0;
+  margin:0;
+}
+.vid-container{
+  position:relative;
+  height:100vh;
+  overflow:hidden;
+}
+.bgvid.back {
+  position: fixed; right: 0; bottom: 0;
+  min-width: 100%; min-height: 100%;
+  width: auto; height: auto; z-index: -100;
+}
+.inner {
+  position: absolute;
+}
+.inner-container{
+  width:400px;
+  height:500px;
+  position:absolute;
+  top:calc(50vh - 200px);
+  left:calc(50vw - 200px);
+  overflow:hidden;
+}
+.bgvid.inner{
+  top:calc(-50vh + 200px);
+  left:calc(-50vw + 200px);
+  filter: url("data:image/svg+xml;utf9,<svg%20version='1.1'%20xmlns='http://www.w3.org/2000/svg'><filter%20id='blur'><feGaussianBlur%20stdDeviation='10'%20/></filter></svg>#blur");
+  -webkit-filter:blur(10px);
+  -ms-filter: blur(10px);
+  -o-filter: blur(10px);
+  filter:blur(10px);
+}
+.box{
+  position:absolute;
+  height:100%;
+  width:100%;
+  font-family:Helvetica;
+  color:#fff;
+  background:rgba(0,0,0,0.4);
+  padding:30px 0px;
+
+}
+.box h1{
+  text-align:center;
+  margin:30px 0;
+  font-size:30px;
+}
+.box input,textarea,select{
+  display:block;
+  font-size:17px;
+  width:300px;
+  margin:20px auto;
+  padding:15px;
+  background:rgba(0,0,0,0.6);
+  color:#fff;
+  border:0;
+}
+.box input:focus,.box input:active,.box button:focus,.box button:active{
+  outline:none;
+}
+.box button{
+  background:#127ba3;
+  border:0;
+  color:#fff;
+  padding:10px;
+  font-size:20px;
+  width:130px;
+  margin:20px auto;
+  display:block;
+  cursor:pointer;
+}
+.box button:active{
+  background:#27ae60;
+}
+.box p{
+  font-size:14px;
+  text-align:center;
+}
+.box p span{
+  cursor:pointer;
+  color:#666;
+}
+	</style>
+
+</head>
+
+<body data-spy="scroll" data-target="#topnav">
+<div class="vid-container">
+<img src="{% static 'img/con.jpg' %}" style="height:100%" class="img-responsive">
+
+  <div class="inner-container">
+
+    <div class="box">
+                    <h3 style="margin-bottom: 25px; text-align: center; color:white">ZIPCODE SEARCH HERE</h3><hr>
+        <form role="form" method="GET" role="search" action='/z/' >
+      <input id="address" type="textbox"  name='q' placeholder="Zipcode" required="required" style="text-align:center;"/>
+<input id="place" type="email" name="email"  placeholder="City " style="text-align:center;"/>
+<select  id="sel1" style="background-color:rgba(0,0,0,0.1) ; text-align:center;">
+    <option>Select Country</option>
         <option>USA</option>
    <option> India</option>
         <option>Afghanistan</option>
@@ -250,44 +321,12 @@ Zipcode : <input id="address" type="textbox" class="form-control" name='q' place
   <option>  Zimbabwe</option>
 
       </select>
-					
-                        <span class="help-block"><p id="characterLeft" class="help-block ">Make this my permanent location</p></span>                    
-                   <center>
 
-		<input class="btn btn-primary " type="submit" value="Submit" onclick="codeAddress()"/>
-                </center>
-        </form>
+      <button>Submit</button>     </form>
     </div>
-</div>
-</div>
-   </div></div>
 
-<script>    
-        var geocoder;
-        var map;        
-        function codeAddress() {
-            geocoder = new google.maps.Geocoder();
-            var address = document.getElementById('address').value;
-            geocoder.geocode({ 'address': address }, function (results, status) {
-                if (status == google.maps.GeocoderStatus.OK) {                       
-
-                    for (var component in results[0]['address_components']) {
-                        for (var i in results[0]['address_components'][component]['types']) {
-                            if (results[0]['address_components'][component]['types'][i] == "administrative_area_level_1") {
-                                state = results[0]['address_components'][component]['long_name'];
-                                alert(results[0]['address_components'][1]['long_name'] + ' , '  + state);
-                            }
-                        }
-                    }                                           
-                } else {
-                    alert('Invalid Zipcode');
-                }
-            });
-        }         
-
-    </script>         
-
-{% endblock  %}
-
-
+  </div>
+<br><br></div>
+</body>
+{% endblock %}
 

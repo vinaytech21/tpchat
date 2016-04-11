@@ -15,7 +15,25 @@
 	border: 1px solid #eeeeee;
 	background-color: #F3F3F3;
 }
-
+   .pager {
+      padding-top: 20px;
+      padding-left: 40px;
+      }
+   .pager .page a {
+      border: 3px solid #bbbbbb;
+      margin-left: 1px;
+      margin-right: 1px;
+      padding-left: 4px;
+      padding-right: 4px;
+      text-decoration: none;
+      color: #000000;
+      }
+   .pager .current {
+      border: 3px solid #444444;
+      margin-left: 2px;
+      margin-right: 2px;
+      padding-left: 2px;
+      }
 </style>
 
     <script src="{% static 'js/jquery.elevatezoom.js' %}"></script>
@@ -42,6 +60,10 @@
 
 		</div>
 {% if event or products or services %}
+
+
+
+
 {% for event in events %}
      <div id="hover" class="text">
        <br>
@@ -158,6 +180,8 @@
 		            </div>
 {% endfor %} <br><br>
 			</div></div>
+{% endif %}
+
 {% else %}<center><h4  style="color:#170f3d;">Still no one post is listed on this zipcode.</h4></center><br><br>
 <p>*We are watting to update post on your zipcode...</p><br><br><br><br>
  {% endif %}  </div>

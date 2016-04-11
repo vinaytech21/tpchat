@@ -1,0 +1,52 @@
+
+{% load crispy_forms_tags %}        
+{% load i18n %} 
+{% load staticfiles %} 
+{% block container %} 
+<body>
+<div class="container-fluid" class="responsive" style="height: auto; width: auto; background-color: grey">
+<h2 style="color:white"><center><b>{% trans "Compose Message" %}<b></center></h2><br>
+<div class="container-fluid" style="height:auto; width: auto; color:grey; background-color: ghostwhite"><br><br>
+<br>
+<div class="row">
+<div class="col-md-2">
+  </div>
+<div class="col-md-8" style="padding:1px;border:1px groove SteelBlue; background-color:white">
+<center><b><h2>Instant Message</h2><b></center><hr>
+<div class="row">
+      <div class="col-sm-2"></div>
+      <div class="col-sm-10">
+		  
+                       
+
+<form action="" method="post" enctype="multipart/form-data" id="certform">
+                   {% csrf_token %}                                            
+                            
+   
+  <div class="col-md-10"> <tr><th>Recipient:</th><td><input type="text" name="recipient" value="{% for object in zipcode %}{% if object.zipfield == post.zip_Code   %}{{ object.email }} ,
+
+                        
+                {% endif %}  
+{% endfor %}" readonly/></td></tr> </div><br>
+<div class="col-md-12"><tr><th>subject:&nbsp;&nbsp;&nbsp;</th><td><input type="text" name="subject" value="new posted product {{ post.title }} " readonly/></td></tr></div><br>
+<div class="col-md-12"><tr><th>Body:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  </th><td><a href="http://localhost:8000/products/{{ post.id }}/"><input type="text" name="body" value= "http://localhost:8000/products/{{ post.id }}/" readonly/></a></td></tr>   </div>
+ <br>                  
+<div class="col-md-10"><center><input type="image" src='{% static "img/msge.png" %}' /></center></div><br>
+</form><br><br><br>
+<br><br><br>
+<br></div></div></div></div><br><br><br><br>
+<br><br><br>
+<br><br><br>
+<br>
+</div><br></div>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7/jquery.js"></script> 
+<script src="http://malsup.github.com/jquery.form.js"></script> 
+
+    <script>
+       $(document).ready(function () {
+          $('#certform').ajaxForm(function () {
+          window.close();
+          });
+       });
+    </script>
+{% endblock %}

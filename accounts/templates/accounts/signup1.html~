@@ -1,0 +1,64 @@
+{% extends "base.html" %}
+{% load i18n %}
+{% load crispy_forms_tags %}
+
+
+{% block container %}
+{% load static %}
+<div class="container-fluid" style="width: auto;  color:GhostWhite; background :url({% static "img/intro-bg.jpg" %}) no-repeat center top">
+<br><br><br><br><br><br>
+	<div class="row">
+<div class="col-md-4">
+  </div>
+<div class="col-md-4" style="padding:1px;border:1px groove LightSteelBlue; background-color:#A4A4A4">
+{% if request.user.is_authenticated %}
+<p>YOUR ARE ALREADY LOGIN<P>
+<p> FOR LOGIN TO OTHER ACCOUNT; LOGOUT FIRST<p><a href="." type="button" class="btn btn-info btn-lg">Logout</a></button>
+{% else %}
+<center><b><h1>Sign-Up</h1><b></center>
+<div class="row">
+      <div class="col-sm-2"></div>
+      <div class="col-sm-8">
+
+<form method="post" action=".">
+{% block form %}
+  {% crispy form %}
+
+    {{ form|crispy }}
+
+{% endblock form %}
+ <center>
+
+ <center> <input type="image" src='{% static "img/reg.png" %}' href="." value="{% trans 'Submit' %}" /></center>
+  <input type="hidden" name="next" value="{{ next }}" />
+
+</form></div></div>
+
+<center><h4><b>Already member yet ?<a href="{% url 'accounts:login' %}" style="color:#428BCA"> Sign up here</a></b></h4></center>
+<hr/>
+ <form>
+<div>
+<center>Or Social Log-In with</center>
+<br>
+<div class="col-sm-1"></div>{% load socialaccount %}
+
+   
+<div class="col-sm-3">
+
+ <a href="{% provider_login_url "twitter" %}"><img src='{% static "img/t.png" %}'/></a></div>
+<div class="col-sm-3">
+ <a href="{% provider_login_url "facebook" %}"><img src='{% static "img/f.png" %}' id="loginBtn" onclick="logIn();" value="Login" /></a></div>
+<div class="col-sm-3">
+ <a href="{% provider_login_url "google" %}"><img src='{% static "img/g.png" %}' /></a></div>
+  </form></div> <br><br><br> <br>
+</div>
+</div>
+{% endif %}
+
+<br><br><br><br>
+</div>
+{% endblock %}
+
+
+
+

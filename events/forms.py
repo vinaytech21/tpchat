@@ -10,7 +10,9 @@ class EventForm(forms.Form):
     description = forms.CharField(label='Description', widget=forms.TextInput(attrs={'placeholder': 'Give some overview of your event'}))
     place = forms.CharField(
         label='Place', widget=forms.TextInput(attrs={'placeholder': 'Location of your event offer '})
-    )    
+    )   
+    zip_Code = forms.CharField(label='Zipcode', widget=forms.TextInput(attrs={'placeholder': 'Zipcode of your area'})
+    )
     duration = forms.TimeField(widget=TimeWidget(usel10n=True, bootstrap_version=3))
     dresscode = forms.BooleanField(
         label='Event Dress Code Allow'
@@ -20,7 +22,7 @@ class HostForm(forms.ModelForm):
 
     class Meta:
         model = Event
-        fields = ('eventtype', 'snap', 'date_event', 'description','place', 'dresscode', 'duration', )
+        fields = ('eventtype', 'snap', 'date_event', 'description','place', 'dresscode', 'duration', 'zip_Code', )
   
     
     

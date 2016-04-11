@@ -21,13 +21,13 @@
       <div class="col-sm-8">
 
 <form method="post" action=".">
+{% block form %}
+  {% crispy form %}
 
-  {% csrf_token %}
-  {{ form|crispy }}
- <center>
 
- <center> <input type="image" src='{% static "img/reg.png" %}' href="." value="{% trans 'Submit' %}" /></center>
-  <input type="hidden" name="next" value="{{ next }}" />
+
+ <input type="hidden" name="next" value="{{ next }}" />
+{% endblock form %}
 
 </form></div></div>
 
@@ -36,13 +36,17 @@
  <form>
 <div>
 <center>Or Social Log-In with</center>
-<div class="col-sm-2"></div>
+<br>
+<div class="col-sm-1"></div>{% load socialaccount %}
+
+   
 <div class="col-sm-3">
- <a href="http://www.twitter.com"><img src="{% static 'site/img/Twitter.png' %}"/></a></div>
+
+ <a href="{% provider_login_url "twitter" %}"><img src='{% static "img/t.png" %}'/></a></div>
 <div class="col-sm-3">
- <a href="#"><img src="{% static 'site/img/facebook.png' %}" id="loginBtn" onclick="logIn();" value="Login" /></a></div>
+ <a href="{% provider_login_url "facebook" %}"><img src='{% static "img/f.png" %}' id="loginBtn" onclick="logIn();" value="Login" /></a></div>
 <div class="col-sm-3">
- <a href="http://www.gmail.com"><img src='{% static "site/img/gplus1.png" %}' /></a></div>
+ <a href="{% provider_login_url "google" %}"><img src='{% static "img/g.png" %}' /></a></div>
   </form></div> <br><br><br> <br>
 </div>
 </div>
@@ -51,6 +55,7 @@
 <br><br><br><br>
 </div>
 {% endblock %}
+
 
 
 

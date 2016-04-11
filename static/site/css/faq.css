@@ -165,7 +165,7 @@ header {
     transition: opacity 0.2s;
   }
   .cd-faq-categories .selected {
-    background: #42464b !important;
+    background: #327C99 !important;
   }
   .cd-faq-categories .selected::before {
     opacity: 1;
@@ -304,6 +304,7 @@ header {
 .cd-faq-group {
   /* hide group not selected */
   display: none;
+  padding-top:20px;
 }
 .cd-faq-group.selected {
   display: block;

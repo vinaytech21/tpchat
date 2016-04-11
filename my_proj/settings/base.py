@@ -7,8 +7,10 @@ https://docs.djangoproject.com/en/dev/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/dev/ref/settings/
 """
+import os
 from django.core.urlresolvers import reverse_lazy
 from os.path import dirname, join, exists
+import sys
 
 # Build paths inside the project like this: join(BASE_DIR, "directory")
 BASE_DIR = dirname(dirname(dirname(__file__)))
@@ -22,10 +24,6 @@ EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_HOST_USER = 'vinaykumar.vk2007@gmail.com'
 EMAIL_HOST_PASSWORD = 'jaddu@55555'
 EMAIL_PORT = 587
-
-
-
-
 
 # Use Django templates using the new Django 1.8 TEMPLATES settings
 
@@ -51,6 +49,7 @@ TEMPLATES = [
                 'django.template.context_processors.tz',
                 'django.contrib.messages.context_processors.messages',
                 'django.template.context_processors.request',
+                'django.core.context_processors.request',
             ],
         },
     },
@@ -113,6 +112,7 @@ INSTALLED_APPS = (
     'allauth.socialaccount.providers.linkedin',
     'allauth.socialaccount.providers.linkedin_oauth2',
     'avatar',
+    'easy_avatar',
 
 )
 
@@ -143,6 +143,9 @@ DATABASES = {
 
 # Internationalization
 # https://docs.djangoproject.com/en/dev/topics/i18n/
+FILE_SAVE_PATH = "media/avatars/"
+
+FILE_URL_PATH = "http://127.0.0.1:8000/media/avatars/" 
 
 LANGUAGE_CODE = 'en-us'
 
@@ -179,6 +182,11 @@ ACCOUNT_USERNAME_REQUIRED = False
 ACCOUNT_AUTHENTICATION_METHOD = 'email'
 AUTH_USER_MODEL = 'authtools.User'
 LOGIN_REDIRECT_URL = reverse_lazy("profiles:show_self")
+ACCOUNT_SIGNUP_FORM_CLASS = 'profiles.forms.SignupForm'
+SOCIALACCOUNT_AUTO_SIGNUP = False 
+SOCIALACCOUNT_EMAIL_VERIFICATION = True
+
+
 
 
 THUMBNAIL_EXTENSION = 'png'     # Or any extn for your thumbnails

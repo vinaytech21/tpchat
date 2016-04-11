@@ -18,6 +18,7 @@ urlpatterns = [
     url(r'^users/', include(profiles.urls, namespace='profiles')),
     url(r'^admin/', include(admin.site.urls)),
     url(r'^', include(accounts.urls, namespace='accounts')),
+    url(r'^account/', include('authtools.urls')),
     url(r'^accounts/', include('allauth.urls')),
     url(r'^products/', include(products.urls, namespace='products')),
     url(r'^services/', include(services.urls, namespace='services')),
@@ -34,7 +35,8 @@ urlpatterns = [
     url(r'^event/enquiry/(?P<recipient>[\w.@+-]+)/$', 'django_messages.views.enquiry', name='messages_compose_to'),
     url(r'^service/enquiry/(?P<recipient>[\w.@+-]+)/$', 'django_messages.views.enquiry', name='messages_compose_to'),
     url(r'product/enquiry/(?P<recipient>[\w.@+-]+)/$', 'django_messages.views.enquiry', name='messages_compose_to'),
-    url(r'^avatar/', include('avatar.urls')),
+    #url(r'^avatar/', include('avatar.urls')),
+    url(r'^avatar/', include('easy_avatar.urls'))
 
 ]
 

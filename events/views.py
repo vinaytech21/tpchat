@@ -107,9 +107,7 @@ def devent_detail(request):
 
 def active(request):
     model = Event
-    profile = get_object_or_404(models.Profile,user_id=request.user.id)
-    user = profile.user
-    event = Event.objects.filter(zip_Code = profile.zipcode)
+    event = Event.objects.filter(zip_Code = request.user.zipfield)
     return render(request, 'events/events_active.html', {'event': event })
 
     

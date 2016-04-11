@@ -23,7 +23,7 @@
 {% for message in message_list %} 
     <div class="row">
 <a href="{{message.get_absolute_url }}">
-<div class="col-md-2"><span class="glyphicon glyphicon-user">{{ message.sendertruncatechars:8 }}</span> </div>  
+<div class="col-md-2"><span class="glyphicon glyphicon-user">{{ message.sender|truncatechars:8 }}</span> </div>  
             {% if message.new %}{% endif %}
             {% if message.replied %}{% endif %}
 <div class="col-md-6">{{ message.subject }}</div>

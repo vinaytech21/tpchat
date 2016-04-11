@@ -9,66 +9,73 @@
 <!-- Benefits of the Django application -->
 {% block container %}
 {% load staticfiles %}
+
 <link href="{% static 'site/css/bootstrap.css' %}" rel="stylesheet" type="text/css" />
 <link href="{% static 'site/css/bootstrap.min.css'  %}" type="text/css" />
 <link href="{% static 'site/css/bootstrap-theme.css' %}" type="text/css" />
 <link href="{% static 'site/css/bootstrap-theme.min.css' %}" type="text/css" />
 <link href="{% static 'site/css/bootstrap.css' %}" rel="stylesheet" type="text/css" />
      <!-- CUSTOM STYLES-->
-
+<link href="{% static 'site/css/style2.css' %}" rel="stylesheet" type="text/css" />
 <link href="{% static 'site/css/style1.css' %}" rel="stylesheet" type="text/css" />
 <link href="{% static 'site/css/main.css' %}" rel="stylesheet" type="text/css"/>
-<link href="{% static 'site/css/custom.css' %}" rel="stylesheet" type="text/css" />  
+<link href="{% static 'site/css/custom.css' %}" rel="stylesheet" type="text/css" />
   <!-- FONTAWESOME STYLES-->
 <link href="{% static 'site/css/font-awesome.css' %}" rel="stylesheet" type="text/css" />
-<img src= "{% static 'site/img/about.png' %}" class="vertical-center"/>
-</div>
-<div class="container-fluid" style="background-color: #81b1c9">
 
-    <section id="company-information" class="padding wow fadeIn" data-wow-duration="1000ms" data-wow-delay="300ms">
+<body>
+<div   id='header-background'  ><h2>About<span style="color:#F00;"> Us.....</span></h2></div>
+<div class="container-fluid" >
+    <section id="company-information" "class="text-overview " data-wow-duration="1000ms" data-wow-delay="300ms">
         <div class="container-fluid">
-
                 <div class="col-sm-5">
-                    <img src= "{% static 'site/img/abt.png' %}"  style="height:270px;width:450px"  class="img-responsive" alt=""/>
+                <h2><i>OverView</i></h2>
+
                 </div>
-                <div class="col-sm-7">
-                    <p > Community Panda aims to create a social community platform dedicated to combining the idea of local exchanges and services with grander scale charities.  The goal of this website is to enable people to connect with their communities and allow them to exchange goods for free or with a price—hopefully a price that will be donated straight to charity. 
-</p>
-<p> The first and foremost goal is to restore their health and well-being, as much as possible, by providing them with cutting-edge medical treatments. Raising awareness is yet another goal of Community Panda. We believe, by educating, not punishing, we can reduce and eventually eliminate the occurrence of this crime and crimes like this. Our ultimate mission is to support the victims to get back on their feet, once again, gain their self-confidence and to live a full life!.</p>
+                <div class="text-awesom2  text_formate" >
+
+
+                   <br />
+                   <br />
+<p><br /> Community Panda aims to create a social community platform dedicated to combining the idea of local exchanges and services with grander scale charities. Community Panda is a space for helping on a small scale and a large scale.. Raising awareness is yet another goal of Community Panda.<br /> We believe, by educating, not punishing, we can reduce and eventually eliminate the occurrence of this crime and crimes like this. Our ultimate mission is to support the victims to get back on their feet, once again, gain their self-confidence and to live a full life!.</p>
  <p > We also hope for your neighbourhood to connect with events, schools, and available services.  Community Panda is a space for helping on a small scale and a large scale. </p>
  </div>
 
         </div>
     </section>
+    <br />
+    <h2><i> Key Point</i></h2>
 
-    <section id="services">
-        <div class="container-fluid">
-            <div class="row">
-                <div class="col-sm-4 text-center padding wow fadeIn" data-wow-duration="1000ms" data-wow-delay="300ms">
+    <section id="services" style="background-color:#000" >
+        <div class="container-fluid" style="background-color:#000">
+            <div class="row" style="background-color:#000;">
+                <div class="col-sm-4 text-center padding wow fadeIn " data-wow-duration="1000ms" data-wow-delay="300ms">
                     <div class="single-service">
-                        <div class="wow scaleIn" data-wow-duration="500ms" data-wow-delay="300ms">
-                            <img src="{% static 'site/img/logo3.png' %}" alt="">
+                        <div class="wow scaleIn" data-wow-duration="400ms" data-wow-delay="300ms">
+                        <br />
+                            <img src="{% static 'img/logo3.png' %}" class="img-circle" style="width:230px; height:155px;" alt="">
                         </div>
-                        <h2>Charity</h2>
-                        <p >Venison tongue, salami corned beef ball tip meatloaf bacon. Fatback pork belly bresaola tenderloin bone pork kevin shankle.</p>
+                        <h2 class="text_p">Charity</h2>
+                        <p class="text_h2">The goal of this website is to enable people to connect with their communities and allow them to exchange goods for free or with a price—hopefully a price that will be donated straight to charity.</p>
                     </div>
                 </div>
                 <div class="col-sm-4 text-center padding wow fadeIn" data-wow-duration="1000ms" data-wow-delay="600ms">
                     <div class="single-service">
                         <div class="wow scaleIn" data-wow-duration="500ms" data-wow-delay="600ms">
-                            <img src="{% static 'site/img/h11.jpg' %}" alt="">
+                        <br />
+                            <img src="{% static 'img/h11.jpg' %}" class="img-circle" style="width:230px; height:155px;" alt="">
                         </div>
-                        <h2>Funding</h2>
-                        <p >Venison tongue, salami corned beef ball tip meatloaf bacon. Fatback pork belly bresaola tenderloin bone pork kevin shankle.</p>
+                        <h2 class="text_p">Funding</h2>
+                        <p class="text_h2">The goal of this website is to enable people to connect with their communities and allow them to exchange goods for free or with a price—hopefully a price that will be donated straight to charity.</p>
                     </div>
                 </div>
                 <div class="col-sm-4 text-center padding wow fadeIn" data-wow-duration="1000ms" data-wow-delay="900ms">
                     <div class="single-service">
-                        <div class="wow scaleIn" data-wow-duration="500ms" data-wow-delay="900ms">
-                            <img src="{% static 'site/img/we3.jpeg' %}" alt="">
+                        <div class="wow scaleIn" data-wow-duration="500ms" data-wow-delay="900ms"><br />
+                            <img src="{% static 'img/we3.jpeg' %}" class="img-circle" style="width:230px; height:155px;" alt="">
                         </div>
-                        <h2 >Social-Event</h2>
-                        <p >Venison tongue, salami corned beef ball tip meatloaf bacon. Fatback pork belly bresaola tenderloin bone pork kevin shankle.</p>
+                        <h2 class="text_p">Social-Event</h2>
+                        <p class="text_h2">The goal of this website is to enable people to connect with their communities and allow them to exchange goods for free or with a price—hopefully a price that will be donated straight to charity.</p>
                     </div>
                 </div>
             </div>
@@ -82,11 +89,12 @@
                 <div class="row">
                     <div class="action take-tour">
                         <div class="col-sm-7 " data-wow-duration="500ms" data-wow-delay="300ms">
-                            <h1 class="title">E-charity Corporate </h1>
-                            <p id="text">A responsive and trustfull &amp; for multipurpose Social Events.</p>
+                            <h2 ><i>E-charity Corporate</i> </h2>
+                            <p id="text">A responsive and trustfull &amp; for multipurpose Social Events.
+                            <br />We also hope for neighborhoods to connect with events and available services.</p>
                         </div>
                         <div class="col-sm-5 text-center wow " data-wow-duration="500ms" data-wow-delay="300ms"><br><br><br>
-                               <a href="/tour/" class="btn btn-info" >TAKE THE TOUR</a>
+                               <a href="/tour/" class="btn btn-info" >Visit To Us</a>
                         </div>
                     </div>
                 </div>
@@ -99,8 +107,8 @@
     <section id="team">
         <div class="container-fluid">
             <div class="row">
-                <h1 class="title text-center wow fadeInDown" data-wow-duration="500ms" style="font-famil: arctik">Meet the Team</h1>
-                <p class="text-center wow fadeInDown" data-wow-duration="400ms" data-wow-delay="400ms" style="font-famil: arctik">We have the expert of IT & Management. <br>
+                <h1 class="title text-center wow fadeInDown" data-wow-duration="500ms" style="font-famil: arctik"><i>Meet <span style="color:#F00;">The</span> Team</i></h1>
+                <p class="text-center wow fadeInDown" data-wow-duration="400ms" data-wow-delay="400ms" style="font-famil: arctik">We have the expert of IT & Management Member. <br>
                 Your are first for them. </p>
                 <div id="team-carousel" class="carousel slide wow fadeIn" data-ride="carousel" data-wow-duration="400ms" data-wow-delay="400ms">
                     <!-- Indicators -->
@@ -185,7 +193,7 @@
                                             </ul>
                                         </div>
                                     </div>
-                                    <div class="person-info" style="font-famil: arctik; text-align: center"> 
+                                    <div class="person-info" style="font-famil: arctik; text-align: center">
                                         <h2>NAME XYZ</h2>
                                         <p>CEO &amp; Developer</p>
                                     </div>
@@ -273,9 +281,9 @@
                                     </div>
                                 </div>
                             </div>
-                       
+
  </div>
-                            
+
                     <!-- Controls -->
                     <a class="left team-carousel-control hidden-xs" href="#team-carousel" data-slide="prev">left</a>
                     <a class="right team-carousel-control hidden-xs" href="#team-carousel" data-slide="next">right</a>
@@ -289,14 +297,14 @@
 
 
 
- 
+
 </div>
 </div></div>
     </div></div>
     <script type="text/javascript" src="{% static 'site/js/jquery.js' %}"></script>
     <script type="text/javascript" src="{% static 'site/js/lightbox.min.js' %}"></script>
     <script type="text/javascript" src="{% static 'site/js/wow.min.js' %}"></script>
-    <script type="text/javascript" src="{% static 'site/js/main.js' %}"></script> 
+    <script type="text/javascript" src="{% static 'site/js/main.js' %}"></script>
  </body>
 </html>
 {% endblock container%}

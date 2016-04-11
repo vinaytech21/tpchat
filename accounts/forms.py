@@ -38,11 +38,13 @@ class SignupForm(authtoolsforms.UserCreationForm):
         self.helper.layout = Layout(
             Field('email', placeholder="Enter Email", autofocus=""),
             Field('name', placeholder="Enter Full Name"),
+            Field('zipfield', placeholder="Enter Zipcode"),
             Field('password1', placeholder="Enter Password"),
             Field('password2', placeholder="Re-enter Password"),
-            Submit('sign_up', 'Sign up', css_class="btn-warning"),
+            Submit('sign_up', 'Sign up', css_class="btn btn-submit"),
             )
 
+        
 
 class PasswordChangeForm(authforms.PasswordChangeForm):
 

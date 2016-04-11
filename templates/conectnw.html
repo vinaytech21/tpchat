@@ -1,0 +1,293 @@
+{% extends "base.html" %}
+
+{% load crispy_forms_tags %}
+{% block title %}{{ block.super }}Home{% endblock %}
+{% block container %}
+{% load staticfiles %}
+<script src="https://maps.googleapis.com/maps/api/js?v=3.exp"></script>      
+<style>
+.spa
+{
+margin-top:150px;
+}
+.red{
+    color:red;
+    }
+.form-area
+{
+    background-color: #FAFAFA;
+	padding: 10px 40px 60px;
+	margin: 10px 0px 60px;
+	border: 1px solid GREY;
+	}
+</style>
+
+  </head>
+  <body>
+<div class="container-fluid" style="color:GhostWhite; background :url({% static 'img/con.jpg' %}) " > 
+  <div class="container">
+<div class="spa">
+<div class="col-md-3"></div><div class="col-md-6" >
+    <div class="form-area" style="padding:1px; LightSteelBlue; background-color:rgba(0,0,0,0.1)">  
+        <form role="form" method="GET" role="search" action='/z/' >
+        <br style="clear:both">
+                    <h3 style="margin-bottom: 25px; text-align: center; color:white">ZIPCODE SEARCH HERE</h3><hr>
+    				<div class="form-group">
+<div id="panel">
+Zipcode : <input id="address" type="textbox" class="form-control" name='q' placeholder="Zipcode" style="padding:1px; LightSteelBlue; background-color:rgba(0,0,0,0.1)" required >
+					</div></div>
+					<div class="form-group">
+						City : <input type="text" class="form-control" id="email" name="email" placeholder="City" style="padding:1px; LightSteelBlue; background-color:rgba(0,0,0,0.1)" >
+					</div>
+					<div class="form-group" >
+					Country : <select class="form-control" id="sel1" style="padding:1px; LightSteelBlue; background-color:rgba(0,0,0,0.1)">
+        <option>Select Country</option>
+        <option>USA</option>
+   <option> India</option>
+        <option>Afghanistan</option>
+    <option>Albania</option>
+    <option>Algeria</option>
+    <option>Andorra</option>
+   <option> Angola</option>
+    <option>Antigua and Barbuda</option>
+    <option>Argentina</option>
+    <option>Armenia</option>
+    <option>Aruba</option>
+    <option>Australia</option>
+    <option>Austria</option>
+    <option>Azerbaijan</option>
+<option>Bahamas, The</option>
+    <option>Bahrain</option>
+    <option>Bangladesh</option>
+    <option>Barbados</option>
+   <option> Belarus</option>
+   <option> Belgium</option>
+   <option> Belize</option>
+    <option>Benin</option>
+    <option>Bhutan</option>
+    <option>Bolivia</option>
+   <option> Bosnia and Herzegovina</option>
+   <option> Botswana</option>
+    <option>Brazil</option>
+    <option>Brunei</option>
+    <option>Bulgaria</option>
+    <option>Burkina Faso</option>
+    <option>Burma</option>
+    <option>Burundi</option>
+<option>Cambodia</option>
+   <option> Cameroon</option>
+   <option> Canada</option>
+   <option> Cape Verde</option>
+   <option> Central African Republic</option>
+   <option> Chad</option>
+   <option> Chile</option>
+   <option> China</option>
+   <option> Colombia</option>
+    <option>Comoros</option>
+   <option> Congo, Democratic Republic of the</option>
+    <option>Congo, Republic of the</option>
+   <option> Costa Rica</option>
+   <option> Cote d'Ivoire</option>
+    <option>Croatia</option>
+   <option> Cuba</option>
+   <option> Curacao</option>
+   <option> Cyprus</option>
+   <option> Czech Republic</option>
+   <option> Denmark</option>
+    <option>Djibouti</option>
+    <option>Dominica</option>
+   <option> Dominican Republic</option>
+<option>East Timor (see Timor-Leste)</option>
+   <option> Ecuador</option>
+   <option> Egypt</option>
+   <option> El Salvador</option>
+   <option> Equatorial Guinea</option>
+   <option> Eritrea</option>
+   <option> Estonia</option>
+   <option> Ethiopia</option>
+ <option>Fiji</option>
+   <option> Finland</option>
+   <option> France</option>
+ <option>Gabon</option>
+   <option> Gambia, The</option>
+   <option> Georgia</option>
+   <option> Germany</option>
+    <option>Ghana</option>
+   <option> Greece</option>
+    <option>Grenada</option>
+    <option>Guatemala</option>
+   <option> Guinea</option>
+   <option> Guinea-Bissau</option>
+   <option> GuyanaHaiti</option>
+   <option> Holy See</option>
+   <option> Honduras</option>
+   <option> Hong Kong</option>
+   <option> Hungary</option>
+<option>Iceland</option>
+   <option> India</option>
+   <option> Indonesia</option>
+   <option> Iran</option>
+   <option> Iraq</option>
+   <option> Ireland</option>
+   <option> Israel</option>
+   <option> Italy</option>
+<option>Jamaica</option>
+    <option>Japan</option>
+   <option> Jordan</option>
+  <option> Kazakhstan</option>
+  <option>  Kenya</option>
+    <option>Kiribati</option>
+    <option>Korea, North</option>
+   <option> Korea, South</option>
+   <option> Kosovo</option>
+   <option> Kuwait</option>
+   <option> Kyrgyzstan</option>
+<option>Laos</option>
+   <option> Latvia</option>
+    <option>Lebanon</option>
+    <option>Lesotho</option>
+    <option>Liberia</option>
+    <option>Libya</option>
+    <option>Liechtenstein</option>
+    <option>Lithuania</option>
+    <option>Luxembourg</option>
+<option>Macau</option>
+   <option> Macedonia</option>
+   <option> Madagascar</option>
+   <option> Malawi</option>
+   <option> Malaysia</option>
+   <option> Maldives</option>
+   <option> Mali</option>
+   <option> Malta</option>
+   <option> Marshall Islands</option>
+   <option> Mauritania</option>
+   <option> Mauritius</option>
+   <option> Mexico</option>
+   <option> Micronesia</option>
+   <option> Moldova</option>
+    <option>Monaco</option>
+    <option>Mongolia</option>
+   <option> Montenegro</option>
+   <option> Morocco</option>
+   <option> Mozambique</option>
+<option>Namibia</option>
+   <option> Nauru</option>
+   <option> Nepal</option>
+   <option> Netherlands</option>
+   <option> Netherlands Antilles</option>
+   <option> New Zealand</option>
+   <option> Nicaragua</option>
+    <option>Niger</option>
+    <option>Nigeria</option>
+    <option>North Korea</option>
+    <option>Norway</option>
+<option>Oman</option>
+<option>Pakistan</option>
+  <option>  Palau</option>
+   <option> Palestinian Territories</option>
+   <option> Panama</option>
+   <option> Papua New Guinea</option>
+   <option> Paraguay</option>
+   <option> Peru</option>
+   <option> Philippines</option>
+    <option>Poland</option>
+   <option> Portugal</option>
+<option>Qatar</option>
+<option>Romania</option>
+   <option> Russia</option>
+   <option> Rwanda</option>
+ <option>Saint Kitts and Nevis</option>
+   <option> Saint Lucia</option>
+    <option>Saint Vincent and the Grenadines</option>
+   <option> Samoa</option>
+   <option> San Marino</option>
+    <option>Sao Tome and Principe</option>
+    <option>Saudi Arabia</option>
+    <option>Senegal</option>
+    <option>Serbia</option>
+    <option>Seychelles</option>
+    <option>Sierra Leone</option>
+    <option>Singapore</option>
+    <option>Sint Maarten</option>
+    <option>Slovakia</option>
+    <option>Slovenia</option>
+   <option> Solomon Islands</option>
+   <option> Somalia</option>
+    <option>South Africa</option>
+    <option>South Korea</option>
+    <option>South Sudan</option>
+    <option>Spain</option>
+    <option>Sri Lanka</option>
+    <option>Sudan</option>
+    <option>Suriname</option>
+    <option>Swaziland</option>
+    <option>Sweden</option>
+    <option>Switzerland</option>
+    <option>Syria</option>
+<option>Taiwan</option>
+    <option>Tajikistan</option>
+    <option>Tanzania</option>
+    <option>Thailand</option>
+    <option>Timor-Leste</option>
+    <option>Togo</option>
+    <option>Tonga</option>
+    <option>Trinidad and Tobago</option>
+    <option>Tunisia</option>
+    <option>Turkey</option>
+    <option>Turkmenistan</option>
+   <option> Tuvalu</option>
+ <option>Uganda</option>
+   <option> Ukraine</option>
+    <option>United Arab Emirates</option>
+    <option>United Kingdom</option>
+   <option> Uruguay</option>
+    <option>Uzbekistan</option>
+<option>Vanuatu</option>
+  <option>  Venezuela</option>
+   <option> Vietnam</option>
+<option>Yemen</option>
+<option>Zambia</option>
+  <option>  Zimbabwe</option>
+
+      </select>
+					
+                        <span class="help-block"><p id="characterLeft" class="help-block ">Make this my permanent location</p></span>                    
+                   <center>
+
+		<input class="btn btn-info " type="submit" value="Submit" onclick="codeAddress()"/>
+                </center>
+        </form>
+    </div>
+</div>
+</div>
+   </div></div>	</div>
+
+<script>    
+        var geocoder;
+        var map;        
+        function codeAddress() {
+            geocoder = new google.maps.Geocoder();
+            var address = document.getElementById('address').value;
+            geocoder.geocode({ 'address': address }, function (results, status) {
+                if (status == google.maps.GeocoderStatus.OK) {                       
+
+                    for (var component in results[0]['address_components']) {
+                        for (var i in results[0]['address_components'][component]['types']) {
+                            if (results[0]['address_components'][component]['types'][i] == "administrative_area_level_1") {
+                                state = results[0]['address_components'][component]['long_name'];
+                                alert(results[0]['address_components'][1]['long_name'] + ' , '  + state);
+                            }
+                        }
+                    }                                           
+                } else {
+                    alert('Invalid Zipcode');
+                }
+            });
+        }         
+
+    </script>         
+
+{% endblock  %}
+
+
+

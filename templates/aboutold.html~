@@ -1,0 +1,313 @@
+{% extends "base.html" %}
+
+
+{% load crispy_forms_tags %}
+
+{% block title %}{{ block.super }}About{% endblock %}
+
+
+<!-- Benefits of the Django application -->
+{% block container %}
+{% load staticfiles %}
+
+<link href="{% static 'site/css/bootstrap.css' %}" rel="stylesheet" type="text/css" />
+<link href="{% static 'site/css/bootstrap.min.css'  %}" type="text/css" />
+<link href="{% static 'site/css/bootstrap-theme.css' %}" type="text/css" />
+<link href="{% static 'site/css/bootstrap-theme.min.css' %}" type="text/css" />
+<link href="{% static 'site/css/bootstrap.css' %}" rel="stylesheet" type="text/css" />
+     <!-- CUSTOM STYLES-->
+<link href="{% static 'site/css/style2.css' %}" rel="stylesheet" type="text/css" />
+<link href="{% static 'site/css/style1.css' %}" rel="stylesheet" type="text/css" />
+<link href="{% static 'site/css/main.css' %}" rel="stylesheet" type="text/css"/>
+<link href="{% static 'site/css/custom.css' %}" rel="stylesheet" type="text/css" />
+  <!-- FONTAWESOME STYLES-->
+<link href="{% static 'site/css/font-awesome.css' %}" rel="stylesheet" type="text/css" />
+
+<body>
+<div   id='header-background'  ><h2>About<span style="color:#F00;"> Us.....</span></h2></div>
+<div class="container-fluid" >
+    <section id="company-information" "class="text-overview " data-wow-duration="1000ms" data-wow-delay="300ms">
+        <div class="container-fluid">
+                <div class="col-sm-5">
+                <h2><i>OverView</i></h2>
+
+                </div>
+                <div class="text-awesom2  text_formate" >
+
+
+                   <br />
+                   <br />
+<p><br /> Community Panda aims to create a social community platform dedicated to combining the idea of local exchanges and services with grander scale charities. Community Panda is a space for helping on a small scale and a large scale.. Raising awareness is yet another goal of Community Panda.<br /> We believe, by educating, not punishing, we can reduce and eventually eliminate the occurrence of this crime and crimes like this. Our ultimate mission is to support the victims to get back on their feet, once again, gain their self-confidence and to live a full life!.</p>
+ <p > We also hope for your neighbourhood to connect with events, schools, and available services.  Community Panda is a space for helping on a small scale and a large scale. </p>
+ </div>
+
+        </div>
+    </section>
+    <br />
+    <h2><i> Key Point</i></h2>
+
+    <section id="services" style="background-color:#000" >
+        <div class="container-fluid" style="background-color:#000">
+            <div class="row" style="background-color:#000;">
+                <div class="col-sm-4 text-center padding wow fadeIn " data-wow-duration="1000ms" data-wow-delay="300ms">
+                    <div class="single-service">
+                        <div class="wow scaleIn" data-wow-duration="400ms" data-wow-delay="300ms">
+                        <br />
+                            <img src="{% static 'img/logo3.png' %}" class="img-circle" style="width:230px; height:155px;" alt="">
+                        </div>
+                        <h2 class="text_p">Charity</h2>
+                        <p class="text_h2">The goal of this website is to enable people to connect with their communities and allow them to exchange goods for free or with a price—hopefully a price that will be donated straight to charity.</p>
+                    </div>
+                </div>
+                <div class="col-sm-4 text-center padding wow fadeIn" data-wow-duration="1000ms" data-wow-delay="600ms">
+                    <div class="single-service">
+                        <div class="wow scaleIn" data-wow-duration="500ms" data-wow-delay="600ms">
+                        <br />
+                            <img src="{% static 'img/h11.jpg' %}" class="img-circle" style="width:230px; height:155px;" alt="">
+                        </div>
+                        <h2 class="text_p">Funding</h2>
+                        <p class="text_h2">The goal of this website is to enable people to connect with their communities and allow them to exchange goods for free or with a price—hopefully a price that will be donated straight to charity.</p>
+                    </div>
+                </div>
+                <div class="col-sm-4 text-center padding wow fadeIn" data-wow-duration="1000ms" data-wow-delay="900ms">
+                    <div class="single-service">
+                        <div class="wow scaleIn" data-wow-duration="500ms" data-wow-delay="900ms"><br />
+                            <img src="{% static 'img/we3.jpeg' %}" class="img-circle" style="width:230px; height:155px;" alt="">
+                        </div>
+                        <h2 class="text_p">Social-Event</h2>
+                        <p class="text_h2">The goal of this website is to enable people to connect with their communities and allow them to exchange goods for free or with a price—hopefully a price that will be donated straight to charity.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!--/#services-->
+
+    <section id="action" class="responsive">
+        <div class="vertical-center" style="background-color:#E7E7E7">
+             <div class="container-fluid">
+                <div class="row">
+                    <div class="action take-tour">
+                        <div class="col-sm-7 " data-wow-duration="500ms" data-wow-delay="300ms">
+                            <h2 ><i>E-charity Corporate</i> </h2>
+                            <p id="text">A responsive and trustfull &amp; for multipurpose Social Events.
+                            <br />We also hope for neighborhoods to connect with events and available services.  </p>
+                        </div>
+                        <div class="col-sm-5 text-center wow " data-wow-duration="500ms" data-wow-delay="300ms"><br><br><br>
+                               <a href="/tour/" class="btn btn-info" >Visit To Us</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!--/#action-->
+
+    <section id="team">
+        <div class="container-fluid">
+            <div class="row">
+                <h1 class="title text-center wow fadeInDown" data-wow-duration="500ms" style="font-famil: arctik"><i>Meet <span style="color:#F00;">The</span> Team</i></h1>
+                <p class="text-center wow fadeInDown" data-wow-duration="400ms" data-wow-delay="400ms" style="font-famil: arctik">We have the expert of IT & Management Member. <br>
+                Your are first for them. </p>
+                <div id="team-carousel" class="carousel slide wow fadeIn" data-ride="carousel" data-wow-duration="400ms" data-wow-delay="400ms">
+                    <!-- Indicators -->
+                    <ol class="carousel-indicators visible-xs">
+                        <li data-target="#team-carousel" data-slide-to="0" class="active"></li>
+                        <li data-target="#team-carousel" data-slide-to="1"></li>
+                    </ol>
+                    <!-- Wrapper for slides -->
+                    <div class="carousel-inner">
+                        <div class="item active">
+                            <div class="col-sm-3 col-xs-6">
+                                <div class="team-single-wrapper">
+                                    <div class="team-single">
+                                        <div class="person-thumb">
+                                            <img src="{% static 'site/img/1.jpg' %}" class="img-responsive" alt="">
+                                        </div>
+                                        <div class="social-profile">
+                                            <ul class="nav nav-pills">
+                                                <li><a href="#"><i class="fa fa-facebook"></i></a></li>
+                                                <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+                                                <li><a href="#"><i class="fa fa-google-plus"></i></a></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <div class="person-info" style="font-family: arctik; text-align: center">
+                                        <h2>NAME XYZ</h2>
+                                        <p>CEO &amp; Developer</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-sm-3 col-xs-6">
+                                <div class="team-single-wrapper">
+                                    <div class="team-single">
+                                        <div class="person-thumb">
+                                            <img src="{% static 'site/img/2.jpg' %}" class="img-responsive" alt="">
+                                        </div>
+                                        <div class="social-profile">
+                                            <ul class="nav nav-pills">
+                                                <li><a href="#"><i class="fa fa-facebook"></i></a></li>
+                                                <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+                                                <li><a href="#"><i class="fa fa-google-plus"></i></a></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <div class="person-info" style="font-famil: arctik; text-align: center">
+                                        <h2>NAME XYZ</h2>
+                                        <p>CEO &amp; Developer</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-sm-3 col-xs-6">
+                                <div class="team-single-wrapper">
+                                    <div class="team-single">
+                                        <div class="person-thumb">
+                                            <img src="{% static 'site/img/3.jpg' %}" class="img-responsive" alt="">
+                                        </div>
+                                        <div class="social-profile">
+                                            <ul class="nav nav-pills">
+                                                <li><a href="#"><i class="fa fa-facebook"></i></a></li>
+                                                <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+                                                <li><a href="#"><i class="fa fa-google-plus"></i></a></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <div class="person-info" style="font-famil: arctik; text-align: center">
+                                        <h2>NAME XYZ</h2>
+                                        <p>CEO &amp; Developer</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-sm-3 col-xs-6">
+                                <div class="team-single-wrapper">
+                                    <div class="team-single">
+                                        <div class="person-thumb">
+                                            <img src="{% static 'site/img/1.jpg' %}" class="img-responsive" alt="">
+                                        </div>
+                                        <div class="social-profile">
+                                            <ul class="nav nav-pills">
+                                                <li><a href="#"><i class="fa fa-facebook"></i></a></li>
+                                                <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+                                                <li><a href="#"><i class="fa fa-google-plus"></i></a></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <div class="person-info" style="font-famil: arctik; text-align: center">
+                                        <h2>NAME XYZ</h2>
+                                        <p>CEO &amp; Developer</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="item">
+                            <div class="col-sm-3 col-xs-6">
+                                <div class="team-single-wrapper">
+                                    <div class="team-single">
+                                        <div class="person-thumb">
+                                            <img src="{% static 'site/img/4.jpg' %}" class="img-responsive" alt="">
+                                        </div>
+                                        <div class="social-profile">
+                                            <ul class="nav nav-pills">
+                                                <li><a href="#"><i class="fa fa-facebook"></i></a></li>
+                                                <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+                                                <li><a href="#"><i class="fa fa-google-plus"></i></a></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <div class="person-info" style="font-famil: arctik; text-align: center">
+                                        <h2>NAME XYZ</h2>
+                                        <p>CEO &amp; Owner</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-sm-3 col-xs-6">
+                                <div class="team-single-wrapper">
+                                    <div class="team-single">
+                                        <div class="person-thumb">
+                                            <img src="{% static 'site/img/3.jpg' %}" class="img-responsive" alt="">
+                                        </div>
+                                        <div class="social-profile">
+                                            <ul class="nav nav-pills">
+                                                <li><a href="#"><i class="fa fa-facebook"></i></a></li>
+                                                <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+                                                <li><a href="#"><i class="fa fa-google-plus"></i></a></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <div class="person-info" style="font-famil: arctik; text-align: center">
+                                        <h2>NAME XYZ</h2>
+                                        <p>MD &amp; shareholder</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-sm-3 col-xs-6">
+                                <div class="team-single-wrapper">
+                                    <div class="team-single">
+                                        <div class="person-thumb">
+                                            <img src="{% static 'site/img/2.jpg' %}" class="img-responsive" alt="">
+                                        </div>
+                                        <div class="social-profile">
+                                            <ul class="nav nav-pills">
+                                                <li><a href="#"><i class="fa fa-facebook"></i></a></li>
+                                                <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+                                                <li><a href="#"><i class="fa fa-google-plus"></i></a></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <div class="person-info" style="font-famil: arctik; text-align: center">
+                                        <h2>NAME XYZ</h2>
+                                        <p>Director &amp; Sr.Developer</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-sm-3 col-xs-6">
+                                <div class="team-single-wrapper">
+                                    <div class="team-single">
+                                        <div class="person-thumb">
+                                            <img src="{% static 'site/img/1.jpg' %}" class="img-responsive" alt="">
+                                        </div>
+                                        <div class="social-profile">
+                                            <ul class="nav nav-pills">
+                                                <li><a href="#"><i class="fa fa-facebook"></i></a></li>
+                                                <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+                                                <li><a href="#"><i class="fa fa-google-plus"></i></a></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <div class="person-info" style="font-famil: arctik; text-align: center">
+                                        <h2>NME XYZ</h2>
+                                        <p>Manager &amp; Developer</p>
+                                    </div>
+                                </div>
+                            </div>
+
+ </div>
+
+                    <!-- Controls -->
+                    <a class="left team-carousel-control hidden-xs" href="#team-carousel" data-slide="prev">left</a>
+                    <a class="right team-carousel-control hidden-xs" href="#team-carousel" data-slide="next">right</a>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
+    <!--/#team-->
+
+
+
+
+
+</div>
+</div></div>
+    </div></div>
+    <script type="text/javascript" src="{% static 'site/js/jquery.js' %}"></script>
+    <script type="text/javascript" src="{% static 'site/js/lightbox.min.js' %}"></script>
+    <script type="text/javascript" src="{% static 'site/js/wow.min.js' %}"></script>
+    <script type="text/javascript" src="{% static 'site/js/main.js' %}"></script>
+ </body>
+</html>
+{% endblock container%}
+
+
+

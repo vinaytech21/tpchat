@@ -36,7 +36,7 @@ class SignUpView(bracesviews.AnonymousRequiredMixin,
                  generic.CreateView):
     form_class = forms.SignupForm
     model = User
-    template_name = 'accounts/signup.html'
+    template_name = 'accounts/signup1.html'
     success_url = reverse_lazy('home')
     form_valid_message = "You're signed up!"
 

@@ -5,7 +5,7 @@ from django.db.models.signals import post_save, post_delete
 from follow.registry import model_map
 from follow.signals import followed, unfollowed
 import inspect
-from authtools.models import User
+from django.contrib.auth.models import User
 
 class FollowManager(models.Manager):
     def fname(self, model_or_obj_or_qs):

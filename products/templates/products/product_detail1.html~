@@ -53,8 +53,11 @@
        
    <h4 style="color:#3b5998;">    {{post.address}}</h4>
  
-     <h4 style="color:#434343;">  Edit Items<a class="btn btn-default"href="/products/{{Product.pk }}/edit/"> <i class="fa fa-pencil-square-o"></i>
-</a>  </h4>  
+     <h4 style="color:#434343;">  Edit Items<a class="btn btn-default"href="/products/{{post.pk }}/edit/"> <i class="fa fa-pencil-square-o"></i>
+</a>  </h4> 
+     <h4 style="color:#434343;">  Public Items<a class="btn btn-default" href="/products/{{post.pk }}/public/" onclick="window.open(this.href, 'mywin',
+'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" >Share this</a>> <i class="fa fa-camera-retro"></i>
+</a>  </h4> 
     </div>
 	<div class="row">
 	<div class="col-sm-12">

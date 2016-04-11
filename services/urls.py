@@ -1,7 +1,13 @@
 from django.conf.urls import patterns, include, url
+from . import views
+from django.conf import settings
+from django.conf.urls import include, url
+from django.conf.urls.static import static
+from django.contrib import admin
+from .views import  servicelistListView
 
 urlpatterns = patterns('services.views',    
-    url(r'^$', 'servicelist', name='servicelist'),
+    url(r'^$', servicelistListView.as_view(), name='servicelist'),
     url(r'^active/$', 'active', name='active'),
     url(r'^service/(?P<pk>[0-9]+)/$', 'service_detail_home', name='service_detail_home'),
     url(r'^offer/$', 'offer', name='offer'),

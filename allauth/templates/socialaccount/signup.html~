@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+{% load i18n %}
+{% load crispy_forms_tags %}
+
+
+{% block container %}
+{% load static %}
+<div class="container-fluid" style="width: auto;  color:GhostWhite; background :url({% static "img/intro-bg.jpg" %}) no-repeat center top">
+<br><br><br><br><br><br>
+	<div class="row">
+<div class="col-md-4">
+ </div>
+<div class="col-md-4" style="padding:1px;border:1px groove LightSteelBlue; background-color:#A4A4A4">
+<p>{% blocktrans with provider_name=account.get_provider.name site_name=site.name %}You are about to use your {{provider_name}} account to login to
+{{site_name}}. As a final step, please complete the following form:{% endblocktrans %}</p>
+
+
+  
+<center><b><h1>{% trans "Sign Up" %}</h1><b></center>
+<div class="row">
+      <div class="col-sm-2"></div>
+      <div class="col-sm-8">
+
+<form class="signup" id="signup_form" method="post" action="{% url 'socialaccount_signup' %}">
+{% csrf_token %}
+  {% crispy form %}
+  {% if redirect_field_value %}
+  <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
+  {% endif %}
+  <button type="submit" >{% trans "Sign Up" %} &raquo;</button>
+</form><br><br>
+</div></div></div></div>
+<br><br><br><br>
+</div>
+{% endblock %}

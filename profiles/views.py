@@ -25,7 +25,6 @@ class ShowProfile(LoginRequiredMixin, generic.TemplateView):
         kwargs["show_user"] = user
         return super(ShowProfile, self).get(request, *args, **kwargs)
 
-
 class EditProfile(LoginRequiredMixin, generic.TemplateView):
     template_name = "profiles/edit_profile.html"
     http_method_names = ['get', 'post']
@@ -59,3 +58,40 @@ class EditProfile(LoginRequiredMixin, generic.TemplateView):
         profile.save()
         messages.success(request, "Profile details saved!")
         return redirect("profiles:show_self")
+
+
+class ImageProfile(LoginRequiredMixin, generic.TemplateView):
+    template_name = "dashboard.html"
+    http_method_names = ['get', 'post']
+
+    def get(self, request, *args, **kwargs):
+        user = self.request.user
+       
+        if "profile_form" not in kwargs:
+            kwargs["profile_form"] = forms.ProfileForm(instance=user.profile)
+        return super(ImageProfile, self).get(request, *args, **kwargs)
+
+
+    def post(self, request, *args, **kwargs):
+        user = self.request.user
+
+        profile_form = forms.ProfileForm(request.POST,
+                                         request.FILES,
+                                         instance=user.profile)
+        if not ( profile_form.is_valid()):
+            messages.error(request, "There was a problem with the form. "
+                           "Please check the details.")
+            
+            profile_form = forms.ProfileForm(instance=user.profile)
+            return super(ImageProfile, self).get(request,
+                                               
+                                                profile_form=profile_form)
+        # Both forms are fine. Time to save!
+       
+        profile = profile_form.save(commit=False)
+        profile.user = user
+        profile.save()
+        messages.success(request, "Profile details saved!")
+        return redirect("profiles:show_self")
+
+

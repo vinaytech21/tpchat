@@ -17,11 +17,13 @@ class UserForm(forms.ModelForm):
         self.helper.form_tag = False
         self.helper.layout = Layout(
             Field('name'),
+            Field('zipfield'),
             )
 
     class Meta:
         model = User
-        fields = ['name']
+        fields = ['name','zipfield']
+
 
 
 class ProfileForm(forms.ModelForm):
@@ -40,3 +42,15 @@ class ProfileForm(forms.ModelForm):
     class Meta:
         model = models.Profile
         fields = ['picture', 'bio','zipcode']
+
+
+class SignupForm(forms.Form):
+    name = forms.CharField(max_length=30, label='Name')
+    zipfield = forms.CharField(max_length=30, label='Zipcode')
+
+    def signup(self, request, user):
+        user.name = self.cleaned_data['name']
+        user.zipfield = self.cleaned_data['zipfield']
+        user.save()
+
+    

@@ -6,7 +6,9 @@
 {% block title %}{{ block.super }}Profile{% endblock %}
 
 {% block container %}
-{% load i18n avatar_tags %}
+{% load avatar_tags %}
+{% load i18n %}
+{% load account %}
 
 <div class="container-fluid">
 <div class="row">
@@ -19,12 +21,13 @@
 <div class="panel panel-back noti-box">
                 <span class="icon-box bg-color-blue set-icon"  style="padding-top: 1px">
 <h1>{{ show_user.get_full_name|truncatechars:4 }}</h1></span>
+
                                
                                
       <h1>{{ show_user.get_full_name }}</h1>
                                    
                             </div>
-                        </div>    <img title="profile picture" class="img-responsive" src="{% thumbnail user.profile.picture|default:'default_profile.png' 140x140 crop %}" style="width:20%; height:105px;">  Your Avatar      </div>   
+                        </div>    <img title="profile picture" class="img-responsive" src="{{ url }}" style="width:20%; height:105px;">  Your Avatar      </div>   
  <div class="container-fluid">
  <div class="row">
 
@@ -57,9 +60,10 @@
 	    <span class="sr-only">Not Verified</span>
 	  {% endif %}
 	</li>
+        <li class="list-group-item text-right"><span class="pull-left"><strong>AuthZipcode</strong></span> {{ show_user.zipfield }}</li>
         <li class="list-group-item text-right"><span class="pull-left"><strong>Joined</strong></span> {{ show_user.date_joined }}</li>
         <li class="list-group-item text-right"><span class="pull-left"><strong>Last seen</strong></span> {{ show_user.last_login }}</li>
-        <li class="list-group-item text-right"><span class="pull-left"><strong>Zip Code</strong></span> {{ show_user.profile.zipcode }}</li>
+
 
       </ul>
     </div>

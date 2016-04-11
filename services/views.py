@@ -1,5 +1,6 @@
 from django.shortcuts import render
 from .models import Service
+from products.models import Product
 from .forms import ServiceForm, OfferForm
 from django.contrib.auth.decorators import login_required
 from django.shortcuts import render_to_response
@@ -11,11 +12,16 @@ from django.http import HttpResponseRedirect
 from django.http import *
 from profiles.models import BaseProfile
 from profiles.views import *
+from django.views.generic.list import ListView
 
-def servicelist(request):
+class servicelistListView(ListView):
+    model = Product
     model = Service
+
+    template_name = 'services/service_home.html'  # optional (the default is app_name/modelNameInLowerCase_list.html; which will look into your templates folder for that path and file)
     post = Service.objects.all()
-    return render(request, 'services/service_home.html', {'post': post})
+    paginate_by = 2
+
 
 def service_detail_home(request, pk):
     model = Service
