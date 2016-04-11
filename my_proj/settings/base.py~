@@ -163,7 +163,7 @@ USE_TZ = True
 STATIC_URL = '/static/'
 STATIC_ROOT = join(BASE_DIR, '..', 'site', 'static')
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 # Crispy Form Theme - Bootstrap 3
 CRISPY_TEMPLATE_PACK = 'bootstrap3'
