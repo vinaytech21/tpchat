@@ -1,0 +1,157 @@
+@charset "utf-8";
+/* CSS Document */
+#header-background
+{
+	text-align:left;
+	padding-top:5%;
+	font-family:"Times New Roman", Times, serif;
+	font-size:18px;
+	background-image:url(../img/Community-Involvement.jpg);
+	background-position:top;
+	background-size:100%;
+	background-repeat:no-repeat;
+	width:100%;
+	height:250px;
+	padding-left:40px;
+	
+	
+}
+#header-secon-background
+{
+		
+	
+	padding-top:5%;
+	font-family:"Times New Roman", Times, serif;
+	font-size:35px;
+	background-image:url(../img/charity-header.jpg);
+	background-repeat:repeat-x;
+	width:100%;
+	height:240px;
+	background-size:100%;
+	color:#FFF;
+	font-family:"Times New Roman", Times, serif;
+	padding-left:50px;
+	
+	
+}
+.page-header
+{
+	background-image: url(../img/header.png);
+	background-repeat: repeat-x;
+	width: 100%;
+	height: 150px;
+	
+}
+
+.text-awesom
+{
+	margin-left:90%;
+	margin-right:20%;
+	background:#FFF;
+	color:#000;
+	font-size:24px;
+	
+}
+.text-dec
+{
+	padding-top:20px;
+	float:left;
+}
+.text-awesom2
+{
+	margin-left:10%;
+	margin-right:20%;
+}
+.content-box1
+{
+	padding-left:5%;
+	padding-right:20%;
+}
+.fadeIn1
+{
+	background-color:#FFF;
+}
+.text_formate
+{
+	font-family:"Times New Roman", Times, serif;
+	font-size:18px;
+	line-height:20px;
+}
+.text_h2{
+	font-family:"Times New Roman", Times, serif;
+	font-size:18px;
+	color:#FFF;
+}
+.text_p
+{
+	font-family:"Times New Roman", Times, serif;
+	font-size:20px;
+	color:#CCC;
+}
+.vertical-center
+{
+	width:auto;
+	height:30%;
+}
+.text-overview
+{
+	margin-top:5px;
+}
+.btn {
+  background: #3498db;
+  background-image: -webkit-linear-gradient(top, #3498db, #2980b9);
+  background-image: -moz-linear-gradient(top, #3498db, #2980b9);
+  background-image: -ms-linear-gradient(top, #3498db, #2980b9);
+  background-image: -o-linear-gradient(top, #3498db, #2980b9);
+  background-image: linear-gradient(to bottom, #3498db, #2980b9);
+  -webkit-border-radius: 0;
+  -moz-border-radius: 0;
+  border-radius: 0px;
+  text-shadow: 2px 1px 3px #666666;
+  font-family: Arial;
+  color: #ffffff;
+  font-size: 18px;
+  padding: 10px 36px 14px 36px;
+  text-decoration: none;
+  width:200px;
+}
+
+.btn:hover {
+  background: #3cb0fd;
+  background-image: -webkit-linear-gradient(top, #3cb0fd, #3498db);
+  background-image: -moz-linear-gradient(top, #3cb0fd, #3498db);
+  background-image: -ms-linear-gradient(top, #3cb0fd, #3498db);
+  background-image: -o-linear-gradient(top, #3cb0fd, #3498db);
+  background-image: linear-gradient(to bottom, #3cb0fd, #3498db);
+  text-decoration: none;
+}
+.content1{
+	margin-left:0px;
+	margin-right:300px;
+}
+.head-section
+{
+	padding-left:30px;
+	
+	background-color:#000;
+	color:#FFF;
+	width:100%;
+	height:30px;
+	padding-top:10px;
+}
+.content-backgroung{
+	background-color:#666;
+	color:#666;
+}
+.paragraph
+{
+	style="color:#03F; 
+	border:2px #000 solid;
+	background-color:#FFF;
+}
+#container_bg
+{
+	background-image:url(../img/bg.jpg);
+	background-repeat:no-repeat;
+	background-size:100%;
+}

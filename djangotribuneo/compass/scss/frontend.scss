@@ -1,0 +1,425 @@
+/*
+* Base styles for Django-tribune
+* Created by David THENON in May 2012
+*/
+@import "compass/css3";
+@import "compass/css3/user-interface";
+@import "addons";
+
+@mixin message-components(){
+    span.clock{
+        display: inline-block;
+        padding: 3px;
+        color: #FF0000;
+        text-decoration: none;
+        border-left: 3px solid transparent;
+        border-bottom: 1px solid transparent;
+        @media (max-width: $screenSmall - 1) {
+            border-left: none;
+            padding: 3px 0 0 0;
+        }
+    }
+    span.identity{
+        display: inline-block;
+        &.authenticated{
+            padding-right: 3px;
+            color: #008000;
+            text-decoration: none;
+        }
+        &.anonymous{
+            padding-right: 3px;
+            font-style: italic;
+            color: #660000;
+            text-decoration: none;
+        }
+    }
+    
+    &.me-action{
+        span.content{
+            display: inline-block;
+            color: #008000;
+            font-weight: bold;
+        }
+    }
+    
+    span.pointer{
+        color: blue;
+    }
+    span.marker{
+        font-size: 14px;
+        line-height: 2.2;
+        position: absolute;
+        left: -17px;
+        @include text-shadow(rgba(black, 0.2) 1px 1px 0);
+        
+        i.icon-asterisk{
+            color: #5da423;
+        }
+        
+        i.icon-comment{
+            color: #2ba6cb;
+        }
+    }
+    // For owned reference clocks
+    &.owned{
+        span.clock{
+            border-left: 3px solid #E0B080;
+            border-bottom: 1px solid #E0B080;
+            @media (max-width: $screenSmall - 1) {
+                border-left: none;
+                border-bottom: 1px solid #FF0000;
+            }
+        }
+    }
+    
+    // For message that answering to user's clock
+    &.answer{
+        @media (max-width: $screenSmall - 1) {
+            border-left: 3px solid #2BA6CB;
+            .marker{
+                display: none;
+            }
+        }
+        span.content span.pointer.pointer-answer{
+            font-weight: bold;
+        }
+    }
+    
+    // For message casting
+    &.usercast,
+    &.musslecast{
+        border: 1px solid #D0D0D0;
+        @include border-radius(5px);
+        background-color: #F0F0F0;
+        &.highlighted,
+        &:hover{
+            background-color: #e2d5d4;
+        }
+    }
+    &.musslecast{
+        background-image: linear-gradient(#F8F8F8, #E1E1E1);
+        &.highlighted,
+        &:hover{
+            background-image: linear-gradient(#F8F8F8, #e2d5d4);
+        }
+    }
+    
+    // Smiley link
+    a.smiley{
+        text-decoration: none;
+    }
+    
+    code{
+        font-family: monospace;
+        font-weight: inherit;
+        color:#282921;
+        background-color:#f0f3f7;
+        border:1px solid #dfe5ee;
+        border-width:0 0 1px 0;
+        padding:2px;
+    }
+    
+    tt{
+        font-family: monospace;
+        font-size: 0.6em;
+    }
+}
+
+// Messages list
+.djangotribune{
+    margin: 0;
+    padding: .1em;
+    
+    /* Highlights for clock events */
+    li.message.highlighted,
+    span.clock.highlighted{
+        background-color: #e2d5d4;
+    }
+    span.content span.pointer.highlighted{
+        background-color: #e2d5d4;
+        text-decoration: underline;
+    }
+    
+    .messages{
+        margin: 0;
+        padding: 0;
+        .message{
+            margin: 1px 3px 1px 17px;
+            padding: 0;
+            position: relative;
+            line-height: 1.2;
+            list-style-type: none;
+            @media (max-width: $screenSmall - 1) {
+                margin: 5px 3px 5px 0;
+                padding: 0 0 0 2px;
+                font-size: 13px;
+                border-left: 3px solid transparent;
+            }
+            
+            @include message-components;
+        }
+    }
+    
+    .djangotribune_shortcut_bar{
+        padding: 0 3px 0 35px;
+        @media (max-width: $screenSmall - 1) {
+            padding: 0;
+            margin-bottom: 5px;
+        }
+        
+        a{
+            display: inline-block;
+            margin: 0 0 8px 0;
+            padding: 0.2em 0.4em;
+            min-width: 1.5em;
+            font-size: 13px;
+            color: #444444;
+            line-height: 1;
+            font-weight: 400;
+            text-align: center;
+            text-transform: uppercase;
+            cursor: pointer;
+            border: medium none;
+            @include border-radius(.25em);
+            @include user-select(none);
+            background: rgb(250, 250, 250);
+            @include background(linear-gradient(top, rgb(210, 210, 210), rgb(255, 255, 255)));
+            @include box-shadow(
+                inset 0 0 25px #e8e8e8,
+                0 1px 0 #c3c3c3,
+                0 2px 0 #c9c9c9,
+                0 2px 3px #333
+            );
+            text-shadow: 0px 1px 0px #f5f5f5;
+            @media (max-width: $screenSmall - 1) {
+                font-size: 17px;
+            }
+            
+            &+a{
+                margin-left: 10px;
+            }
+            &:hover{
+                color: #D0910B;
+            }
+            
+            &.bold{
+                font-weight: 700;
+            }
+            &.italic{
+                font-style: italic;
+            }
+            &.stroke{
+                text-decoration: line-through;
+            }
+            &.underline{
+                text-decoration: underline;
+            }
+            &.teletype{
+                font-family: monospace;
+            }
+            &.code{
+                font-family: monospace;
+            }
+            &.moment{
+                font-weight: 700;
+                
+                @media (min-width: $screenSmall) {
+                    &:before{
+                        content: "=>";
+                    }
+                    &:after{
+                        content: "<=";
+                    }
+                }
+            }
+        }
+    }
+}
+
+.smiley_container{
+    z-index: 8000;
+}
+
+// Message container to display in absolute position
+.absolute-message-container{
+    position: fixed;
+    z-index: 9000;
+    width: 1000px;
+    min-width: 768px;
+    max-width: 100%;
+    background-color: #f0f0f0;
+    padding: 10px;
+    border: 1px solid #000000;
+    @include single-box-shadow;
+    
+    &.at-top{
+        border-top: 0;
+        @include border-bottom-radius(5px);
+    }
+    &.at-bottom{
+        border-bottom: 0;
+        @include border-top-radius(5px);
+    }
+    
+    @include message-components;
+    
+    span.marker{
+        position: static;
+        left: auto;
+    }
+    
+    ul{
+        margin: 0;
+        list-style-type: none;
+    }
+}
+
+// The message form
+form{
+    margin-top: 15px;
+    
+    label[for='id_content']{
+        display: none;
+    }
+    
+    .refresh_active{
+        margin: 0;
+        padding: 0;
+        position: absolute;
+        top: 5px;
+        left: 0;
+        width: 20px;
+        text-align: center;
+        font-size: 14px;
+        line-height: 14px;
+        z-index: 2000;
+        
+        input{
+            margin: 0;
+            padding: 0;
+            font-size: 14px;
+        }
+    }
+    
+    #div_id_content{
+        padding-left: 25px;
+        position: relative;
+        /*&:after{
+            content: url('data:image/gif;base64,R0lGODlhEAAQAPQAAP///wAAAPj4+Dg4OISEhAYGBiYmJtbW1qioqBYWFnZ2dmZmZuTk5JiYmMbGxkhISFZWVgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACH/C05FVFNDQVBFMi4wAwEAAAAh/hpDcmVhdGVkIHdpdGggYWpheGxvYWQuaW5mbwAh+QQJCgAAACwAAAAAEAAQAAAFUCAgjmRpnqUwFGwhKoRgqq2YFMaRGjWA8AbZiIBbjQQ8AmmFUJEQhQGJhaKOrCksgEla+KIkYvC6SJKQOISoNSYdeIk1ayA8ExTyeR3F749CACH5BAkKAAAALAAAAAAQABAAAAVoICCKR9KMaCoaxeCoqEAkRX3AwMHWxQIIjJSAZWgUEgzBwCBAEQpMwIDwY1FHgwJCtOW2UDWYIDyqNVVkUbYr6CK+o2eUMKgWrqKhj0FrEM8jQQALPFA3MAc8CQSAMA5ZBjgqDQmHIyEAIfkECQoAAAAsAAAAABAAEAAABWAgII4j85Ao2hRIKgrEUBQJLaSHMe8zgQo6Q8sxS7RIhILhBkgumCTZsXkACBC+0cwF2GoLLoFXREDcDlkAojBICRaFLDCOQtQKjmsQSubtDFU/NXcDBHwkaw1cKQ8MiyEAIfkECQoAAAAsAAAAABAAEAAABVIgII5kaZ6AIJQCMRTFQKiDQx4GrBfGa4uCnAEhQuRgPwCBtwK+kCNFgjh6QlFYgGO7baJ2CxIioSDpwqNggWCGDVVGphly3BkOpXDrKfNm/4AhACH5BAkKAAAALAAAAAAQABAAAAVgICCOZGmeqEAMRTEQwskYbV0Yx7kYSIzQhtgoBxCKBDQCIOcoLBimRiFhSABYU5gIgW01pLUBYkRItAYAqrlhYiwKjiWAcDMWY8QjsCf4DewiBzQ2N1AmKlgvgCiMjSQhACH5BAkKAAAALAAA
+AAAQABAAAAVfICCOZGmeqEgUxUAIpkA0AMKyxkEiSZEIsJqhYAg+boUFSTAkiBiNHks3sg1ILAfBiS10gyqCg0UaFBCkwy3RYKiIYMAC+RAxiQgYsJdAjw5DN2gILzEEZgVcKYuMJiEAOwAAAAAAAAAAAA%3D%3D');
+            position: absolute;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            height: 33px;
+            padding: 0 5px;
+            line-height: 33px;
+        }*/
+       
+        input.content_field{
+            padding-right: 25px;
+            position: relative;
+            transition: none 0s ease 0s;
+            
+            &.disabled{
+                border: 1px solid #606060;
+                color: #606060;
+                background-color: #C0C0C0;
+            }
+            &.error{
+                border: 1px solid #ff0000;
+            }
+            &.backend-refresh-spinner{
+                background-image: url('data:image/gif;base64,R0lGODlhEAAQAPQAAP///wAAAPj4+Dg4OISEhAYGBiYmJtbW1qioqBYWFnZ2dmZmZuTk5JiYmMbGxkhISFZWVgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACH/C05FVFNDQVBFMi4wAwEAAAAh/hpDcmVhdGVkIHdpdGggYWpheGxvYWQuaW5mbwAh+QQJCgAAACwAAAAAEAAQAAAFUCAgjmRpnqUwFGwhKoRgqq2YFMaRGjWA8AbZiIBbjQQ8AmmFUJEQhQGJhaKOrCksgEla+KIkYvC6SJKQOISoNSYdeIk1ayA8ExTyeR3F749CACH5BAkKAAAALAAAAAAQABAAAAVoICCKR9KMaCoaxeCoqEAkRX3AwMHWxQIIjJSAZWgUEgzBwCBAEQpMwIDwY1FHgwJCtOW2UDWYIDyqNVVkUbYr6CK+o2eUMKgWrqKhj0FrEM8jQQALPFA3MAc8CQSAMA5ZBjgqDQmHIyEAIfkECQoAAAAsAAAAABAAEAAABWAgII4j85Ao2hRIKgrEUBQJLaSHMe8zgQo6Q8sxS7RIhILhBkgumCTZsXkACBC+0cwF2GoLLoFXREDcDlkAojBICRaFLDCOQtQKjmsQSubtDFU/NXcDBHwkaw1cKQ8MiyEAIfkECQoAAAAsAAAAABAAEAAABVIgII5kaZ6AIJQCMRTFQKiDQx4GrBfGa4uCnAEhQuRgPwCBtwK+kCNFgjh6QlFYgGO7baJ2CxIioSDpwqNggWCGDVVGphly3BkOpXDrKfNm/4AhACH5BAkKAAAALAAAAAAQABAAAAVgICCOZGmeqEAMRTEQwskYbV0Yx7kYSIzQhtgoBxCKBDQCIOcoLBimRiFhSABYU5gIgW01pLUBYkRItAYAqrlhYiwKjiWAcDMWY8QjsCf4DewiBzQ2N1AmKlgvgCiMjSQhACH
+5BAkKAAAALAAAAAAQABAAAAVfICCOZGmeqEgUxUAIpkA0AMKyxkEiSZEIsJqhYAg+boUFSTAkiBiNHks3sg1ILAfBiS10gyqCg0UaFBCkwy3RYKiIYMAC+RAxiQgYsJdAjw5DN2gILzEEZgVcKYuMJiEAOwAAAAAAAAAAAA%3D%3D');
+                background-position: center right;
+                background-repeat: no-repeat;
+            }
+            &.backend-refresh-error{
+                background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAHpJREFUeNpiYBjMwACI30OxATkG7Afi/1C8n1TNCUiaYTiBWM0CUGeDNDlA8X+omAAxBvQj2QoDMH4/MQH3H48B/wkF6H4iDNhPSsBhMwBrgCIHHDEYI0D7cSgsAOIAHHLgAGVEciI2UIhkATYA00+S85G9MQgAQIABAJGFUjKtrEJQAAAAAElFTkSuQmCC');
+                background-position: center right;
+                background-repeat: no-repeat;
+            }
+        }
+    }
+    
+    .within-input{
+        position: absolute;
+        top: 10px;
+        font-size: 14px;
+    }
+}
+
+/*
+ * Global menu for djangotribune pages
+ */
+ul.inline-list.djangotribune-menu{
+    margin-left: 0;
+    
+    li{
+        margin-left: 0;
+        
+        &+li .button{
+            border-left: 0;
+        }
+    }
+}
+
+/*
+ * Page list for url archives list
+ */
+.djangotribune-url-archives{
+    // Search box fields
+    #div_id_pattern{
+        label,
+        .errorField{
+            display: none;
+        }
+    }
+    #div_id_filters{
+        label{
+            font-weight: bold;
+            
+            .asteriskField{
+                display: none;
+            }
+        }
+        .errorField{
+            display: none;
+        }
+        .button{
+            border-right: 0;
+        }
+        li {
+            text-align: left;
+        }
+    }
+    // Url list
+    .urls{
+        list-style-type: none;
+        
+        li{
+            h3{
+                font-size: 20px;
+            }
+            
+            .message{
+                margin-bottom: 5px;
+                background-color: #f0f0f0;
+                padding: 10px;
+                line-height: 1.3;
+                border: 1px solid #DDDDDD;
+                @include message-components;
+            }
+            
+            .credits{
+                font-size: 14px;
+                text-align: right;
+            }
+            
+            &+li{
+                border-top: 1px solid #000000;
+            }
+        }
+    }
+}

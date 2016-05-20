@@ -6,19 +6,14 @@
 {% load staticfiles %}
 {% block container %}
 
-<!-- Benefits of the Django application -->
-
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 
-	<link rel="stylesheet" href="{% static 'css/faq.css' %}">
-    <link rel="stylesheet" href="{% static 'css/style2.css' %}" />
-    <link href="{% static 'css/bootstrap.css' %}" rel="stylesheet" type="text/css" media="all" />
-<link href="{% static 'css/style.css' %}" rel="stylesheet" type="text/css" media="all" />
-<script src="{% static 'js/simpleCart.min.js' %}"> </script>
+  <link rel="stylesheet" href="{% static 'css/style2.css' %}" />
+<link rel="stylesheet" href="{% static 'site/css/faq.css' %}">
+<link href="{% static 'css/style.css' %}"  type="text/css"/>
+
 <!-- cart -->
-<link rel="stylesheet" type="text/css" href="{% static 'css/jquery-ui.css' %}">
+
 <!-- for bootstrap working -->
 	
  </head>
@@ -31,7 +26,7 @@
      <section>
 
 	<div class="cd-faq-items content-box1" id="container_bg" >
-	<ul type="none" id="basics" class="cd-faq-group content1 " >
+	<ul type="none" id="basics" class="cd-faq-group content " >
 		<h5 class="text_formate" style=" font-size:24px;font-family:'Times New Roman', Times, serif;"><b>Basics Terms</b></h5>
 			<li  style="background-color:#666;">
 				<a class="cd-faq-trigger" style="color:#FFF; font-size:18px;  padding-left:25px;" href="#0">Basic Terms And Condition Of Company?</a>
@@ -106,15 +101,14 @@ c) In such a situation, the Cardholder must (subject to any default or other not
 			
 		</ul> <!-- cd-faq-group -->
 	</div> <!-- cd-faq-items -->
-     
-	<a href="#0" class="cd-close-panel">Close</a>
+     </div>
 <script src="{% static 'js/jquery-2.1.1.js' %}"></script>
-<script src="{% static 'js/jquery.mobile.custom.min.js' %}"></script>
+
 <script src="{% static 'js/main.js' %}"></script> <!-- Resource jQuery -->
 
 
-<script type="text/javascript" src="{% static 'js/jquery.mobile.custom.min.js' %}"></script>
-<script type="text/javascript" src="{% static 'js/main.js' %}"></script> <!-- Resource jQuery --> 
+
+
 
 
 </body>
