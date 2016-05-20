@@ -1,67 +1,74 @@
 {% extends "dashboard.html"%}
-
-{% block container %}
 {% load staticfiles %}
-<link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Oswald"/>
+{% block container%}
+
+<link href="{% static 'css/bootstrap.css' %}" rel="stylesheet" type="text/css" media="all" />
+<link href="{% static 'css/sty.css' %}" rel="stylesheet" type="text/css" media="all" />
+<link rel="stylesheet" type="text/css" href="{% static 'css/jquery-ui.css' %}">
+	<script type="text/javascript" src="{% static 'js/bootstrap-3.1.1.min.js' %}"></script>
+<link href='//fonts.googleapis.com/css?family=Open+Sans:400,300,300italic,400italic,600,600italic,700,700italic,800,800italic' rel='stylesheet' type='text/css'>
+<link href='//fonts.googleapis.com/css?family=Lato:400,100,100italic,300,300italic,400italic,700,700italic,900,900italic' rel='stylesheet' type='text/css'>
+<link href="{% static 'css/animate.min.css' %}" rel="stylesheet"> 
+<script src="{% static 'js/wow.min.js' %}"></script>
+<script>
+ new WOW().init();
+</script>
 <div class="container-fluid" class="responsive" style="height: auto; width: auto; background-color: white">
-<h3 style="color:#797980"><center><b> EVENT DETAILS <b></center></h3>
-<div class="container-fluid" style="height:auto; width: auto; color:DarkCyan; background-color:  white">
-    <h3 style="color:#3b5998; margin-left:50px">{{event.eventtype}}</h3>
-        
 
-    <div class='col-sm-6'>
-         
-        <div>
-			
-           {% if event.snap %}                                                  
-                          <img src="{{ event.snap.url }}" style="height:50%; width:530%;" class="img-responsive"   alt="image not found" ></img>                                                                         		   	 
-           {% else %}
-                       <img id="blah" style="height:50%; width:530%;" src="{% static 'assets/img/find_user.png' %}"  alt="your selected item" ></img> 
-								
-                {% endif %}	 
-              
+	
+
+			<div class="timer-grids">
+				<div class="col-md-7 timer-grid-left animated wow slideInLeft" style="margin-top:50px;" data-wow-delay=".5s">
+					<h3><a href="#"><b><i>{{event.eventtype}}</i></b></a></h3>
+					<div class="rating">
+						<div class="rating-left">
+							<img src="{% static 'img/21.png' %}" alt=" " class="img-responsive" />
+						</div>
+						<div class="rating-left">
+							<img src="{% static 'img/21.png' %}" alt=" " class="img-responsive" />
+						</div>
+						<div class="rating-left">
+							<img src="{% static 'img/21.png' %}" alt=" " class="img-responsive" />
+						</div>
+						<div class="rating-left">
+							<img src="{% static 'img/1.png' %}" alt=" " class="img-responsive" />
+						</div>
+						<div class="rating-left">
+							<img src="{% static 'img/1.png' %}" alt=" " class="img-responsive" />
+						</div>
+						<div class="clearfix"> </div>
+					</div>
+					<div class="new-collections-grid1-left simpleCart_shelfItem timer-grid-left-price ">
+						<div><img src="{% static 'img/images.gif' %}" style="height:40px; width:40px;">Zip Field<span style="padding-left:18px; font-size:18px; font-family:'Times New Roman', Times, serif; font-weight:400;">: </span><span style="3px;">{{event.zip_Code}}</span></div>
+                        <div style="margin-bottom:5px;">&nbsp;&nbsp;<img src="{% static 'img/icon2.png' %}" style="height:25px; width:25px;">&nbsp;Add On<span style="padding-left:21px;font-size:18px; font-family:'Times New Roman', Times, serif; font-weight:400;">:</span><span style="padding-left:3px">{{ event.date_created|date:"d M Y" }}</span></div>
                         
-  
-			
-             
-        </div> 
-        
-    </div>
-    <div class='col-sm-1'>
-	</div>
-    <!-- Product Sidebar --> 
-    <div class='col-sm-5'>
-        
-        {% if object.variation_set.count > 1 %}
-            <select class="form-control">
-                {% for vari_obj in object.variation_set.all %}
-                <option value="{{ vari_obj.id }}"> {{ vari_obj }}</option>  
-                {% endfor %}
-            </select>
-        {% endif %}
- 
-         <br>  <br>
-  
-        <h4 style="color:#434343;"><lable><i class="fa fa-calendar"></i> AddOn:<lable style="color:#3b5998"> {{ event.date_created|date:"d M Y" }}</lable></lable></h4>
-
-      
-      
-         <h4 style="color:#434343;"><lable><i class="fa fa-calendar"></i> Event On: <lable style="color:#3b5998"> {{event.date_event}}</lable></lable></h4>
-   
-      
-      	
-        <h4 style="color:#434343;"><lable><i class="fa fa-home"></i>Location:<lable style="color:#3b5998;"> {{event.place}}</lable></lable></h4>
- 
-     <h4 style="color:#434343;">  Edit Event<a class="btn btn-default" href="#"> <i class="fa fa-pencil-square-o"></i>
-</a>  </h4>  
-    </div>
-	<div class="row">
-	<div class="col-sm-12">
-	  
-          <p><h4 style="color:#3b5998; margin-left:50px">{{ event.description }}</h4></p>
+                        <div style="margin-bottom:5px;">&nbsp; <img src="{% static 'img/icon2.png' %}" style="height:25px; width:25px;">&nbsp;Event On&nbsp;<span style="font-size:18px; font-family:'Times New Roman', Times, serif; font-weight:400;">:</span><span style="padding-left:3px;">{{event.date_event}}</span></div>
+                        <div style="margin-bottom:5px;">&nbsp;&nbsp;<img src="{% static 'img/home.png' %}" style="height:25px; width:25px;">&nbsp;Address <span style="font-size:18px;  font-family:'Times New Roman', Times, serif; font-weight:400; padding-left:15px;">:</span><span style="padding-left:3px;">{{event.place}}</span></div>
+						
+						<hr>
+					
+                    <p style="background-color:#F00; color:#FFF; text-align:center; padding:10px 10px 10px 10px; width:150px;">Description:</p><hr><p style="padding-left:10px; font-size:12px; font-family:'Times New Roman', Times, serif; font-weight:400;"><span style="padding-left:45px;">{{ event.description }}.</span></p><hr>
+					</div>
+					
+					<script src="js/script.js"></script>
+				</div>
+				<div class="col-md-4 timer-grid-right animated wow slideInRight" style="margin-top:75px; margin-bottom:75px;" data-wow-delay=".5s">
+					<div class="timer-grid-right1" >
+						<center><img src="{{ event.snap.url }}" style="height:50%; width:630%;"alt=" " class="img-responsive"  /></center>
+						<div class="timer-grid-right-pos">
+							<a class="btn btn-default" href="/events/{{event.pk }}/public/" onclick="window.open(this.href, 'mywin','left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" ><h4>Share</h4></a>
+						</div>
+					</div>
+				</div>
+               <div class="col-md-1"><a class="btn btn-default"href="/events/edit/{{event.pk }}/"> <i class="fa fa-pencil-square-o"></i>
+</a></div>
+				<div class="clearfix"> </div>
+			</div>
 		</div>
-      </div>  
-    </div>
-</div>
-{% endblock %}
+	</div>
+<!-- //new-timer -->
 
+</div>
+
+
+{% endblock %}

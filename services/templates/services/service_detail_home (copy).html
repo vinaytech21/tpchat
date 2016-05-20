@@ -1,0 +1,113 @@
+{% extends "base.html"%}
+{% block container %}
+{% load staticfiles %}
+{% load thumbnail %}
+        <body><br><br><br><br>
+                <!-- List of uploaded documents -->
+                  <div class="container-fluid" style="width: auto; height:auto; color:grey; background : #F7F7F7) no-repeat center top">
+
+         <div class="container-fluid">
+<div class='row'>
+       <div class='col-sm-1'></div>
+<div class='col-sm-6' >
+<div class="homet">
+<div class="home">
+
+<h2><b>{{post.title|title }}</b> </h2><hr/>
+
+</div>
+
+ {% if post %}
+ <img src="{{ post.docfile.url }}"  class="img-responsive" style="height:60%;width:100%; alt="your selected item"/>
+   </div>
+ {% endif %} <br>
+
+<div class="homeld">
+<h3 style="padding-left:16px"><b>Service Description</b></h3>
+<div class="homed">
+<h4>{{ post.description|lower|capfirst}}</h4><br><br></div>
+</div> </div>
+<div class='col-sm-4'>
+<div class="homeld">
+<center><h4><b>Service Schedule</b></h4></center>
+<div class="homed">
+<div class='row'>
+<div class="col-md-10">
+     <div class="col-md-5"><h4><b>Post On</b></h4></div><div class ="col-md-1"><h4>:</h4></div>
+    <div class="col-md-5"><h4 style="font-size:20px">{{ post.date_created|date:"d M Y" }}</h4></div>
+   <div class="col-md-5"><h4 align="left"><b>Expire On </b></h4></div><div class ="col-md-1"><h4>:</h4></div>
+    <div class="col-md-5"><h4 style="font-size:20px" >{{post.expire_date|date:"d M Y"}}</h4></div> 
+   <div class="col-md-5"><h4 align="left"><b>Duration</b></h4></div><div class ="col-md-1"><h4>:</h4></div>
+    <div class="col-md-5"><h4 style="font-size:20px" >{{  post.duraction|title }}</h4></div> 
+</div>
+
+</div></div> 
+</div>
+
+<br>
+<div class="homed">
+<div class='row'>
+<div class="col-md-10">
+   <div class="col-md-5"><h4><b> Available </b></h4></div><div class ="col-md-1"><h4>:</h4></div>
+    <div class="col-md-5"><h4 style="font-size:20px" >{{ post.quantity }} Unit</h4></div> 
+   <div class="col-md-5"><h4> <b>Location </b></h4></div><div class ="col-md-1"><h4>:</h4></div>
+    <div class="col-md-5"><h4 style="font-size:20px" >{{ post.address }}</h4></div> 
+</div>
+</div>
+</div>
+<a href="/service/enquiry/{{ post.user}}/"><h2 class='btn btn-default btn-block' style="background-color:#8FC73E;color:#ffffff;font-size:15px">{{post.user}}</h2></a> <br>
+
+<div class="homepd">
+<div class="homep"> 
+                     <h4 style="padding-left:20px"> <img id="blah" src="{% thumbnail user.profile.picture|default:'default_profile.png' 140x140 crop %}" class="img-circle" id="circle" width="100px" height="100px"   alt="your selected item" style="border:1px groove;"/></img>&nbsp;&nbsp;&nbsp;&nbsp;{{ user.get_full_name|truncatechars:20 }}</h4>              
+ </div>
+<p style="padding-left:112px;">Share on social media</p><center>
+<a href="https://www.facebook.com/sharer/sharer.php?u=http://vinayvit.pythonanywhere.com/servicelist/" target="_blank"><img src="{% static 'site/img/facebook.png' %}" class="img-inline-responsive"/></a> 
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+	<a href="https://twitter.com/home?status=Hi%20going%20to%20charity%20of%20this%20...%20Come%20build%20a%20donation%20apsp%20with%20me!%20%23Echarity%20and%20%40vinay%20http%3A%2F%2Fvinayvit.pythonanywhere.com%2Fservicelist%2Fpk/" target="_blank"><img src="{% static 'site/img/Twitter.png' %}" class="img-inline-responsive"/></a>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+	<a href="https://www.linkedin.com/shareArticle?mini=true&url=http://vinayvitpythonanywhere.com/servicelist/2F%26title%3DBe%20first%20and%20Charity%20%20for%20Humanity%20!%0AShare%20on%20Linkedin%0A%3C%2Fa%3E%0A" target="_blank"><img src="{% static 'site/img/in.png' %}" class="img-inline-responsive"/></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+	<a href='https://plus.google.com/share?url=http://vinayvit.echarity.com/servicelist/' target="_blank"><img src="{% static 'site/img/gplus1.png' %}" class="img-inline-responsive"/></a>&nbsp;&nbsp;</center></div>
+</div><div class='col-sm-1'></div>
+</div>
+{% for document in document %}
+ <div class="modal fade" id="service" role="dialog">
+<div class="modal-dialog modal-sm">
+      <div class="modal-content">
+         <div class="modal-header">
+           <button type="button" class="close" data-dismiss="modal">&times;</button>
+
+
+          <h4 class="modal-title"><center>Profile</center> </h4>
+        </div>
+
+<div class="container-fluid">
+
+                               <h4 >  <img src="{{ document.docfile.url }}" class="img-circle" id="circle" alt="{% static 'assets/img/find_user.png' %}" width="160px" height="150px"/>{{document.firstname}}&nbsp;{{ document.lastname}}</h4>
+
+<h4>User Name : {{  post.user }}</h4>
+<h5>Joined Us: {{ post.user.date_joined|date:"d M Y" }}</h5>
+<h5>{{ post.user.email}}</h5>
+<h5>Address: {{ document.address}}</h5></div>
+<div class="modal-footer">
+
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        </div>
+</div>
+      </div>
+
+    </div></div>
+{% endfor %}
+
+       </div></div> <br><br><br><br>
+
+              </body>
+
+</html>
+{% endblock %}
+
+
+
+
+
+

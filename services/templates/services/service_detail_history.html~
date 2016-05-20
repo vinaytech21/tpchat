@@ -1,0 +1,74 @@
+{% extends "dashboard.html"%}
+{% load staticfiles %}
+{% block container%}
+
+<link href="{% static 'css/bootstrap.css' %}" rel="stylesheet" type="text/css" media="all" />
+<link href="{% static 'css/sty.css' %}" rel="stylesheet" type="text/css" media="all" />
+<link rel="stylesheet" type="text/css" href="{% static 'css/jquery-ui.css' %}">
+	<script type="text/javascript" src="{% static 'js/bootstrap-3.1.1.min.js' %}"></script>
+<link href='//fonts.googleapis.com/css?family=Open+Sans:400,300,300italic,400italic,600,600italic,700,700italic,800,800italic' rel='stylesheet' type='text/css'>
+<link href='//fonts.googleapis.com/css?family=Lato:400,100,100italic,300,300italic,400italic,700,700italic,900,900italic' rel='stylesheet' type='text/css'>
+<link href="{% static 'css/animate.min.css' %}" rel="stylesheet"> 
+<script src="{% static 'js/wow.min.js' %}"></script>
+<script>
+ new WOW().init();
+</script>
+<div class="container-fluid" class="responsive" style="height: auto; width: auto; background-color: white">
+
+	
+
+			<div class="timer-grids">
+				<div class="col-md-7 timer-grid-left animated wow slideInLeft" style="margin-top:50px;" data-wow-delay=".5s">
+					<h3><a href="#"><b><i>{{post.title}}</i></b></a></h3>
+					<div class="rating">
+						<div class="rating-left">
+							<img src="{% static 'img/21.png' %}" alt=" " class="img-responsive" />
+						</div>
+						<div class="rating-left">
+							<img src="{% static 'img/21.png' %}" alt=" " class="img-responsive" />
+						</div>
+						<div class="rating-left">
+							<img src="{% static 'img/21.png' %}" alt=" " class="img-responsive" />
+						</div>
+						<div class="rating-left">
+							<img src="{% static 'img/1.png' %}" alt=" " class="img-responsive" />
+						</div>
+						<div class="rating-left">
+							<img src="{% static 'img/1.png' %}" alt=" " class="img-responsive" />
+						</div>
+						<div class="clearfix"> </div>
+					</div>
+					<div class="new-collections-grid1-left simpleCart_shelfItem timer-grid-left-price ">
+						<div><img src="{% static 'img/images.gif' %}" style="height:40px; width:40px;">Remain<span style="padding-left:18px; font-size:18px; font-family:'Times New Roman', Times, serif; font-weight:400;">: </span><span style="3px;">{{post.quantity}}</span></div>
+                        <div style="margin-bottom:5px;">&nbsp;&nbsp;<img src="{% static 'img/icon2.png' %}" style="height:25px; width:25px;">&nbsp;Add On<span style="padding-left:21px;font-size:18px; font-family:'Times New Roman', Times, serif; font-weight:400;">:</span><span style="padding-left:3px">{{ post.date_created }}</span></div>
+                        
+                        <div style="margin-bottom:5px;">&nbsp; <img src="{% static 'img/icon2.png' %}" style="height:25px; width:25px;">&nbsp;Expire On&nbsp;<span style="font-size:18px; font-family:'Times New Roman', Times, serif; font-weight:400;">:</span><span style="padding-left:3px;">{{post.expire_date}}</span></div>
+                        <div style="margin-bottom:5px;">&nbsp;&nbsp;<img src="{% static 'img/home.png' %}" style="height:25px; width:25px;">&nbsp;Address <span style="font-size:18px;  font-family:'Times New Roman', Times, serif; font-weight:400; padding-left:15px;">:</span><span style="padding-left:3px;">{{post.address}}</span></div>
+						
+						<hr>
+					
+                    <p style="background-color:#F00; color:#FFF; text-align:center; padding:10px 10px 10px 10px; width:150px;">Description:</p><hr><p style="padding-left:10px; font-size:12px; font-family:'Times New Roman', Times, serif; font-weight:400;"><span style="padding-left:45px;">{{ post.description }}.</span></p><hr>
+					</div>
+					
+					<script src="js/script.js"></script>
+				</div>
+				<div class="col-md-4 timer-grid-right animated wow slideInRight" style="margin-top:75px; margin-bottom:75px;" data-wow-delay=".5s">
+					<div class="timer-grid-right1" >
+						<center><img src="{{ post.docfile.url }}" style="height:50%; width:630%;"alt=" " class="img-responsive"  /></center>
+						<div class="timer-grid-right-pos">
+							<a class="btn btn-default" href="/services/{{post.pk }}/public/" onclick="window.open(this.href, 'mywin','left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" ><h4>Sharuuue</h4></a>
+						</div>
+					</div>
+				</div>
+               <div class="col-md-1"><a class="btn btn-default"href="/services/{{post.pk }}/edit/"> <i class="fa fa-pencil-square-o"></i>
+</a></div>
+				<div class="clearfix"> </div>
+			</div>
+		</div>
+	</div>
+<!-- //new-timer -->
+
+</div>
+
+
+{% endblock %}

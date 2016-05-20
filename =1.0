@@ -1,0 +1,3 @@
+Requirement already satisfied (use --upgrade to upgrade): django-load in /home/vit1/pan/myvenv/lib/python3.4/site-packages
+Requirement already satisfied (use --upgrade to upgrade): django>=1.2 in /home/vit1/pan/myvenv/lib/python3.4/site-packages (from django-load)
+Cleaning up...

@@ -29,7 +29,7 @@
                 {% endif %}  
 {% endfor %}" readonly/></td></tr> </div><br>
 <div class="col-md-12"><tr><th>subject:&nbsp;&nbsp;&nbsp;</th><td><input type="text" name="subject" value="new posted product {{ post.title }} " readonly/></td></tr></div><br>
-<div class="col-md-12"><tr><th>Body:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  </th><td><a href="http://localhost:8000/products/{{ post.id }}/"><input type="text" name="body" value= "http://localhost:8000/products/{{ post.id }}" readonly/></a></td></tr>   </div>
+<div class="col-md-12"><tr><th>Body:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  </th><td><a href="http://localhost:8000/products/{{ post.id }}/"><input type="text" name="body" value= "http://localhost:8000/products/{{ post.id }}/" readonly/></a></td></tr>   </div>
  <br>                  
 <div class="col-md-10"><center><input type="image" src='{% static "img/msge.png" %}' /></center></div><br>
 </form><br><br><br>

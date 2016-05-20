@@ -1,185 +1,129 @@
 {% extends "base.html" %}
 
-{% load staticfiles %}
 {% load crispy_forms_tags %}
 
-{% block title %}{{ block.super }}About{% endblock %}
-
+{% block title %}{{ block.super }}Terms{% endblock %}
+{% load staticfiles %}
+{% block container %}
 
 <!-- Benefits of the Django application -->
-{% block container %}
-<img src='{% static "site/img/term.jpg" %}'class="vertical-center"/>
-</div>
-  <div class="container-fluid" style="background-color: #81b1c9">
-    <section id="about-company" class="padding-top wow fadeInUp" data-wow-duration="400ms" data-wow-delay="400ms">
-        <div class="container-fluid">
-            <div class="row">
-                <div class="col-sm-12 text-center">
-                    <img src="images/aboutus/5.png" class="margin-bottom" alt="">
-                    <h1 class="margin-bottom" style="font-family:">Terms of Company</h1>
-                    <p style="font-family:">Community Panda Foundation is dedicated to protecting the privacy of its users. "</p>
-                </div>
-            </div>
-        </div>
-    </section>
-    <!--/#about-company-->
 
-    <section id="services">
-        <div class="container-fluid">
-            <div class="row">
-                <div class="col-sm-4 text-center padding wow fadeIn" data-wow-duration="1000ms" data-wow-delay="300ms">
-                    <div class="single-service">
-                        <div class="wow scaleIn" data-wow-duration="500ms" data-wow-delay="300ms">
-                            <img src="images/home/icon1.png" alt="">
-                        </div>
-                        <h2 style="font-family:">Termination of Agreement</h2>
-                        <p style="font-family:">We may terminate this Agreement and the user’s right to use the site at any time, with or without cause.</p>
-                    </div>
-                </div>
-                <div class="col-sm-4 text-center padding wow fadeIn" data-wow-duration="1000ms" data-wow-delay="600ms">
-                    <div class="single-service">
-                        <div class="wow scaleIn" data-wow-duration="500ms" data-wow-delay="600ms">
-                            <img src="images/home/icon2.png" alt="">
-                        </div>
-                        <h2 style="font-family:">Warranty of Services</h2>
-                        <p style="font-family:">Hamburger ribeye drumstick turkey, strip steak sausage ground round shank pastrami beef brisket pancetta venison.</p>
-                    </div>
-                </div>
-                <div class="col-sm-4 text-center padding wow fadeIn" data-wow-duration="1000ms" data-wow-delay="900ms">
-                    <div class="single-service">
-                        <div class="wow scaleIn" data-wow-duration="500ms" data-wow-delay="900ms">
-                            <img src="images/home/icon3.png" alt="">
-                        </div>
-                        <h2 style="font-family:">General Terms & Conditions</h2>
-                        <p style="font-family:">Community Panda Foundation does not guarantee continuous, uninterrupted and  ecure access to our services.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section><hr>
-    <!--/#services-->
-<div id="feature-container-fluid">
-                <div class="row">
-                    <!--/<div class="col-md-12">
-                        <h2 class="page-header">Features</h2>
-                    </div>-->
-                    <div class="col-sm-3 wow fadeInUp" data-wow-duration="500ms" data-wow-delay="300ms">
-                        <div class="feature-inner">
-                            <div class="icon-wrapper">
-                                <i class="fa fa-2x fa-envelope-o"></i>
-                            </div>
-                            <h2 style="font-family:">Registration</h2>
-                            <p style="font-family:">Each applicant for user status must complete the registration, services are available only to them. </p>
-                        </div>
-                    </div>
-                    <div class="col-sm-3 wow fadeInUp" data-wow-duration="500ms" data-wow-delay="600ms">
-                        <div class="feature-inner">
-                            <div class="icon-wrapper">
-                                <i class="fa fa-2x fa-heart-o"></i>
-                            </div>
-                            <h2 style="font-family:">Data protection</h2>
-                            <p style="font-family:">The user undertakes  data security and to comply with all obligations in connection with data protection.</p>
-                        </div>
-                    </div>
-                    <div class="col-sm-3 wow fadeInUp" data-wow-duration="500ms" data-wow-delay="900ms">
-                        <div class="feature-inner">
-                            <div class="icon-wrapper">
-                                <i class="fa fa-2x fa-star-o"></i>
-                            </div>
-                            <h2 style="font-family:">Donate Things</h2>
-                            <p style="font-family:">User must be a valid user and inhance the privecy without to disclose others.</p>
-                        </div>
-                    </div>
-                    <div class="col-sm-3 wow fadeInUp" data-wow-duration="500ms" data-wow-delay="1200ms">
-                        <div class="feature-inner">
-                            <div class="icon-wrapper">
-                                <i class="fa fa-2x fa-comments-o"></i>
-                            </div>
-                            <h2 style="font-family:">Service provided</h2>
-                            <p style="font-family:">Community Panda web platform offers commentary functions to justify user with right information.</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
 
-    <!--/#action-->
+	<link rel="stylesheet" href="{% static 'css/faq.css' %}">
+    <link rel="stylesheet" href="{% static 'css/style2.css' %}" />
+    <link href="{% static 'css/bootstrap.css' %}" rel="stylesheet" type="text/css" media="all" />
+<link href="{% static 'css/style.css' %}" rel="stylesheet" type="text/css" media="all" />
+<script src="{% static 'js/simpleCart.min.js' %}"> </script>
+<!-- cart -->
+<link rel="stylesheet" type="text/css" href="{% static 'css/jquery-ui.css' %}">
+<!-- for bootstrap working -->
+	
+ </head>
+<body >
 
-    <section id="company-information" class="padding-top">
-        <div class="container-fluid">
-            <div class="row">
-                <div class="about-us">
-                    <div class="col-sm-7 wow fadeInLeft" data-wow-duration="1000ms" data-wow-delay="300ms">
-                        <h2 class="bold" style="font-family:"> With respect to Personal Information </h2>
-                        <div class="row">
+<section class="cd-faq1"></section>
+<div id="header-secon-background">Most Importent Terms & Conditions</div>
 
-                            <div class="col-sm-12" style="font-family:">
-                                <h3 class="top-zero">Who are we?</h3>
-<p>1: Should not be false, inaccurate, misleading and shall not be fraudulent.<br>
-   2: Should not infringe any third party's copyright, patent, trademark, trade secret.<br>
-   3: Should not violate any law, statute, ordinance and regulation. <br>
-   4: Should not be defamatory, unlawfully threatening and unlawfully harassing.<br>
-   5: Should not contain any viruses, Trojan horses, worms and other computer programming routines for personal information. <br>
-   </p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-sm-5 wow fadeInRight" data-wow-duration="1000ms" data-wow-delay="300ms">
-                        <div class="our-skills" style="font-family:">
-                            <h2 class="bold">Our Quality Test Ratio</h2>
-                            <div class="single-skill">
-                                <h3>TradeMark</h3>
-                                <div class="progress" style="background-color: #106894">
-                                    <div class="progress-bar progress-bar-primary six-sec-ease-in-out" role="progressbar"  data-transition="35" >35%</div>
-                                </div>
-                            </div>
-                            <div class="single-skill" style="font-family:">
-                                <h3>Act & Law</h3>
-                                <div class="progress"  style="background-color: #106894">
-                                    <div class="progress-bar progress-bar-primary six-sec-ease-in-out" role="progressbar"  data-transition="80">80%</div>
-                                </div>
-                            </div>
-<div class="single-skill" style="font-family:">
-                                <h3>Social ethics</h3>
-                                <div class="progress"  style="background-color: #106894">
-                                    <div class="progress-bar progress-bar-primary six-sec-ease-in-out" role="progressbar"  data-transition="80">80%</div>
-                                </div>
-                            </div>
-                       </div>
-                </div>
-            </div>
-        </div>
-    </section>
-  <section id="action">
-        <div class="vertical-center" style="background-color:#81B1C9">
-             <div class="container-fluid"><u>OUR MISSION</u>
-                <div class="row">
-                    <div class="action count">
-                        <div class="col-sm-3 text-center wow bounceIn" data-wow-duration="1000ms" data-wow-delay="300ms">
-                            <h1 class="timer bold" data-to="7000" data-speed="3000" data-from="0"></h1>
-                            <h3>Secure donation</h3>
-                        </div>
-                        <div class="col-sm-3 text-center wow bounceIn" data-wow-duration="1000ms" data-wow-delay="300ms">
-                            <h1 class="timer bold" data-to="12" data-speed="3000" data-from="0"></h1>
-                            <h3>Long Years of Business</h3>
-                        </div>
-                        <div class="col-sm-3 text-center wow bounceIn" data-wow-duration="1000ms" data-wow-delay="300ms">
-                            <h1 class="timer bold" data-to="432" data-speed="3000" data-from="0"></h1>
-                            <h3>Charity </h3>
-                        </div>
-                        <div class="col-sm-3 text-center wow bounceIn" data-wow-duration="1000ms" data-wow-delay="300ms">
-                            <h1 class="timer bold" data-to="145" data-speed="3000" data-from="0"></h1>
-                            <h3>Total Smile</h3>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-   </section>
-   <br>
-</div>
+	 <!-- cd-faq-categories -->
+     <section>
+
+	<div class="cd-faq-items content-box1" id="container_bg" >
+	<ul type="none" id="basics" class="cd-faq-group content1 " >
+		<h5 class="text_formate" style=" font-size:24px;font-family:'Times New Roman', Times, serif;"><b>Basics Terms</b></h5>
+			<li  style="background-color:#666;">
+				<a class="cd-faq-trigger" style="color:#FFF; font-size:18px;  padding-left:25px;" href="#0">Basic Terms And Condition Of Company?</a>
+				<div class="cd-faq-content paragraph " style="display:block;"> 
+					<p>A. If any provision of these General terms and Conditions is held to be unlawful, invalid or unenforceable, that provision shall be deemed severed and the validity and enforceability of the remaining provisions shall not be affected
+<br /><br />
+B. In the event of there being any conflict between these General Terms and Conditions and the Specific Terms and Conditions that apply specifically to the purchase of certain goods or services through the Website, the Specific terms and Conditions shall prevail.<br /><br />
+
+C. No person who is not a direct a party to any agreement covered by these General Terms and conditions shall have any right under the Contracts (Rights of Third Parties) Act 1999 to enforce any term of the Agreement.
+
+				</div> <!-- cd-faq-content -->
+			</li>
 
 
-{% endblock container %}
+		
+			<li  style="background-color:#666;">
+				<a class="cd-faq-trigger " style="color:#FFF; font-size:18px;" href="#0">What Is The Termination Of Agrement Company Rules ?</a>
+				<div class="cd-faq-content paragraph">
+					<p>a) The Cardholder may end the Agreement at any time by writing to SBICPSL or calling in to the SBI Card Helpline, and by cutting the card(s) diagonally. All the cards including the add-on cards will be terminated basis the written request. Termination will be effective after payment of all amounts outstanding on the card account.<br /> No annual, joining or renewal fees shall be refunded on a pro-rata basis.<br />
+<br />
+b) SBICPSL may also restrict, terminate or suspend the use of The Cardholder Account at any time without prior notice.
+<br />
+SBICPSL can suspend the facility on the Credit Card, if the Cardholder defaults on the payment due or suspended.
+<br /><br />
+c) In such a situation, the Cardholder must (subject to any default or other notice required by law) immediately pay SBICPSL the total outstanding Balance on the Account. </p>
+				</div> <!-- cd-faq-content -->
+			</li>
+		
+
+		
+			
+			<li  style="background-color:#666;">
+				<a class="cd-faq-trigger" style="color:#FFF; font-size:18px;" href="#0">How do I change my password?</a>
+				<div class="cd-faq-content paragraph">
+					<p>You can change your password after getting Activation link on your mail by clicking to rget password tab.
+                    The Credit Information Bureau India Ltd. (CIBIL), is an initiative of the Government of India and the Reserve Bank of India (RBI) to improve the functionality and stability of the Indian financial system. This is in line with RBI’s efforts to provide an effective mechanism for exchange of information between banks and financial institutions, thereby enabling cardholders to avail of better credit terms from various institutions including default in payments with Financial Institution, employer and to other third parties engaged by SBICPSL for proper operation of card accounts, verification and other administrative services. </p>
+				</div> <!-- cd-faq-content -->
+			</li>
+
+		
+			
+			<li  style="background-color:#666;">
+				<a class="cd-faq-trigger" style="color:#FFF; font-size:18px;" href="#0">Can I have an invoice for my subscription?</a>
+				<div class="cd-faq-content paragraph">
+					<p>Answer will update soon.Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do<br /> eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, q<br />uis nostrud exercitation u<br />llamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt m<br />ollit anim id est laborum.</p>
+				</div> <!-- cd-faq-content -->
+			</li>
+
+			
+		
+			
+			<li  style="background-color:#666;">
+				<a class="cd-faq-trigger" style="color:#FFF; font-size:18px;" href="#0">Can I specify my own private key?</a>
+				<div class="cd-faq-content paragraph" style="color:#00C;">
+					<p>Yes after login you can get it on profile .<br />
+                    A variation of the ordinary lorem ipsum text has been used in typesetting since the 1960s or earlier, when it was popularized by advertisements for Letraset transfer sheets. <br />It was introduced to the Information Age in the mid-1980s by Aldus </p>
+				</div> <!-- cd-faq-content -->
+			</li>
+		
+			
+			<li style="background-color:#666;">
+				<a class="cd-faq-trigger" style="color:#FFF; font-size:18px;" href="#0">What should I do if my order hasn't been delivered yet?</a>
+				<div class="cd-faq-content paragraph">
+					<p >Re-contact the donater which offers you that item .
+                    The lorem ipsum text is typically a scrambled section of De finibus bonorum et malorum, a 1st-century BC Latin text by Cicero, with words altered, added, and removed to make it nonsensical, improper Latin.<br />SBICPSL may also share Cardholder information with any parent, subsidiary, affiliate or associate of SBICPSL, for the purposes of marketing.</p>
+				</div> <!-- cd-faq-content -->
+			</li>
+
+			
+
+			
+			
+		</ul> <!-- cd-faq-group -->
+	</div> <!-- cd-faq-items -->
+     
+	<a href="#0" class="cd-close-panel">Close</a>
+<script src="{% static 'js/jquery-2.1.1.js' %}"></script>
+<script src="{% static 'js/jquery.mobile.custom.min.js' %}"></script>
+<script src="{% static 'js/main.js' %}"></script> <!-- Resource jQuery -->
+
+
+<script type="text/javascript" src="{% static 'js/jquery.mobile.custom.min.js' %}"></script>
+<script type="text/javascript" src="{% static 'js/main.js' %}"></script> <!-- Resource jQuery --> 
+
+
+</body>
+</html>
+{% endblock %}
+
+
+
+
 
 
 

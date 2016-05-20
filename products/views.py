@@ -25,7 +25,7 @@ class ProductListView(ListView):
     model = Product
     queryset = Product.objects.all()
        #default is object_list as well as model's_verbose_name_list and/or model's_verbose_name_plural_list, if defined in the model's inner Meta class
-    paginate_by = 2
+    paginate_by = 6
 
 
     def get_context_data(self, *args, **kwargs):

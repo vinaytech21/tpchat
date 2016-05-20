@@ -96,6 +96,7 @@ INSTALLED_APPS = (
     'django.contrib.sites',
     'django_messages',
     'crispy_forms',
+    'crispy_forms_foundation',
     'easy_thumbnails',
     'profiles',
     'accounts',
@@ -111,8 +112,11 @@ INSTALLED_APPS = (
     'allauth.socialaccount.providers.google',
     'allauth.socialaccount.providers.linkedin',
     'allauth.socialaccount.providers.linkedin_oauth2',
-    'avatar',
+    #'avatar',
     'easy_avatar',
+    'djangotribune',
+    'polymorphic',
+    #'chatrooms',
 
 )
 
@@ -145,7 +149,7 @@ DATABASES = {
 # https://docs.djangoproject.com/en/dev/topics/i18n/
 FILE_SAVE_PATH = "media/avatars/"
 
-FILE_URL_PATH = "http://127.0.0.1:8000/media/avatars/" 
+FILE_URL_PATH = "/media/avatars/" 
 
 LANGUAGE_CODE = 'en-us'
 

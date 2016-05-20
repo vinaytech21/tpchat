@@ -1,43 +1,143 @@
 {% extends "base.html" %}
 {% load staticfiles %}
 {% block container %}
+
 <body><br>
-                <!-- List of uploaded documents -->
- <div class="container-fluid" style="color:grey; background-image: url({% static "site/img/banner-bg.jpg" %}); height:200px"><br>
-<center> <p style="font-size:40px; padding-left:70px;padding-top:30px; color:grey;">Event Activity in Your City</p></center>
-   </div>
-<br><br>
- <div class="container-fluid">
-<div class='row'>
 
-{% for event in event %}
-		<div class='col-sm-3'>
-			<div class="thumbnail" style="width:100%; height:230px;">
-<a href="/events/event/{{ event.pk }}/" > <div style="color:white;padding-top:4px; background-color:#E10985; height:32px"><center><b>{{  event.eventtype|title|truncatewords:10 }}</b></center></div></a>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
-{% if event.snap %}
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 
-		   	<a href="/events/event/{{ event.pk }}/"> <img src="{{ event.snap.url }}" class="img-responsive"   alt="image not found" style="width:100%; height:135px;"></img></a>
-           {% else %}
-                       <img id="blah" src="{% static 'assets/img/find_user.png' %}"  alt="your selected item" style="width:100%; height:100px;"/>
+	<!--
+		Supersized - Fullscreen Slideshow jQuery Plugin
+		Version : 3.2.7
+		Site	: www.buildinternet.com/project/supersized
+		
+		Author	: Sam Dunn
+		Company : One Mighty Roar (www.onemightyroar.com)
+		License : MIT License / GPL License
+	-->
 
-                {% endif %}
-		<div class='row'>	<a href='/events/event/{{ event.pk }}/' style="color:#B44899">		<div class='col-sm-7'>
-<i class="fa fa-home"></i>
-{{  event.place }} </div>		<div class='col-sm-5'>
-<i class="fa fa-calendar"></i> {{  event.date_event|date:"d M Y"}}</a></div></div> 
+	<head>
 
-{% if event.docfile %}
-                                <img src="{{ event.docfile.url }}"class="img-circle" id="circle" alt="not" width="160px" height="150px"/>                      {% endif %}
-<a href="/event/enquiry/{{ event.user}}/"  class='btn btn-warning btn-block' style="height:35px;background-color:#A22382; color:white" role="button">
-    <i class="fa fa-user" style="padding-top:4px">&nbsp;<b>{{ event.user }}</b></i></a>
+		<title> activity in yuor city </title>
+		<meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+        <!--bootstrap css-->
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css' %}">
 
-</div>
-</div>
-{% endfor %}
-</div><br>
- </div>
- </div>
+<!-- Optional theme -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css' %}" >
+<!--//bootstrap css-->
+		<link rel="stylesheet" href="{% static  'css/supersized.css' %}" type="text/css" media="screen" />
+		<link rel="stylesheet" href="{% static  'css/supersized.shutter.css' %}" type="text/css" media="screen" />
+		
+		<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.6.1/jquery.min.js' %}"></script>
+		<script type="text/javascript" src="{% static  'js/jquery.easing.min.js' %}"></script>
+		
+		<script type="text/javascript" src="{% static  'js/supersized.3.2.7.min.js' %}"></script>
+		<script type="text/javascript" src="{% static  'js/supersized.shutter.min.js' %}"></script>
+		<!--navbar---->
+		<link href="{% static  'css/bootstrap.css' %}" rel="stylesheet" type="text/css" media="all" />
+<link href="{% static 'css/sty.css' %}" rel="stylesheet" type="text/css" media="all" />
 
+<link href="{% static 'css/animate.min.css' %}" rel="stylesheet"> 
+<!--///navbarclose-->
+		
+		
+	
+		
+	</head>
+	
+	<style type="text/css">
+		ul#demo-block{ margin:15px 15px 15px 15px; display:inline; }
+			ul#demo-block li{ margin:10px; 0 10px 0; width:auto; padding:10px; display:inline;  float:left;  color:#aaa; background:url('img/bg-black.png'); font:11px Helvetica, Arial, sans-serif; }
+			
+			ul#demo-block li a{ color:#eee; font-weight:bold; }
+			div#div_header{ margin:45px 0px 0px 0px;
+			margin-bottom:15px;
+			}
+			#div_header div{
+				height:100px;
+				
+			width:100%; }
+			div#div_header div{ margin:0 0 0px 0; padding:0px; display:inline; float:left; clear:both; color:#aaa; background:url('img/bg-black.png'); font:11px Helvetica, Arial, sans-serif; }
+			div#div_header div a{ color:#eee; font-weight:bold; }
+			ul#demo-block li a :hover
+			{
+				background-color:#93C;
+				padding:5px 15px 5px 15px;
+			}
+			h3
+			{
+				padding-top:10px;
+				padding-left:15%;
+			}
+			span
+			{
+				padding:15px 5px 5px 5px;
+			 
+			}
+			span a
+			{
+				font-size:16px;
+			}
+			li{
+			float:left;
+			}
+			
+			
+	</style>
+
+<body>
+
+<div id="div_header">
+    
+    <div><h3><i><b>ACTIVITY <span style="font-family:'Times New Roman', Times, serif; font-size:24px; color:#FF0000; font-weight:400;">IN YOUR</span> CITY</i></h3> </div>
+    </div>
+    
+<div class="container">
+
+
+   <div class="row">
+<div class="col-md-12">
+    <ul id="demo-block">{% for event in event %}{% if event.snap %}
+		<li><img src="{{ event.snap.url }}" width="300px" height="300px" class="img-responsive"> <span  style="float:left;" ><a href="/events/event/{{ event.pk }}/" ><span>Detail</span></a></span><span style="float:right;"><a href="/event/enquiry/{{ event.user}}/"><span><i class="glyphicon glyphicon-user"></i> Email</span></a></span></li>                {% endif %}<li style="margin-left:5px;">{% endfor %}</li><br />
+	
+	
+		
+        </ul>
+		</div>
+		</div></div>
+		<nav class="numbering animated wow slideInRight" data-wow-delay=".5s">
+				  <ul class="pagination paging">
+					<li>
+					  <a href="#" aria-label="Previous">
+						<span aria-hidden="true">&laquo;</span>
+					  </a>
+					</li>
+					<li class="active"><a href="#">1<span class="sr-only">(current)</span></a></li>
+					<li><a href="#">2</a></li>
+					<li><a href="#">3</a></li>
+					<li><a href="#">4</a></li>
+					<li><a href="#">5</a></li>
+					<li>
+					  <a href="#" aria-label="Next">
+						<span aria-hidden="true">&raquo;</span>
+					  </a>
+					</li>
+				  </ul>
+				</nav>
+	</div>
+    </div>
+	</div>
+	</div>
+    
+	<!-- Latest compiled and minified JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js' %}"></script>
+
+</body>
 </html>
+                <!-- List of uploaded documents -->
+ 
+
 {% endblock %}

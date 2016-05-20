@@ -10,6 +10,7 @@ import accounts.urls
 import allauth.urls
 import follow.urls
 from . import views
+#from django.contrib.staticfiles.urls import staticfiles_urlpatterns
 
 
 urlpatterns = [
@@ -31,14 +32,17 @@ urlpatterns = [
     url(r'^term/$', 'my_proj.views.term', name='term'),
     url(r'^contact/$','my_proj.views.contact', name='contact'),
     url(r'^messages/', include('django_messages.urls')),
+    #url(r'^chat/', include('chatrooms.urls')),
     url(r'^follow/', include(follow.urls, namespace='follow')),
     url(r'^event/enquiry/(?P<recipient>[\w.@+-]+)/$', 'django_messages.views.enquiry', name='messages_compose_to'),
     url(r'^service/enquiry/(?P<recipient>[\w.@+-]+)/$', 'django_messages.views.enquiry', name='messages_compose_to'),
     url(r'product/enquiry/(?P<recipient>[\w.@+-]+)/$', 'django_messages.views.enquiry', name='messages_compose_to'),
     #url(r'^avatar/', include('avatar.urls')),
-    url(r'^avatar/', include('easy_avatar.urls'))
+    url(r'^avatar/', include('easy_avatar.urls')),
+    url(r'^tribune/', include('djangotribune.urls')),
 
 ]
 
 # User-uploaded files like profile pics need to be served in development
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+

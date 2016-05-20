@@ -1,0 +1,130 @@
+{% extends "base.html" %}
+{% block container %}
+<!DOCTYPE html>
+{% load crispy_forms_tags %}
+    {% load staticfiles %}
+<head>
+<link href="{% static 'site/css/datetimepicker.css' %}" rel="stylesheet" />
+<script src="https://code.jquery.com/jquery-1.10.2.min.js"></script>
+<script src="{% static 'site/js/bootstrap-datetimepicker.js' %}"></script>
+    
+<script language="javascript">
+ScrollRate = 50;
+function scrollDiv_init() {
+	DivElmnt = document.getElementById('MyDivName');
+	ReachedMaxScroll = false;
+
+	DivElmnt.scrollTop = 0;
+	PreviousScrollTop  = 0;
+
+	ScrollInterval = setInterval('scrollDiv()', ScrollRate);
+}
+
+function scrollDiv() {
+
+	if (!ReachedMaxScroll) {
+		DivElmnt.scrollTop = PreviousScrollTop;
+		PreviousScrollTop++;
+
+		ReachedMaxScroll = DivElmnt.scrollTop >= (DivElmnt.scrollHeight - DivElmnt.offsetHeight);
+	}
+	else {
+		ReachedMaxScroll = (DivElmnt.scrollTop == 0)?false:true;
+
+		DivElmnt.scrollTop = PreviousScrollTop;
+		PreviousScrollTop--;
+	}
+}
+
+function pauseDiv() {
+	clearInterval(ScrollInterval);
+}
+
+function resumeDiv() {
+	PreviousScrollTop = DivElmnt.scrollTop;
+	ScrollInterval    = setInterval('scrollDiv()', ScrollRate);
+}
+</script>
+</head>
+
+   <body><br>
+                <!-- List of uploaded documents -->
+ <div class="container-fluid" style="color:grey; background-color:#E10985; height:115px"><br>
+ <p style="font-size:40px; padding-left:70px;padding-top:30px; color:white;"> CONNECT</p>{% if request.user.is_authenticated %}
+<a href='/events/active/'> <h4 style="color:#969696; text-align: right;">Events on Your City</h4></a>{% else %}<a href='/login/'> <h4 style="color:#969696; text-align: right;" onclick="alert('Login first and update your profile')">Events on Your City</h4></a>{% endif %}
+  
+   </div>
+<br><br>
+ <div class="container-fluid">
+<div class='row'>
+
+{% for event in event %}
+		<div class='col-sm-3'>
+			<div class="thumbnail" style="width:100%; height:230px;">
+<a href="/events/event/{{ event.pk }}/" > <div style="color:white;padding-top:4px; background-color:#E10985; height:32px"><center><b>{{  event.eventtype|title|truncatewords:10 }}</b></center></div></a>
+
+{% if event.snap %}
+
+		   	<a href="/events/event/{{ event.pk }}/"> <img src="{{ event.snap.url }}" class="img-responsive"   alt="image not found" style="width:100%; height:135px;"></img></a>
+           {% else %}
+                       <img id="blah" src="{% static 'assets/img/find_user.png' %}"  alt="your selected item" style="width:100%; height:100px;"/>
+
+                {% endif %}
+		<div class='row'>	<a href='/events/event/{{ event.pk }}/' style="color:#B44899">		<div class='col-sm-7'>
+<i class="fa fa-home"></i>
+{{  event.place }} </div>		<div class='col-sm-5'>
+<i class="fa fa-calendar"></i> {{  event.date_event|date:"d M Y"}}</a></div></div> 
+
+{% if event.docfile %}
+                                <img src="{{ event.docfile.url }}"class="img-circle" id="circle" alt="not" width="160px" height="150px"/>                      {% endif %}
+<a href="/event/enquiry/{{ event.user}}/"  class='btn btn-warning btn-block' style="height:35px;background-color:#A22382; color:white" role="button">
+    <i class="fa fa-user" style="padding-top:4px">&nbsp;<b>{{ event.user }}</b></i></a>
+
+</div>
+</div>
+{% endfor %}
+</div><br>
+ </div>
+ <div class="container-fluid" style="width: auto; color:grey; background-color: Lavender">
+    <div class="row">
+
+
+<div class="col-md-5">
+<p><b><h2>Post Event</h2></b></p>
+<form action="" method="post" enctype="multipart/form-data">{% csrf_token %}
+
+  {{ form|crispy }}
+
+         
+  {% if not user.is_authenticated %}
+<div class="col-md-5"></div><div class="col-md-7"><button type="button" class="btn btn-info btn-lg" onclick="alert('Login first for Publish Event')">Submit Event</button>
+</div>
+{% else %}
+ <div class="col-md-5"></div><div class="col-md-7">
+                        <input type="image" src='{% static "img/submit.png" %}' /></div><br><br>
+                </form>
+<br><br>
+{% endif %}<br><br>
+</div>
+<div class="col-md-2"></div>
+<div class="col-md-5">
+<body class='container-fluid'   onLoad="scrollDiv_init()">
+<div id="MyDivName" style="overflow:auto;width:70%;height:350px;float:right;" onMouseOver="pauseDiv()" onMouseOut="resumeDiv()" >
+{% for event in event %}
+<a href='/events/event/{{ event.pk }}/'style="color:#428BCA"> <h3>
+{% if event.snap %}
+
+		   	 <img class="img-circle" src="{{ event.snap.url }}" class="img-responsive"    alt="image not found" style="width:30%; height:80px;"></img>
+           {% else %}
+                       <img class="img-circle" src="{% static 'assets/img/find_user.png' %}"  alt="your selected item" style="width:30%; height:80px;"/>
+
+                {% endif %}
+{{  event.eventtype|title|truncatewords:10 }}</h3><h5>Place : {{  event.place }}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; On : {{  event.date_event|date:"d M Y" }}</h5></a><hr>{% endfor %}
+</div>
+</body></div>
+</div>
+</div></div>
+
+</html>
+{% endblock %}

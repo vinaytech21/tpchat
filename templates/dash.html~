@@ -36,7 +36,7 @@
    <nav class="navbar-default navbar-side" role="navigation">
             <div class="sidebar-collaps">
                 <ul class="nav" id="main-menu">
-  <li  style="padding-top:20px"> <center>            
+  <li  style="padding-top:30px"> <center>            
    {% if request.user.is_authenticated  %} 
 {% upload_form %}
  {% else %}
@@ -92,7 +92,7 @@
 
                         
                  <!-- /. ROW  -->
-                  
+                  {% load inbox %}
                 <div class="row" >
                  <a href="{% url 'messages_compose' %}"><div class="col-md-3 col-sm-6 col-xs-6">           
 			<div class="panel panel-back noti-box">
@@ -104,9 +104,10 @@
                 </div>
              </div>
 		     </div></a> 
+
                 <a href="{% url 'messages_inbox' %}"><div class="col-md-3 col-sm-6 col-xs-6">           
 		<div class="panel panel-back noti-box">
-                <span class="icon-box bg-color-red set-icon" style="padding-top: 15px">
+                <span class="icon-box bg-color-red set-icon" >{% inbox_count %}
                  <i class="fa fa-envelope-o"></i>
                 </span>
                 <div class="text-box" > <p class="main-text"></p> <br>      
@@ -134,14 +135,26 @@
                 </div>
              </div>
 		     </div></a>
-			
           <hr>
       
 <!-- end .container-fluid_12 -->
 
 
 </div>
+ <button onclick="goBack()">Go Back</button>
 
+<script>
+function goBack() {
+    window.history.back();
+}
+</script>
+<button onclick="goForward()">Go Forward</button>
+
+<script>
+function goForward() {
+    window.history.forward();
+}
+</script>
 
        {% block messages %}
       {% if messages %}

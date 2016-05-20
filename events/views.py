@@ -14,6 +14,9 @@ from django.http import HttpResponseRedirect
 from django.http import *
 from profiles.models import BaseProfile
 from profiles.views import *
+from django_messages.models import Message
+from django_messages.forms import ComposeForm,EnquiryForm
+from authtools.models import User
 # Create your views here.
 
 
@@ -109,6 +112,31 @@ def active(request):
     model = Event
     event = Event.objects.filter(zip_Code = request.user.zipfield)
     return render(request, 'events/events_active.html', {'event': event })
+
+@login_required
+def event_public_list(request, pk, recipient=None, form_class=ComposeForm,
+        template_name='django_messages/composep.html', success_url=None, recipient_filter=None):
+    post = get_object_or_404(Event, pk=pk)
+    zipcode = User.objects.all()
+    if request.method == "POST":
+        #sender = request.user
+        form = form_class(request.POST, recipient_filter=recipient_filter)
+        if form.is_valid():
+            form.save(sender=request.user)
+            messages.info(request, (u"Message successfully sent."))
+            if success_url is None:
+                success_url = reverse('home')
+            if 'next' in request.GET:
+                success_url = request.GET['next']
+            return HttpResponseRedirect('/messages/inbox/')
+    else:
+        form = form_class()
+        if recipient is not None:
+            recipients = [u for u in User.objects.filter(**{'%s__in' % get_username_field(): [r.strip() for r in recipient.split('+')]})]
+            form.fields['recipient'].initial = recipients
+    return render_to_response('events/eventmsg.html', {'form': form, 'post': post, 'zipcode': zipcode, }, context_instance=RequestContext(request))
+
+
 
     
 

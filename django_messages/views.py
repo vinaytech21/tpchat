@@ -9,6 +9,7 @@ from django.core.urlresolvers import reverse
 from django.conf import settings
 from django_messages.models import Message
 from django_messages.forms import ComposeForm,EnquiryForm
+from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from django_messages.utils import format_quote, get_user_model, get_username_field
 
 User = get_user_model()
@@ -29,8 +30,18 @@ def inbox(request, template_name='django_messages/inbox.html'):
 
    
     message_list = Message.objects.inbox_for(request.user)
+    paginator = Paginator(message_list, 10)
+    page = request.GET.get('page')
+    try:
+        contacts = paginator.page(page)
+    except PageNotAnInteger:
+        # If page is not an integer, deliver first page.
+        contacts = paginator.page(1)
+    except EmptyPage:
+        # If page is out of range (e.g. 9999), deliver last page of results.
+        contacts = paginator.page(paginator.num_pages)
     return render_to_response('django_messages/inbox.html', {
-        'message_list': message_list, 
+        'contacts': contacts, 
     }, context_instance=RequestContext(request))
 
 @login_required
@@ -45,7 +56,17 @@ def outbox(request, template_name='django_messages/outbox.html'):
    # Load documents for the list page
 
 
-    message_list = Message.objects.outbox_for(request.user)
+    message = Message.objects.outbox_for(request.user)
+    paginator = Paginator(message, 10)
+    page = request.GET.get('page')
+    try:
+        message_list = paginator.page(page)
+    except PageNotAnInteger:
+        # If page is not an integer, deliver first page.
+        message_list = paginator.page(1)
+    except EmptyPage:
+        # If page is out of range (e.g. 9999), deliver last page of results.
+        message_list = paginator.page(paginator.num_pages)
     return render_to_response('django_messages/outbox.html', {
         'message_list': message_list
     }, context_instance=RequestContext(request))
@@ -62,7 +83,17 @@ def trash(request, template_name='django_messages/trash.html'):
      # Load documents for the list page
 
 
-    message_list = Message.objects.trash_for(request.user)
+    message = Message.objects.trash_for(request.user)
+    paginator = Paginator(message, 15)
+    page = request.GET.get('page')
+    try:
+        message_list = paginator.page(page)
+    except PageNotAnInteger:
+        # If page is not an integer, deliver first page.
+        message_list = paginator.page(1)
+    except EmptyPage:
+        # If page is out of range (e.g. 9999), deliver last page of results.
+        message_list = paginator.page(paginator.num_pages)
     return render_to_response('django_messages/trash.html', {
         'message_list': message_list, 
     }, context_instance=RequestContext(request))

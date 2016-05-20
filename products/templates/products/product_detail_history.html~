@@ -1,65 +1,76 @@
 {% extends "dashboard.html"%}
 
 {% block container%}
-<div class="container-fluid" class="responsive" style="height: auto; width: 100%; background-color: white">
-<h3 style="color:#797980"><center><b>ITEM DETAILS<b></center></h3>
-<div class="container-fluid" style="height:auto; width: 100%; background-color:  white">
-    
 
-    <h3 style="color:#3b5998;  margin-left:50px">{{post.title}}</h3>
-        
-
-    <div class='col-sm-6'>
-         
-        <div>
-			{% if post %}
-                        <ul>
-                                <img src="{{ post.docfile.url }}" style="height:40%; width:500%;"  class="img-responsive" alt="{{ post.docfile.name }}">
-                                </a></li>
+<link href="{% static 'css/bootstrap.css' %}" rel="stylesheet" type="text/css" media="all" />
+<link href="{% static 'css/sty.css' %}" rel="stylesheet" type="text/css" media="all" />
+<link rel="stylesheet" type="text/css" href="{% static 'css/jquery-ui.css' %}">
+	<script type="text/javascript" src="{% static 'js/bootstrap-3.1.1.min.js' %}"></script>
+<link href='//fonts.googleapis.com/css?family=Open+Sans:400,300,300italic,400italic,600,600italic,700,700italic,800,800italic' rel='stylesheet' type='text/css'>
+<link href='//fonts.googleapis.com/css?family=Lato:400,100,100italic,300,300italic,400italic,700,700italic,900,900italic' rel='stylesheet' type='text/css'>
+<link href="{% static 'css/animate.min.css' %}" rel="stylesheet"> 
+<script src="{% static 'js/wow.min.js' %}"></script>
+<script>
+ new WOW().init();
+</script>
+</head>
+	
+<body id="bg">
+<div style="height:45px; width:100%; background-color:#000;"></div>
+	<div class="timer" >
+		<div class="container" style="background-color:#FFF; background-size:100%;">
+			<div class="timer-grids">
+				<div class="col-md-7 timer-grid-left animated wow slideInLeft" style="margin-top:50px;" data-wow-delay=".5s">
+					<h3><a href="#"><b><i>PRODUCT DETAILS</i></b></a></h3>
+					<div class="rating">
+						<div class="rating-left">
+							<img src="img/21.png" alt=" " class="img-responsive" />
+						</div>
+						<div class="rating-left">
+							<img src="img/21.png" alt=" " class="img-responsive" />
+						</div>
+						<div class="rating-left">
+							<img src="img/21.png" alt=" " class="img-responsive" />
+						</div>
+						<div class="rating-left">
+							<img src="img/21.png" alt=" " class="img-responsive" />
+						</div>
+						<div class="rating-left">
+							<img src="img/1.png" alt=" " class="img-responsive" />
+						</div>
+						<div class="clearfix"> </div>
+					</div>
+					<div class="new-collections-grid1-left simpleCart_shelfItem timer-grid-left-price ">
+						<div><img src="img/images.gif" style="height:40px; width:40px;">Remain<span style="padding-left:18px; font-size:18px; font-family:'Times New Roman', Times, serif; font-weight:400;">: </span><span style="3px;">5</span></div>
+                        <div style="margin-bottom:5px;">&nbsp;&nbsp;<img src="img/icon2.png" style="height:25px; width:25px;">&nbsp;Add On<span style="padding-left:21px;font-size:18px; font-family:'Times New Roman', Times, serif; font-weight:400;">:</span><span style="padding-left:3px">March, 5 2016</span></div>
                         
-                        </ul>
-                {% else %}
-                        
-                {% endif %}
-			
-             
-        </div> 
-        
-    </div>
-    <div class='col-sm-1'>
-	</div>
-    <!-- Product Sidebar --> 
-    <div class='col-sm-4'>
-        
-        {% if object.variation_set.count > 1 %}
-            <select class="form-control">
-                {% for vari_obj in object.variation_set.all %}
-                <option value="{{ vari_obj.id }}"> {{ vari_obj }}</option>  
-                {% endfor %}
-            </select>
-        {% endif %}
- <br> 
-       
-  
-     <h4 style="color:#434343;"><lable><i class="fa fa-calendar"></i> AddOn:<lable style="color:#3b5998"> {{ post.date_created|date:"d M Y" }}</lable></lable></h4>
-      
-      
-         <h4 style="color:#434343;"><lable><i class="fa fa-calendar"></i> Expire On:<lable style="color:#3b5998"> {{post.expire_date|date:"d M Y"}}</lable></lable></h4>
-      
-      	
-        <h4 style="color:#434343;"><lable><i class="fa fa-home"></i>Address:<lable style="color:#3b5998;">  {{post.address}}</lable></lable></h4>
- 
-     <h4 style="color:#434343;">  Product Edit:<a class="btn btn-default" href="/products/{{ post.pk }}/edit/" style="color:#428BCA"> <i class="fa fa-pencil-square-o"></i>
-</a>  </h4>  
-    </div>
-	<div class="row">
-	<div class="col-sm-10">
-	  
-          <h4 style="color:#3b5998;  margin-left:50px">{{ post.description }}</h4> <br>  <br> 
+                        <div style="margin-bottom:5px;">&nbsp; <img src="img/icon2.png" style="height:25px; width:25px;">&nbsp;Expire On&nbsp;<span style="font-size:18px; font-family:'Times New Roman', Times, serif; font-weight:400;">:</span><span style="padding-left:3px;">May , 15 2016</span></div>
+                        <div style="margin-bottom:5px;">&nbsp;&nbsp;<img src="img/home.png" style="height:25px; width:25px;">&nbsp;Address <span style="font-size:18px;  font-family:'Times New Roman', Times, serif; font-weight:400; padding-left:15px;">:</span><span style="padding-left:3px;">101, Rev Moti Gurudeo Kanpur</span></div>
+						
+						<hr>
+					
+                    <p style="background-color:#F00; color:#FFF; text-align:center; padding:10px 10px 10px 10px; width:150px;">Description:</p><hr><p style="padding-left:10px; font-size:12px; font-family:'Times New Roman', Times, serif; font-weight:400;"><span style="padding-left:45px;">The lorem ipsum text is typically a scrambled section of De finibus bonorum et malorum, a 1st-century BC  sdefwe ewter Latin text by Cicero.</span></p><hr>
+					</div>
+					
+					<script src="js/script.js"></script>
+				</div>
+				<div class="col-md-4 timer-grid-right animated wow slideInRight" style="margin-top:75px; margin-bottom:75px;" data-wow-delay=".5s">
+					<div class="timer-grid-right1" >
+						<center><img src="img/24.jpg" alt=" " class="img-responsive"  /></center>
+						<div class="timer-grid-right-pos">
+							<h4>Product-Name</h4>
+						</div>
+					</div>
+				</div>
+               <div class="col-md-1"></div>
+				<div class="clearfix"> </div>
+			</div>
 		</div>
-      </div>  
-    </div>
-</div>
+	</div>
+<!-- //new-timer -->
+
+</body>
+</html>
 {% endblock %}
 
     

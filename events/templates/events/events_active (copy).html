@@ -1,0 +1,43 @@
+{% extends "base.html" %}
+{% load staticfiles %}
+{% block container %}
+<body><br>
+                <!-- List of uploaded documents -->
+ <div class="container-fluid" style="color:grey; background-image: url({% static "site/img/banner-bg.jpg" %}); height:200px"><br><br>
+<center> <p style="font-size:40px; padding-left:70px;padding-top:30px; color:grey;">Event Activity in Your City</p></center>
+   </div>
+<br><br>
+ <div class="container-fluid">
+<div class='row'>
+
+{% for event in event %}
+		<div class='col-sm-3'>
+			<div class="thumbnail" style="width:100%; height:230px;">
+<a href="/events/event/{{ event.pk }}/" > <div style="color:white;padding-top:4px; background-color:#E10985; height:32px"><center><b>{{  event.eventtype|title|truncatewords:10 }}</b></center></div></a>
+
+{% if event.snap %}
+
+		   	<a href="/events/event/{{ event.pk }}/"> <img src="{{ event.snap.url }}" class="img-responsive"   alt="image not found" style="width:100%; height:135px;"></img></a>
+           {% else %}
+                       <img id="blah" src="{% static 'assets/img/find_user.png' %}"  alt="your selected item" style="width:100%; height:100px;"/>
+
+                {% endif %}
+		<div class='row'>	<a href='/events/event/{{ event.pk }}/' style="color:#B44899">		<div class='col-sm-7'>
+<i class="fa fa-home"></i>
+{{  event.place }} </div>		<div class='col-sm-5'>
+<i class="fa fa-calendar"></i> {{  event.date_event|date:"d M Y"}}</a></div></div> 
+
+{% if event.docfile %}
+                                <img src="{{ event.docfile.url }}"class="img-circle" id="circle" alt="not" width="160px" height="150px"/>                      {% endif %}
+<a href="/event/enquiry/{{ event.user}}/"  class='btn btn-warning btn-block' style="height:35px;background-color:#A22382; color:white" role="button">
+    <i class="fa fa-user" style="padding-top:4px">&nbsp;<b>{{ event.user }}</b></i></a>
+
+</div>
+</div>
+{% endfor %}
+</div><br>
+ </div>
+ </div>
+
+</html>
+{% endblock %}

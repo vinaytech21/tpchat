@@ -10,34 +10,29 @@
 {% block container %}
 {% load staticfiles %}
 
-<link href="{% static 'site/css/bootstrap.css' %}" rel="stylesheet" type="text/css" />
-<link href="{% static 'site/css/bootstrap.min.css'  %}" type="text/css" />
-<link href="{% static 'site/css/bootstrap-theme.css' %}" type="text/css" />
-<link href="{% static 'site/css/bootstrap-theme.min.css' %}" type="text/css" />
-<link href="{% static 'site/css/bootstrap.css' %}" rel="stylesheet" type="text/css" />
-     <!-- CUSTOM STYLES-->
 <link href="{% static 'site/css/style2.css' %}" rel="stylesheet" type="text/css" />
 <link href="{% static 'site/css/style1.css' %}" rel="stylesheet" type="text/css" />
 <link href="{% static 'site/css/main.css' %}" rel="stylesheet" type="text/css"/>
-<link href="{% static 'site/css/custom.css' %}" rel="stylesheet" type="text/css" />
+
   <!-- FONTAWESOME STYLES-->
 <link href="{% static 'site/css/font-awesome.css' %}" rel="stylesheet" type="text/css" />
 
 <body>
-<div   id='header-background'  ><h2>About<span style="color:#F00;"> Us.....</span></h2></div>
-<div class="container-fluid" >
-    <section id="company-information" "class="text-overview " data-wow-duration="1000ms" data-wow-delay="300ms">
+<div id="header-background"><h2><b>About</b><span style="color:#F00;"><b><i> Us.....</i></b></span></h2></div>
+<div class="container-fluid"  >
+
+
+
+    <section id="company-information" class="text-overview " data-wow-duration="1000ms" data-wow-delay="300ms">
         <div class="container-fluid">
                 <div class="col-sm-5">
                 <h2><i>OverView</i></h2>
-
+                
                 </div>
                 <div class="text-awesom2  text_formate" >
-
-
                    <br />
                    <br />
-<p><br /> Community Panda aims to create a social community platform dedicated to combining the idea of local exchanges and services with grander scale charities. Community Panda is a space for helping on a small scale and a large scale.. Raising awareness is yet another goal of Community Panda.<br /> We believe, by educating, not punishing, we can reduce and eventually eliminate the occurrence of this crime and crimes like this. Our ultimate mission is to support the victims to get back on their feet, once again, gain their self-confidence and to live a full life!.</p>
+<p><br /> Community Panda aims to create a social community platform dedicated to combining the idea of local exchanges and services with grander scale charities. Community Panda is a space for helping on a small scale and a large scale. <br /> We believe, by educating, not punishing, we can reduce and eventually eliminate the occurrence of this crime and crimes like this. Our ultimate mission is to support the victims to get back on their feet, once again, gain their self-confidence and to live a full life!.</p>
  <p > We also hope for your neighbourhood to connect with events, schools, and available services.  Community Panda is a space for helping on a small scale and a large scale. </p>
  </div>
 
@@ -101,6 +96,13 @@
             </div>
         </div>
     </section>
+<script type="text/javascript" src="http://wms-in.amazon-adsystem.com/20070822/IN/js/link-enhancer-common.js?tag=vinaykumary-21">
+</script>
+<noscript>
+    <img src="http://wms-in.amazon-adsystem.com/20070822/IN/img/noscript.gif?tag=vinaykumary-21" alt="" />
+</noscript>
+
+
 
     <!--/#action-->
 

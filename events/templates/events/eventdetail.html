@@ -2,81 +2,193 @@
 {% block container %}
 {% load staticfiles %}
 {% load thumbnail %}
-        <body><br><br><br><br>
-                <!-- List of uploaded documents -->
-                  <div class="container-fluid" style="width: auto; height:auto; color:grey; background : #F7F7F7) no-repeat center top">
+<html>
+<head>
+<title>product details</title>
+<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false);
+		function hideURLbar(){ window.scrollTo(0,1); } </script>
+<!-- //for-mobile-apps -->
+<link href="{% static 'css/bootstrap.css' %}" rel="stylesheet" type="text/css" media="all" />
+<link href="{% static 'css/sty.css' %}" rel="stylesheet" type="text/css" media="all" />
+<!-- js -->
 
-         <div class="container-fluid">
-<div class='row'>
-       <div class='col-sm-1'></div>
-<div class='col-sm-6' >
-<div class="homet">
-<div class="home">
+<!-- //js -->
+<!-- cart -->
 
-<h2><b>{{event.eventtype|title }}</b> </h2><hr/>
+<!-- cart -->
+<link rel="stylesheet" type="text/css" href="{% static 'css/jquery-ui.css' %}">
+<!-- for bootstrap working -->
+	<script type="text/javascript" src="{% static 'js/bootstrap-3.1.1.min.js' %}"></script>
+<!-- //for bootstrap working -->
+<link href='//fonts.googleapis.com/css?family=Open+Sans:400,300,300italic,400italic,600,600italic,700,700italic,800,800italic' rel='stylesheet' type='text/css'>
+<link href='//fonts.googleapis.com/css?family=Lato:400,100,100italic,300,300italic,400italic,700,700italic,900,900italic' rel='stylesheet' type='text/css'>
+<!-- animation-effect -->
+<link href="{% static 'css/animate.min.css' %}" rel="stylesheet"> 
+<script src="{% static 'js/wow.min.js' %}"></script>
+<script>
+ new WOW().init();
+</script>
+<!-- //animation-effect -->
+</head>
+	
+<body id="bg">
 
-</div>
+	
+		<div class="container" style="padding-top:70px;">
+			
+			<div class="col-md-12 single-right" style="background-color:#FFF; background-size:100%;">
+				<div  class="col-md-6 single-right-left animated wow slideInUp" data-wow-delay=".5s">
+					
+						
+							
+								<div class="thumb-image" style=" width:100%; padding-top:30px;
+                                padding-bottom:0px; "> <img src="{{ event.snap.url }}" style="height:60%;width:100%; class="img-responsive" data-imagezoom="true"> </div><br><br>  <hr><br><div><center>    
 
-{% if event.snap %}
- <img src="{{ event.snap.url }}"  class="img-responsive" style="height:60%;width:100%; alt="your selected item"/>
-   </div>
- {% endif %} <br>
+                         <p>Share On :</p>
+                
+     <ul class="social-icons" style="padding-left:0px; ">
+								<span><a href="https://www.facebook.com/sharer/sharer.php?u=http://vinayvit.pythonanywhere.com/servicelist/" target="_blank"><img src="{% static 'img/facebook.jpg' %}"></a></span>
+								<span><a href="https://twitter.com/home?status=Hi%20going%20to%20charity%20of%20this%20...%20Come%20build%20a%20donation%20apsp%20with%20me!%20%23Echarity%20and%20%40vinay%20http%3A%2F%2Fvinayvit.pythonanywhere.com%2Fservicelist%2Fpk/" target="_blank" ><img src="{% static 'img/twitter.jpg' %}"></a></span>
+								<span><a href="https://www.linkedin.com/shareArticle?mini=true&url=http://vinayvitpythonanywhere.com/servicelist/2F%26title%3DBe%20first%20and%20Charity%20%20for%20Humanity%20!%0AShare%20on%20Linkedin%0A%3C%2Fa%3E%0A" target="_blank" ><img src="{% static 'img/in.jpg' %}"></a></span>
+								<span><a href="https://plus.google.com/share?url=http://vinayvit.echarity.com/servicelist/' target="_blank"><img src="{% static 'img/google.jpg' %}"></a></span>
+							</ul>
+						</center></div>	
+							
+						
+					
+					<!-- flixslider -->
+						<script defer src="{% static 'js/jquery.flexslider.js' %}"></script>
+						<link rel="stylesheet" href="{% static 'css/flexslider.css' %}" type="text/css" media="screen" />
+						<script>
+						// Can also be used with $(document).ready()
+						$(window).load(function() {
+						  $('.flexslider').flexslider({
+							animation: "slide",
+							controlNav: "thumbnails"
+						  });
+						});
+						</script>
+					<!-- flixslider -->
+				</div>
+                 
+				<div  style="padding-top:10px;"class="col-md-6 single-right-left simpleCart_shelfItem animated wow slideInRight"  data-wow-delay=".5s">
+					<h3>{{event.eventtype|title }}</h3>
+					
+					<div class="rating">
+						<div class="rating-left">
+							<img src="{% static 'img/21.png' %}" alt=" " class="img-responsive" />
+						</div>
+						<div class="rating-left">
+							<img src="{% static 'img/21.png' %}" alt=" " class="img-responsive" />
+						</div>
+						<div class="rating-left">
+							<img src="{% static 'img/21.png' %}" alt=" " class="img-responsive" />
+						</div>
+						<div class="rating-left">
+							<img src="{% static 'img/21.png' %}" alt=" " class="img-responsive" />
+						</div>
+						<div class="rating-left">
+							<img src="{% static 'img/1.png' %}" alt=" " class="img-responsive" />
+						</div>
+						<div class="clearfix"> </div>
+					</div>
+					
+					
+						<div class="color-quality-left">
+                        <br>
+							<h4><i>Event &nbsp; Details </i></h4>
+							<span>Post On <span style="padding-left:23px;"><b>:</b></span>&nbsp;</span><span>{{ event.date_created|date:"d M Y" }}</span><br><br>
+                                 <span>Duration <span style="padding-left:18px;"><b>:</b></span>&nbsp;</span><span>{{  event.duration|time:"H" }} Hours</span>
+                             <br><br>
+ 			    <span>Event On: <span style="padding-left:18px;"><b>:</b></span>&nbsp;</span><span>{{  event.date_event }}</span>
+                             <br><br>
+<span>Dresscode  <span style="padding-left:18px;"><b>:</b></span>&nbsp;</span><span>{{  event.dresscode }}</span>
+<br><br>
+        <span>Place <span style="padding-left:23px;"><b>:</b></span>&nbsp;</span><span>{{  event.place|title }}</span>                     
+                             <hr>
 
-<div class="homeld">
-<h3 style="padding-left:16px"><b>Event Description</b></h3>
-<div class="homed">
-<h4>{{ event.description|lower|capfirst}}</h4><br><br></div>
-</div> </div>
-<div class='col-sm-4'>
-<div class="homeld">
-<center><h4><b>Event Schedule</b></h4></center>
-<div class="homed">
-<div class='row'>
-<div class="col-md-11">
-     <div class="col-md-5"><h4><b>Post On  </b></h4></div><div class ="col-md-1"><h4>:</h4></div>
-    <div class="col-md-5"><h4 style="font-size:20px">{{ event.date_created|date:"d M Y" }}</h4></div>
-   <div class="col-md-5"><h4><b>Duration </b></h4></div><div class ="col-md-1"><h4>:</h4></div>
-    <div class="col-md-5"><h4 style="font-size:20px" >{{  event.duration|time:"H" }} Hours</h4></div> 
-   <div class="col-md-5"><h4><b>Event On  </b></h4></div><div class ="col-md-1"><h4>:</h4></div>
-    <div class="col-md-5"><h4 style="font-size:20px" >{{  event.date_event }}</h4></div> 
-   
-</div>
-</div></div> 
-</div>
+                            <div style="background-color:#000; padding:20px 15px; padding-right:80px;   color:#FFF;"><center> <a href="/event/enquiry/{{ event.user.email}}/"><span  style="color:#FFF" >{{event.user}}</span></a></center></div>
+                             <hr> 
+                             <div style="background-color:#CCC; padding:5px 5px;"> <span><img src="{% thumbnail user.profile.picture|default:'default_profile.png' 140x140 crop %}" alt="image not found" class="img-circle" style="background-color:#000; width:150px; height:150px;">
 
+</span><span style="padding-left:15px;">{{event.user.get_full_name|truncatechars:20}}</span></div>
 <br>
-<div class="homed">
-<div class='row'>
-<div class="col-md-11">
-   <div class="col-md-5"><h4><b>Dresscode </b></h4></div><div class ="col-md-1"><h4>:</h4></div>
-    <div class="col-md-5"><h4 style="font-size:20px" >{{  event.dresscode }} </h4></div> 
-   <div class="col-md-5"><h4> <b>Place </b></h4></div><div class ="col-md-1"><h4>:</h4></div>
-    <div class="col-md-5"><h4 style="font-size:20px" >{{  event.place|title }}</h4></div> 
-</div>
-</div>
-</div>
-<a href="/event/enquiry/{{  event.user}}/"><h2 class='btn btn-default btn-block' style="background-color:#8FC73E;color:#ffffff;font-size:15px">{{ event.user}}</h2></a> <br>
-
-
-
-<div class="homepd">
-<div class="homep"> 
-                     <h4 style="padding-left:20px"> <img id="blah" src="{% thumbnail user.profile.picture|default:'default_profile.png' 140x140 crop %}" class="img-circle" id="circle"   alt="your selected item" width="100px" height="100px" style="border:1px groove;"/></img>&nbsp;&nbsp;&nbsp;&nbsp;{{ user.get_full_name|truncatechars:20 }}</h4>             
- </div>
-<p style="padding-left:112px;">Share on social media</p><center>
-<a href="https://www.facebook.com/sharer/sharer.php?u=http://vinayvit.pythonanywhere.com/" target="_blank"><img src="{% static 'site/img/facebook.png' %}" class="img-inline-responsive"/></a> 
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-	<a href="https://twitter.com/home?status=Hi%20going%20to%20charity%20of%20this%20...%20Come%20build%20a%20donation%20apsp%20with%20me!%20%23Echarity%20and%20%40vinay%20http%3A%2F%2Fvinayvit.pythonanywhere.com%2Fservive%2Fpk/" target="_blank"><img src="{% static 'site/img/Twitter.png' %}" class="img-inline-responsive"/></a>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-	<a href="https://www.linkedin.com/shareArticle?mini=true&url=http://vinayvitpythonanywhere.com/2F%26title%3DBe%20first%20and%20Charity%20%20for%20Humanity%20!%0AShare%20on%20Linkedin%0A%3C%2Fa%3E%0A" target="_blank"><img src="{% static 'site/img/in.png' %}" class="img-inline-responsive"/></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-	<a href='https://plus.google.com/share?url=http://vinayvit.echarity.com' target="_blank"><img src="{% static 'site/img/gplus1.png' %}" class="img-inline-responsive"/></a>&nbsp;&nbsp;</center></div>
-</div><div class='col-sm-1'></div>
-</div>
-
-</div></div> <br><br><br><br>
-
-              </body>
-
+						</div>
+						
+						
+					</div>
+					
+						
+						
+					</div>
+					
+					
+						
+						
+						
+					</div>
+							<div class="clearfix"> </div>
+				<div class="bootstrap-tab animated wow slideInUp"  style="background-color:#FFF;" data-wow-delay=".5s">
+					<div class="bs-example bs-example-tabs" role="tabpanel" data-example-id="togglable-tabs">
+						<ul id="myTab" class="nav nav-tabs" role="tablist">
+							<li role="presentation" class="active"><a href="#home" id="home-tab" role="tab" data-toggle="tab" aria-controls="home" aria-expanded="true">Description</a></li>
+							
+							<li role="presentation" class="dropdown">
+								<a href="#" id="myTabDrop1" class="dropdown-toggle" data-toggle="dropdown" aria-controls="myTabDrop1-contents">Information <span class="caret"></span></a>
+								<ul class="dropdown-menu" role="menu" aria-labelledby="myTabDrop1" id="myTabDrop1-contents">
+									<li><a href="#dropdown1" tabindex="-1" role="tab" id="dropdown1-tab" data-toggle="tab" aria-controls="dropdown1">Verrify</a></li>
+									<li><a href="#dropdown2" tabindex="-1" role="tab" id="dropdown2-tab" data-toggle="tab" aria-controls="dropdown2">Security</a></li>
+								</ul>
+							</li>
+						</ul>
+						<div id="myTabContent" class="tab-content" style="background-color:#FFF;">
+							<div role="tabpanel"  class="tab-pane fade in active bootstrap-tab-text" id="home" aria-labelledby="home-tab">
+								<h5>Product Brief Description</h5>
+								<p style="font-size:16px; font-family:'Times New Roman', Times, serif;">{{ event.description|lower|capfirst}}.</span></p>
+							</div>
+							<div role="tabpanel" class="tab-pane fade bootstrap-tab-text" id="profile" aria-labelledby="profile-tab">
+								<div class="bootstrap-tab-text-grids">
+									<div class="bootstrap-tab-text-grid">
+										
+										
+										<div class="clearfix"> </div>
+									</div>
+									<div class="bootstrap-tab-text-grid">
+										
+										
+										<div class="clearfix"> </div>
+									</div>
+									
+								</div>
+							</div>
+							<div role="tabpanel" class="tab-pane fade bootstrap-tab-text" id="dropdown1" aria-labelledby="dropdown1-tab">
+								<p style="font-size:16px; font-family:'Times New Roman', Times, serif;">It is most important to verify the offer services and place from your own side and may inform other too; Get some informtion about that perticular service.As much possible collect detail and contacts of this .</p>
+							</div>
+							<div role="tabpanel" class="tab-pane fade bootstrap-tab-text" id="dropdown2" aria-labelledby="dropdown2-tab">
+								<p style="font-size:16px; font-family:'Times New Roman', Times, serif;">We hope that every one use this only for charity and thing exchanges but if some body ask you for maney or cheat you via our site so inform us and take care for others once security.</p>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			
+		</div>
+	</div>
+    <div class="breadcrumbs">
+		<div class="container">
+		</div>
+	</div>
+<!-- //single -->
+<!-- single-related-products -->
+	
+<!-- //single-related-products -->
+<!-- footer -->
+	
+<!-- //footer -->
+<!-- zooming-effect -->
+	<script src="{% static 'js/imagezoom.js' %}"></script>
+<!-- //zooming-effect -->
+</body>
 </html>
 {% endblock %}
 

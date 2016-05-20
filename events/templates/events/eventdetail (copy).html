@@ -1,0 +1,87 @@
+{% extends "base.html"%}
+{% block container %}
+{% load staticfiles %}
+{% load thumbnail %}
+        <body><br><br><br><br>
+                <!-- List of uploaded documents -->
+                  <div class="container-fluid" style="width: auto; height:auto; color:grey; background : #F7F7F7) no-repeat center top">
+
+         <div class="container-fluid">
+<div class='row'>
+       <div class='col-sm-1'></div>
+<div class='col-sm-6' >
+<div class="homet">
+<div class="home">
+
+<h2><b>{{event.eventtype|title }}</b> </h2><hr/>
+
+</div>
+
+{% if event.snap %}
+ <img src="{{ event.snap.url }}"  class="img-responsive" style="height:60%;width:100%; alt="your selected item"/>
+   </div>
+ {% endif %} <br>
+
+<div class="homeld">
+<h3 style="padding-left:16px"><b>Event Description</b></h3>
+<div class="homed">
+<h4>{{ event.description|lower|capfirst}}</h4><br><br></div>
+</div> </div>
+<div class='col-sm-4'>
+<div class="homeld">
+<center><h4><b>Event Schedule</b></h4></center>
+<div class="homed">
+<div class='row'>
+<div class="col-md-11">
+     <div class="col-md-5"><h4><b>Post On  </b></h4></div><div class ="col-md-1"><h4>:</h4></div>
+    <div class="col-md-5"><h4 style="font-size:20px">{{ event.date_created|date:"d M Y" }}</h4></div>
+   <div class="col-md-5"><h4><b>Duration </b></h4></div><div class ="col-md-1"><h4>:</h4></div>
+    <div class="col-md-5"><h4 style="font-size:20px" >{{  event.duration|time:"H" }} Hours</h4></div> 
+   <div class="col-md-5"><h4><b>Event On  </b></h4></div><div class ="col-md-1"><h4>:</h4></div>
+    <div class="col-md-5"><h4 style="font-size:20px" >{{  event.date_event }}</h4></div> 
+   
+</div>
+</div></div> 
+</div>
+
+<br>
+<div class="homed">
+<div class='row'>
+<div class="col-md-11">
+   <div class="col-md-5"><h4><b>Dresscode </b></h4></div><div class ="col-md-1"><h4>:</h4></div>
+    <div class="col-md-5"><h4 style="font-size:20px" >{{  event.dresscode }} </h4></div> 
+   <div class="col-md-5"><h4> <b>Place </b></h4></div><div class ="col-md-1"><h4>:</h4></div>
+    <div class="col-md-5"><h4 style="font-size:20px" >{{  event.place|title }}</h4></div> 
+</div>
+</div>
+</div>
+<a href="/event/enquiry/{{  event.user}}/"><h2 class='btn btn-default btn-block' style="background-color:#8FC73E;color:#ffffff;font-size:15px">{{ event.user}}</h2></a> <br>
+
+
+
+<div class="homepd">
+<div class="homep"> 
+                     <h4 style="padding-left:20px"> <img id="blah" src="{% thumbnail user.profile.picture|default:'default_profile.png' 140x140 crop %}" class="img-circle" id="circle"   alt="your selected item" width="100px" height="100px" style="border:1px groove;"/></img>&nbsp;&nbsp;&nbsp;&nbsp;{{ user.get_full_name|truncatechars:20 }}</h4>             
+ </div>
+<p style="padding-left:112px;">Share on social media</p><center>
+<a href="https://www.facebook.com/sharer/sharer.php?u=http://vinayvit.pythonanywhere.com/" target="_blank"><img src="{% static 'site/img/facebook.png' %}" class="img-inline-responsive"/></a> 
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+	<a href="https://twitter.com/home?status=Hi%20going%20to%20charity%20of%20this%20...%20Come%20build%20a%20donation%20apsp%20with%20me!%20%23Echarity%20and%20%40vinay%20http%3A%2F%2Fvinayvit.pythonanywhere.com%2Fservive%2Fpk/" target="_blank"><img src="{% static 'site/img/Twitter.png' %}" class="img-inline-responsive"/></a>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+	<a href="https://www.linkedin.com/shareArticle?mini=true&url=http://vinayvitpythonanywhere.com/2F%26title%3DBe%20first%20and%20Charity%20%20for%20Humanity%20!%0AShare%20on%20Linkedin%0A%3C%2Fa%3E%0A" target="_blank"><img src="{% static 'site/img/in.png' %}" class="img-inline-responsive"/></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+	<a href='https://plus.google.com/share?url=http://vinayvit.echarity.com' target="_blank"><img src="{% static 'site/img/gplus1.png' %}" class="img-inline-responsive"/></a>&nbsp;&nbsp;</center></div>
+</div><div class='col-sm-1'></div>
+</div>
+
+</div></div> <br><br><br><br>
+
+              </body>
+
+</html>
+{% endblock %}
+
+
+
+
+
+

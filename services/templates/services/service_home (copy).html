@@ -1,0 +1,75 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+{% block container %}
+
+<body><br>
+<div class="container-fluid" style="color:grey; background-color:#A22382; height:115px"><br>
+ <p style="font-size:40px; padding-left:70px;padding-top:30px; color:white;"> EXCHANGE</p> {% if request.user.is_authenticated %}
+<a href='/services/active/'> <h2 style="color:#969696; text-align: right;">Services on Your City</h2></a>{% else %}<a href='/login/'> <h2 style="color:#969696; text-align: right;" onclick="alert('Login first and update your profile')">Services on Your City</h2></a>{% endif %}
+   </div> 
+ <div id="wrapper" class="responsive-inline" style="groove #A22382; background-color:white">
+
+<br><br>
+ <div class="container-fluid">
+<div class='row'>
+
+{% for object in object_list  %}
+
+		<div class='col-md-4'>
+			<div class="thumbnail" style="width:100%; height:auto;">
+	{% if object %}
+<div>
+
+
+ <img src="{{ object.docfile.url }}" class="img-responsive"   alt="image not found" style="width:100%; height:250px;"></img>
+						</div>	<!-- <img class='img-responsive' src="{{ MEDIA_URL }}{{ item.image }}" /> -->
+
+
+{% endif %}
+<div class="container-fluid">
+<a href='/services/service/{{ object.pk }}/'> <h2 style=" color:#969696">{{ object.title|truncatechars:30 }}</h2></a>
+
+<div class="container-fluid">
+<div class="row" style="padding-bottom:10px">
+    <div class='col-md-6'>
+<a href="/services/service/{{ object.pk }}/"class='btn btn-default'style="height:35px; width:150px; background-color:#8FC73E; color:white"  role="button"><b>Detail</b></a>
+</div>
+<div class='col-md-6'>
+<a href="/service/enquiry/{{ object.user.email}}/" class='btn btn-default' style="height:35px; width:150px; background-color:#A22382; color:white" role="button">
+    <i class="fa fa-user" style="padding-top:4px">&nbsp;<b>{{ object.user.username }}</b></i></a>
+    </div>
+ </div>
+ </div></div>
+ 
+                     
+           </div>
+
+
+		</div>
+
+{% cycle "" "" "</div><div class='row'>" %}
+{% endfor %}
+
+</div><br>
+</div>
+{% if is_paginated %}
+        <div class="pagination">
+            <span class="page-links">
+                {% if page_obj.has_previous %}
+                    <a href="/services?page={{ page_obj.previous_page_number }}">previous</a>
+                {% endif %}
+                <span class="page-current">
+                    Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}.
+                </span>
+                {% if page_obj.has_next %}
+                    <a href="/services?page={{ page_obj.next_page_number }}">next</a>
+                {% endif %}
+            </span>
+        </div>
+    {% endif %}</div>
+</body>
+{% endblock %}
+
+
+
+

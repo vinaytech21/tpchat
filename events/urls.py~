@@ -9,4 +9,5 @@ urlpatterns = [
     url(r'^detail/(?P<pk>[0-9]+)/$', views.host_detail, name='host_detail'),
     url(r'^edit/(?P<pk>[0-9]+)/$', views.host_edit, name='host_edit'),
     url(r'^history/$', views.devent_detail, name='devent_detail'),
+    url(r'^(?P<pk>[0-9]+)/public/$', views.event_public_list, name='event_public_list'),
 ]

@@ -13,5 +13,6 @@ urlpatterns = patterns('services.views',
     url(r'^offer/$', 'offer', name='offer'),
     url(r'^(?P<pk>[0-9]+)/edit/$', 'edit_service', name='edit_service'),
     url(r'^offer/(?P<pk>[0-9]+)/$', 'offer_detail_service', name='offer_detail_service'),
+    url(r'^(?P<pk>[0-9]+)/public/$', views.service_public_list, name='service_public_list'),
     url(r'^history/$', 'service_history', name='service_history')
 )  
