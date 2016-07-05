@@ -114,9 +114,12 @@ INSTALLED_APPS = (
     'allauth.socialaccount.providers.linkedin_oauth2',
     #'avatar',
     'easy_avatar',
-    'djangotribune',
+    #'djangotribune',
     'polymorphic',
+    'messagegroups',
+    'chatroom',
     #'chatrooms',
+    #'djangoChat'
 
 )
 

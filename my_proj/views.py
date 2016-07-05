@@ -13,7 +13,13 @@ from django.contrib import messages
 from products.models import Product
 from services.models import Service
 from events.models import Event
-
+from profiles.models import BaseProfile
+from profiles.views import *
+from authtools.models import User
+from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
+from django.shortcuts import render_to_response, get_object_or_404
+from django.shortcuts import render, get_object_or_404
+from django.template import RequestContext
 
 class HomePage(generic.TemplateView):
     template_name = "home.html"
@@ -107,6 +113,31 @@ def contact(request):
 		"title_align_center": title_align_center,
 	}
 	return render(request, "contact.html", context)
+
+@login_required
+def Zipuser(request, template_name='zipuser.html'):
+    profile = get_object_or_404(models.Profile,user_id=request.user.id)
+    user = profile.user
+    data =  User.objects.filter(zipfield = user.zipfield)
+    paginator = Paginator(data, 6)
+    page = request.GET.get('page')
+    try:
+        data = paginator.page(page)
+    except PageNotAnInteger:
+        # If page is not an integer, deliver first page.
+        data = paginator.page(1)
+    except EmptyPage:
+        # If page is out of range (e.g. 9999), deliver last page of results.
+        data = paginator.page(paginator.num_pages)
+    return render_to_response('zipuser.html', {
+        'data': data, 
+    }, context_instance=RequestContext(request))
+
+@login_required
+def zipuserdetail(request, pk):
+    model = User
+    data =  User.objects.filter(pk=pk)
+    return render(request, 'zipuserdetail.html', {'data': data })
 
 
 

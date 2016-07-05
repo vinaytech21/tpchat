@@ -1,0 +1,134 @@
+{% extends "base.html" %}
+{% load staticfiles %}
+{% block styles %}
+    {% endblock styles %}
+{% load crispy_forms_tags %}
+
+{% block title %}{{ block.super }}Home{% endblock %}
+{% block navbar-right %}
+  {% if not user.is_authenticated %}
+<a class="btn btn-default" href="{% url 'accounts:login' %}" role="button">Log in</a>
+<a class="btn btn-primary" href="/accounts/signup/" role="button">Sign up</a>
+  {% else %}
+    {{ block.super }}
+  {% endif %}
+{% endblock %}
+
+{% block splash %}
+
+
+	<link rel="stylesheet" href="{% static 'css/style.css' %}" type="text/css">
+	<!--link href="css/lightbox.css" rel="stylesheet"-->
+	<link href="{% static 'http://fonts.googleapis.com/css?family=Poppins:400,600,700,120,300' %}" rel='stylesheet' type='text/css'>
+
+
+  {% endblock splash %}
+
+{% block container %}
+</script>
+   </div>
+</div> </div> </div> </div>
+</div>
+ </body>
+</html>
+
+
+ <style>
+		#hover:hover
+		{
+    background-color: white;
+    
+} 
+
+.text
+{
+	border: 1px solid #eeeeee;
+	background-color: #eeeed1;
+}
+
+</style>
+	
+    <script src="{% static 'js/jquery.elevatezoom.js' %}"></script>
+</head>
+   <div class="container-fluid" class="responsive" style="height: auto; width: auto; background-color: white">
+<h3 style="color:#797980"><center><b> SAME ZIP FIELD USER<b></center></h3>
+<div class="container-fluid" style="height:auto; width: auto; color:#797980;  background-color: white">
+
+    <div class="row">
+        <div class="col-md-3">
+		<h4><label> Image</label></h4>	
+		</div>
+		<div class="col-md-3">
+			<h4><label> NAME </label></h4>
+		</div>
+		
+		<div class="col-md-4">
+			<h4><label> Join US </label></h4>
+		</div>
+		
+		<div class="col-md-2">
+			<h4><label> Email </label></h4>
+		</div>
+		
+		</div>	
+    
+  {% for user in data %}
+     <div id="hover" class="text">
+       <br> 
+	    <div class="row">
+        <div class="post">
+
+           <div class="col-md-3" >
+                        <ul>                               
+                          <a href=".">  <img id="img88" src="/media/avatars/{{user.email}}/{{user.name}}" width="60px" height=60px" alt="{{ user.avatar }}"></a>
+                               </li>
+                        
+                        </ul>
+               
+                
+			</div>
+            
+			<div class="col-md-3">
+	
+			
+			
+                              <br><br><br><br>
+			
+			<h5 style="margin-top:-70px"><a href="/zipuserdetail/{{user.pk}}/" style="text-decoration:none;color:#428BCA">{{ user.get_full_name }}</a></h5>
+			
+                              
+			</div>
+			<div class="col-md-4">
+		
+			
+                              <br><br><br><br>
+            <h5 style="margin-top:-70px"><a href="/services/offer/{{ Service.pk }}/" style="text-decoration:none;color:#428BCA"> {{user.email}}</a> </h5>
+			
+
+                              </div>
+ <div class="col-md-2"
+
+
+
+
+			
+                              <br><br><br><br>
+           
+                 
+  <h5 style="color:black; margin-top:-70px"> <button type="button"  class="btn btn-info btn-lg" onclick="window.open('/event/enquiry/{{user.email}}/', 'mywin',  'width=500,height=500,toolbar=no, menubar=no, scrollbars=no, resizable=no,location=no, directories=no, status=no'); return false;">Message</button>
+  </h5>   </div>
+
+          </div>  
+			</div>
+			
+		            </div>
+{% endfor %} <br><br><br><br><br><br><br><br><br><br>
+<center> Page {{ data.number }} of {{ data.paginator.num_pages }}.
+                      {% if data.has_previous %}
+                       <a href="?page={{ data.previous_page_number }}"> <button class="btn btn-default btn-sm"><i class="fa fa-chevron-left"></i></button>   </a>     {% endif %}
+                       {% if data.has_next %}
+            <a href="?page={{ data.next_page_number }}">
+      <button class="btn btn-default btn-sm"><i class="fa fa-chevron-right"></i></button> </a> {% endif %}<center> 
+
+    </div></div>
+		{% endblock container %}	

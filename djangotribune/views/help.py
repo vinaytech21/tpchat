@@ -29,7 +29,7 @@ except ImportError:
 
 class ConditionalParserView(TemplateView):
     """
-    Page with conditional render and mimetype
+    Page with conditional render and content_type
     
     Si le parser de rstview est disponible, renvoi une réponse HTML avec 
     le contenu transformé par docutils.
@@ -54,7 +54,7 @@ class ConditionalParserView(TemplateView):
         return self.html_response(content)
     
     def plain_response(self, content):
-        return http.HttpResponse(content, mimetype="text/plain; charset=utf-8")
+        return http.HttpResponse(content, content_type="text/plain; charset=utf-8")
     
     def html_response(self, content):
         context = {'content' : content, 'doc_title' : self.source_doc_title}

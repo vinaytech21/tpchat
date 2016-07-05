@@ -21,7 +21,7 @@ class ClockJsonView(RemoteJsonMixin, RemoteBaseView):
         """
         _p = ClockParser()
         if not _p.is_valid(self.kwargs['clock']):
-            return http.HttpResponseBadRequest(PARSER_EXCEPTION_TYPERROR_EXPLAIN, mimetype=RemotePlainMixin.mimetype)
+            return http.HttpResponseBadRequest(PARSER_EXCEPTION_TYPERROR_EXPLAIN, content_type=RemotePlainMixin.content_type)
         return super(ClockJsonView, self).get(request, *args, **kwargs)
 
     def get_backend_queryset(self, channel, last_id, direction, limit):

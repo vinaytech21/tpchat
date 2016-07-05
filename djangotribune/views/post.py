@@ -72,15 +72,15 @@ class PostRemoteBaseView(RemoteBaseMixin, PostBaseView):
         return self.form_valid_response(messages, backend)
 
     def form_valid_response(self, messages, backend):
-        return self.patch_response( http.HttpResponse(backend, mimetype=self.mimetype) )
+        return self.patch_response( http.HttpResponse(backend, content_type=self.content_type) )
 
     def form_invalid(self, form):
         errors = []
         for k,v in form.errors.items():
             errors.append(u"{fieldname}: {errs}".format(fieldname=k, errs=u" ".join(v)))
         errors_display = u"* {0}".format("\n* ".join(errors))
-        # Errors is always returned with the plain/text mimetype
-        return http.HttpResponseBadRequest(errors_display, mimetype=RemotePlainMixin.mimetype)
+        # Errors is always returned with the plain/text content_type
+        return http.HttpResponseBadRequest(errors_display, content_type=RemotePlainMixin.content_type)
     
     def patch_response(self, response):
         response = super(PostRemoteBaseView, self).patch_response(response)
@@ -184,9 +184,9 @@ class PostRemoteXmlView(RemoteXmlMixin, PostRemoteBaseView):
         x-post-id in its header
         """
         if self.get_last_id():
-            return self.patch_response( http.HttpResponse(backend, mimetype=self.mimetype) )
+            return self.patch_response( http.HttpResponse(backend, content_type=self.content_type) )
         else:
-            return self.patch_response( http.HttpResponse("", mimetype=RemotePlainMixin.mimetype) )
+            return self.patch_response( http.HttpResponse("", content_type=RemotePlainMixin.content_type) )
 
 class PostRemoteCrapXmlView(PostRemoteXmlView):
     """

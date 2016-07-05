@@ -39,7 +39,11 @@ urlpatterns = [
     url(r'product/enquiry/(?P<recipient>[\w.@+-]+)/$', 'django_messages.views.enquiry', name='messages_compose_to'),
     #url(r'^avatar/', include('avatar.urls')),
     url(r'^avatar/', include('easy_avatar.urls')),
-    url(r'^tribune/', include('djangotribune.urls')),
+    #url(r'^chat/', include('djangotribune.urls')),
+    url(r'^groupchat1/', include('chatroom.urls')),
+    #tribune url(r'^chat/', include('djangoChat.urls')), 
+    url(r'^zipuser/', 'my_proj.views.Zipuser', name='Zipuser'),
+    url(r'^zipuserdetail/(?P<pk>[0-9]+)/$', 'my_proj.views.zipuserdetail', name='zipuserdetail'),
 
 ]
 

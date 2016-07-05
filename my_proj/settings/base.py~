@@ -116,7 +116,10 @@ INSTALLED_APPS = (
     'easy_avatar',
     'djangotribune',
     'polymorphic',
+    '#messagegroups',
+    'chatroom',
     #'chatrooms',
+    #'djangoChat'
 
 )
 

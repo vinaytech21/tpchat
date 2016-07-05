@@ -95,26 +95,38 @@
                     
                     <div class="btn-group">
                       
-                      <button class="btn btn-default btn-sm"><i class="fa fa-reply"></i></button>
-                      <button class="btn btn-default btn-sm"><i class="fa fa-share"></i></button>
-                    </div><!-- /.btn-group -->
+                                    <button onclick="goBack()" class="btn btn-default btn-sm"><i class="fa fa-reply"></i></button>
 
+<script>
+function goBack() {
+    window.history.back();
+}
+</script>
+                      <button onclick="goForward()" class="btn btn-default btn-sm"><i class="fa fa-share"></i></button>
+
+<script>
+function goForward() {
+    window.history.forward();
+}
+</script></div>
 
 
                     <a href="/messages/outbox/"><button class="btn btn-default btn-sm"><i class="fa fa-refresh"></i></button></a>
-                    <div class="pull-right">
-                      1-50/200
-                      <div class="btn-group">{% if message_list.has_previous %}
+                   <div class="pull-right">
+ <div class="btn-group">                    
+            Page {{ message_list.number }} of {{ message_list.paginator.num_pages }}.
+                      {% if message_list.has_previous %}
                        <a href="?page={{ message_list.previous_page_number }}"> <button class="btn btn-default btn-sm"><i class="fa fa-chevron-left"></i></button>   </a>     {% endif %}
                        {% if message_list.has_next %}
             <a href="?page={{ message_list.next_page_number }}">
       <button class="btn btn-default btn-sm"><i class="fa fa-chevron-right"></i></button> </a> {% endif %} 
-                      </div><!-- /.btn-group -->
+                                        </div><!-- /.btn-group -->
                     </div><!-- /.pull-right -->
                   </div>
                   <div class="table-responsive mailbox-messages">
-                    <table class="table table-hover table-striped">{% if message_list %} 
+                    <table class="table table-hover table-striped">
                       <tbody>
+{% if message_list %} 
 {% for message in message_list %} 
                        
                         <tr>
@@ -321,15 +333,8 @@
     <!-- jQuery 2.1.4 -->
     <script src="plugins/jQuery/jQuery-2.1.4.min.js' %}"></script>
     <!-- Bootstrap 3.3.5 -->
-    <script src="{% static  'js/bootstrap.min.js' %}"></script>
-    <!-- Slimscroll -->
-    <script src="plugins/slimScroll/jquery.slimscroll.min.js' %}"></script>
-    <!-- FastClick -->
-    <script src="plugins/fastclick/fastclick.min.js' %}"></script>
-    <!-- AdminLTE App -->
-    <script src="{% static  'js/app.min.js' %}"></script>
-    <!-- iCheck -->
-    <script src="plugins/iCheck/icheck.min.js' %}"></script>
+
+
     <!-- Page Script -->
     <script>
       $(function () {
@@ -377,6 +382,6 @@
       });
     </script>
     <!-- AdminLTE for demo purposes -->
-    <script src="{% static  'js/demo.js' %}"></script>
+
   </body>
 {% endblock %}

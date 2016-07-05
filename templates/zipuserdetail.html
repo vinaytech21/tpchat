@@ -1,0 +1,114 @@
+{% extends "base.html" %}
+{% load staticfiles %}
+{% block styles %}
+    {% endblock styles %}
+{% load crispy_forms_tags %}
+
+{% block title %}{{ block.super }}Home{% endblock %}
+{% block navbar-right %}
+  {% if not user.is_authenticated %}
+<a class="btn btn-default" href="{% url 'accounts:login' %}" role="button">Log in</a>
+<a class="btn btn-primary" href="/accounts/signup/" role="button">Sign up</a>
+  {% else %}
+    {{ block.super }}
+  {% endif %}
+{% endblock %}
+
+{% block splash %}
+
+
+	<link rel="stylesheet" href="{% static 'css/style.css' %}" type="text/css">
+	<!--link href="css/lightbox.css" rel="stylesheet"-->
+	<link href="{% static 'http://fonts.googleapis.com/css?family=Poppins:400,600,700,120,300' %}" rel='stylesheet' type='text/css'>
+
+
+  {% endblock splash %}
+
+
+</script>
+   </div>
+</div> </div> 
+</html>
+
+{% block container %}<br><br><br>
+    
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="css/user_profile.css">
+    <link href='https://fonts.googleapis.com/css?family=Passion+One|Raleway:400,300,500italic' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+  </head>
+  <body id="myPage" data-spy="scroll" data-target=".navbar" data-offset="60" background="img/bg.jpg">
+  <section id="service" class="section-padding">
+        <div class="row1" >
+        <div class="col-md-1"></div>{% for user in data %}
+          <div class="col-md-5" style="margin-left:0px;background-color:#FFF; opacity:0.8">
+
+                <h4><span style="color:#006">+</span><span style="color:#006;">Profile -</span><span style="color:#006;">About&nbsp; {{ user.get_full_name }}</span></h4><hr>           
+                  <li><img src='{%  static "img/icon2.png" %}' width="25px" height="25px"><span style="color:#009;">Date of birth</span><label style="margin-left:18px;">July 15,1990 </label></li><hr>
+                   <li><img src='{%  static "img/icon3.png" %}' width="18px" height="18px"><span style="color:#009;">&nbsp;Email</span><label style="margin-left:65px;">{{ user.email|default:"missing" }}
+	 </label> {% if show_user.profile.email_verified %}
+	    <span class="glyphicon glyphicon-ok-circle" aria-hidden="true" title="This email address has been verified"></span>
+	    <span class="sr-only">Verified</span>
+	  {% else %}
+	    <span class="glyphicon glyphicon-warning-sign" aria-hidden="true" title="This email address is not verified"></span>
+	    <span class="sr-only">Not Verified</span>
+	  {% endif %}</li><hr>
+                    <li><img src='{%  static "img/icon4.png" %}' width="20px" height="20px"><span style="color:#009;">AuthZipcode</span><label style="margin-left:18px;">{{ user.zipfield }}</label></li><hr>
+                    <li><img src='{%  static "img/icon5.png" %}' width="25px" height="25px"><span style="color:#009;">Join Date</span><label style="margin-left:39px;">{{ user.date_joined }}</label></li><hr>
+                    <li><img src='{%  static "img/icon61.png" %}' width="20px" height="20px"><span style="color:#009;">Last Seen</span><label style="margin-left:35px;">{{ user.last_login }}</label></li><span style="color:#FFF">vb</span>
+                </ul>
+               
+            </div>
+            <div class="col-md-6" style="background-color:rgb(221,212,193); opacity:0.9; width:28%">
+            <div style="margin-top:25px;">
+            <center> <img src="/media/avatars/{{user.email}}/{{user.name}}" class="img-responsive img-circle"  style="width: 200px; height: 155px;" > <br><span class="text-formate">{{ user.get_full_name }}</span><br><hr><p class="text-formate" style="font-size:16px; font-weight:500;color:gray"> {{ user.profile.bio }}.</p> <hr>
+						</div> </div>
+          </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="js/bootstrap_min.js"></script>
+    <!-- bxSlider Javascript file -->
+    <script src="js/jquery.bxslider.min.js"></script>
+      <script>
+
+
+         $(document).ready(function(){
+        $('.bxslider').bxSlider();
+      });
+
+      </script>
+      <script>
+$(document).ready(function(){
+  // Add smooth scrolling to all links in navbar + footer link
+  $(".navbar a, footer a[href='#myPage']").on('click', function(event) {
+
+  // Prevent default anchor click behavior
+  event.preventDefault();
+
+  // Store hash
+  var hash = this.hash;
+
+  // Using jQuery's animate() method to add smooth page scroll
+  // The optional number (900) specifies the number of milliseconds it takes to scroll to the specified area
+  $('html, body').animate({
+    scrollTop: $(hash).offset().top
+  }, 900, function(){
+
+    // Add hash (#) to URL when done scrolling (default click behavior)
+    window.location.hash = hash;
+    });
+  });
+})
+</script>
+  </body>
+</html>
+
+<br><br><br><br><br><br><br><br><br><br><br><br> 	
+ {% endfor %}   <br><br><br><br><br><br><br><br><br><br>
+		{% endblock container %}	

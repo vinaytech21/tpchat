@@ -68,7 +68,7 @@ font-weight:600;
 		    <div class="cover-body-inner">
         
 		     <div  style="margin-top:20px;">
-		         <h4><i><a href="exchange.html" class="link_item" style="margin-left:-150px;"> EX<span style="color:#0033FF;">CHAN</span>GE</a></i></h4>
+		         <h4><i><a href="/services/" class="link_item" style="margin-left:-150px;"> EX<span style="color:#0033FF;">CHAN</span>GE</a></i></h4>
 				 <div style="visibility:hidden">1</div>
 				 <div style="visibility:hidden">2</div>
 				 				
